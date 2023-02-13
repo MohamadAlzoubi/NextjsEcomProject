@@ -13,9 +13,14 @@ const  HomePage = () =>  {
   const [isLoggedIn , setIsLoggedIn] = useState(false); 
 
   useEffect(() => {
-    localStorage.setItem('items', JSON.stringify(isLoggedIn));
+    if(localStorage.getItem('UserLoggedIN') === null){
+      localStorage.setItem('UserLoggedIN', JSON.stringify(false));
+    }else{
+      localStorage.setItem('UserLoggedIN', JSON.stringify(isLoggedIn));
+    }
+    
     console.log('triggered')
-  }, [isLoggedIn]);
+  });
   
   const handleAddToCart  = (item) => {
       setCart([...cart , item])

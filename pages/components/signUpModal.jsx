@@ -8,11 +8,7 @@ const  SignUpModal = ({setIsLoggedIn : setIsLoggedIn}) =>  {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    
-
     let handleSubmit = async (e) => {
-        console.log(password);
-        console.log(email);
         e.preventDefault();
         try {
           let res = await fetch("http://localhost:3001/clients_side_provider/add_user", {
@@ -29,6 +25,7 @@ const  SignUpModal = ({setIsLoggedIn : setIsLoggedIn}) =>  {
             setPassword("");
             setEmail("");
             setMessage("User created successfully");
+            localStorage.setItem('UserLoggedIN', JSON.stringify(true));
             setIsLoggedIn(true)
           } else {
             setMessage("Some error occured");
