@@ -1,0 +1,101 @@
+.banner {
+    background: linear-gradient(311.76deg, #D4E7FE -15.24%, #FFFFFF 78.85%);
+}
+
+.inner-banner{
+    display: flex;
+    max-width: 1068px;
+}
+
+.image {
+    flex: 1;
+/* Add your styles for the big image here */
+}
+  
+.content {
+    flex: 1;
+    padding: 1rem;
+    /* Add your styles for the content here */
+
+    .row {
+        margin-bottom: 0.5rem;
+
+        h1 {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 56px;
+            line-height: 66px;
+            /* or 118% */
+
+
+            color: #0A093D;
+        }
+
+        p {
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 28px;
+            /* or 156% */
+            color: #656464;
+        }
+    }
+}
+
+.link {
+position: relative;
+background: none;
+border: none;
+border-radius: 8px;
+overflow: hidden;
+}
+
+.link::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #217BF4;
+opacity: 0.1;
+border-radius: 8px;
+}
+  
+.link div {
+position: relative;
+color: #217BF4;
+z-index: 1;
+}
+
+
+.banner_buttons {
+position: relative;
+background: none;
+border: none;
+border-radius: 8px;
+overflow: hidden;
+padding: 18px;
+}
+
+.banner_buttons::after {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #217BF4;
+opacity: 0.1;
+border-radius: 8px;
+}
+    
+.banner_buttons div {
+position: relative;
+color: #217BF4;
+z-index: 1;
+}
+
+.banner_buttons:nth-child(2){
+    margin-left: 18px;
+}
