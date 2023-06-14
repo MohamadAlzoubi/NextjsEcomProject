@@ -1,6 +1,6 @@
 import React , {useState} from 'react';
 
-const Navbar = () => {
+const Footer = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -9,9 +9,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className={`navbar container_custom ${isOpen ? 'open' : ''}`}>
+    <nav className={`footer ${isOpen ? 'open' : ''}`}>
       <div className="logo">
-        <img src="./logos/logo.png" alt="" />
+        <img src="./logos/logodark.png" alt="" />
       </div>
       <div className={`menu-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <div className="bar"></div>
@@ -19,16 +19,16 @@ const Navbar = () => {
         <div className="bar"></div>
       </div>
       <ul className={`nav-menu ${isOpen ? 'open' : ''}`}>
-      <li className="nav-option nav-menu-text">
+      <li className="footer_links">
           Home
         </li>
-        <li className="dropdown nav-menu-text">
+        <li className="footer_links">
           Community
         </li>
-        <li className="nav-option nav-menu-text">
+        <li className="footer_links">
           Blog
         </li>
-        <li className="nav-option nav-menu-text">
+        <li className="footer_links">
           Events
         </li>
       </ul>
@@ -39,4 +39,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Footer;

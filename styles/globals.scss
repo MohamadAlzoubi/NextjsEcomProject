@@ -8,6 +8,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Inter', sans-serif;
+  
 }
 
 a {
@@ -24,7 +25,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
+    color: black;
     background: #FFFFFF;
   }
 }
@@ -41,7 +42,28 @@ a {
   border: 1px solid #217BF4;
 }
 
-.container {
+.container_custom {
   margin: auto;
+  display: flex;
+  margin: 0px 135px;
 }
 
+.mt-116 {
+  margin-top: 116px;
+}
+
+.nav_titles{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 18px;
+  /* identical to box height, or 100% */
+
+
+  color: #217BF4;
+}
+
+.col-12 , .col-md-12{
+  justify-content: center;
+}
