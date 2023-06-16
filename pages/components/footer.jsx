@@ -9,16 +9,12 @@ const Footer = () => {
   };
 
   return (
-    <nav className={`footer ${isOpen ? 'open' : ''}`}>
+    <footer className={`footer`}>
+      
       <div className="logo">
         <img src="./logos/logodark.png" alt="" />
       </div>
-      <div className={`menu-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-      </div>
-      <ul className={`nav-menu ${isOpen ? 'open' : ''}`}>
+      <ul className={`footer-menu`}>
       <li className="footer_links">
           Home
         </li>
@@ -32,10 +28,13 @@ const Footer = () => {
           Events
         </li>
       </ul>
-      <div className="login-button nav-button">
-        Log in
+      <div className='row social_accounts'>
+        <img src="./images/facebook.png" alt="" />
+        <img src="./images/instagram.png" alt="" />
+        <img src="./images/Linkedin.png" alt="" />
+        <img src="./images/Twitter.png" alt="" />
       </div>
-    </nav>
+    </footer>
   );
 };
 

@@ -53,6 +53,7 @@ color: #FFFFFF;
   display: none;
   cursor: pointer;
   padding: 0.5rem;
+  z-index: 7;
 }
 
 .menu-toggle.open .bar {
@@ -87,13 +88,19 @@ color: #FFFFFF;
 .login-button {
   /* Add your login button styles here */
 }
-
+.inputs_list {
+  display: none;
+}
 /* Media Queries */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .menu-toggle {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+  }
+
+  .inputs_list {
+    display: block;
   }
 
   .nav-menu {
@@ -109,6 +116,11 @@ color: #FFFFFF;
 
   .nav-menu.open {
     display: flex;
+    z-index: 3;
+  }
+
+  .inputs.open {
+    display: flex;
   }
 
   .nav-menu li {
@@ -118,4 +130,33 @@ color: #FFFFFF;
   .nav-menu-text {
     width: 100%;
     }
+
+    .inputs_list{
+      width: inherit;
+    }
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border-bottom: 1px solid #E5E5E5;
+  padding: 5px;
+  padding-top: 9px;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #2B2B39;
+}
+
+.search-button {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #2B2B39;
+  cursor: pointer;
 }

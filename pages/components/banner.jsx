@@ -3,7 +3,7 @@ import React from 'react';
 const Banner = () => {
   return (
     <div className="banner">
-        <div className="inner-banner container_custom row">
+        <div className="inner-banner container">
         <div className="content">
         <div className="row col-md-8">
           <button className="link"><div>Netbook community</div></button>

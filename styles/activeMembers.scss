@@ -54,6 +54,9 @@
             margin-bottom: 18px;
             
         }
+        .sub_title{
+            justify-content: center;
+        }
 
         p {
         font-weight: 400;
@@ -126,6 +129,8 @@
     .accounts{
         gap: 30px;
         margin-top: 44px;
+        justify-content: center;
+
         .member_name {
             justify-content: center;
             font-weight: 600;
@@ -146,6 +151,11 @@
             color: #656464;
         }
     }
+
+    .members_options{
+        width: fit-content;
+    }
+    
 
 }
 

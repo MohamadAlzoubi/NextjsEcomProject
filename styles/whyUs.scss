@@ -4,6 +4,9 @@
 
 .section_why_us {
 
+    .content_wrapper{
+        justify-content: space-between;
+    }
     .content {
         flex: 1;
         padding: 1rem;
@@ -42,6 +45,37 @@
 
         color: #217BF4;
     }
+
+    .images_wrapper{
+        width: fit-content;
+        .images_wrapper_left{
+            width: inherit;
+        }
+        .images_wrapper_right{
+            width: inherit;
+        }
+        
+    }
+
+    @media (max-width: 767px) {
+        .images_wrapper_left img{
+            width: 200px;
+        }
+
+        .images_wrapper_right img{
+            width: 200px;
+        }
+      }
+
+      @media (max-width: 465px) {
+        .images_wrapper_left img{
+            width: 150px;
+        }
+
+        .images_wrapper_right img{
+            width: 150px;
+        }
+      }
 }
 
 .dotted-list {

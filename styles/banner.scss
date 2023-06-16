@@ -34,7 +34,6 @@
     }
     .inner-banner{
         display: flex;
-        margin: 0px 135px;
     }
     
     .image {
@@ -114,6 +113,18 @@
         }
         
     }
+
+    @media (max-width: 1062px) {
+        .image img{
+            width: 100%;
+        }
+      }
+
+    @media (max-width: 900px) {
+        .image {
+            display: none;
+        }
+      }
 
 }
 

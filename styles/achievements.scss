@@ -1,5 +1,14 @@
 .achievements {
 
+    .content_wrapper{
+        justify-content: space-between;
+
+        .card_wrapper{
+            .row{
+                justify-content: space-between;
+            }
+        }
+    }
     .content {
         .title{
             font-weight: 700;
@@ -48,10 +57,7 @@
         }
     }
     .card_wrapper{
-        display: inherit;
-        gap: 24px;
-        margin-right: 90px;
-        
+        width: 105%;
         .card-body {
             padding-left: 44px;
             padding-bottom: 40px;
@@ -62,9 +68,9 @@
             margin-top: 31px;
         }
         .card {
-            box-shadow: unset;
-            max-width: 336px;
             border-radius: 14px;
+            max-width: 336px;
+            min-width: 336px;
     
             a {
                 color: #4A4A56;
@@ -111,6 +117,26 @@
             color: #217BF4;
         } 
     }
+
+    @media (max-width: 940px) {
+        .content {
+            margin-top: 30px;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .content {
+            margin-top: 30px;
+        }
+        .card_wrapper .row{
+            row-gap: 10px;
+        }
+
+        .content_wrapper .card_wrapper .row {
+            justify-content: center;
+        }
+
+      }
 
 }
 

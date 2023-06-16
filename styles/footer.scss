@@ -4,16 +4,39 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 290px;
-    padding: 16px 134px;
-    .nav-menu {
+    margin-top: 160px;
+    padding: 76px 134px;
+    .footer-menu {
         gap: 101px;
     }
-    .footer_links{
+    .footer_links {
         color: inherit;
         font-weight: 500;
         font-size: 20px;
         line-height: 20px;
+        color: #FFFFFF;
     }
+
+    
+}
+.social_accounts {
+    img {
+        width: 59px;
+        height: 36px;
+    }
+}
+
+
+.footer-menu {
+display: flex;
+align-items: center;
+list-style: none;
+margin: 0;
+padding: 0;
+margin-top: 15px;
+}
+
+.footer-menu li {
+margin-bottom: 1rem;
 }
 

@@ -45,7 +45,7 @@ a {
 .container_custom {
   margin: auto;
   display: flex;
-  margin: 0px 135px;
+  max-width: 1440px;
 }
 
 .mt-116 {
@@ -64,6 +64,32 @@ a {
   color: #217BF4;
 }
 
-.col-12 , .col-md-12{
-  justify-content: center;
+@media (max-width: 766px) {
+  .banner * {
+      text-align: center;
+      justify-content: center;
+  }
+
+  .banner{
+
+    h1 {
+      font-size:31px !important;
+    }
+  }
+
+  .section_why_us * {
+    text-align: center;
+    justify-content: center;
+  }
+
+  .section_why_us{
+    .dotted-list {
+      width: fit-content;
+    }
+  }
+
+  .achievements  * {
+    text-align: center;
+    justify-content: center;
+  }
 }
