@@ -1,25 +1,25 @@
 .footer {
     background: #2B2B39;
     color: #FFFFFF;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 160px;
     padding: 76px 134px;
-    .footer-menu {
-        gap: 101px;
-    }
+
     .footer_links {
         color: inherit;
         font-weight: 500;
         font-size: 20px;
         line-height: 20px;
         color: #FFFFFF;
+        display: inline-block;
+        margin-right: 100px;
     }
 
     
 }
 .social_accounts {
+    min-width: fit-content;
     img {
         width: 59px;
         height: 36px;
@@ -28,8 +28,6 @@
 
 
 .footer-menu {
-display: flex;
-align-items: center;
 list-style: none;
 margin: 0;
 padding: 0;
@@ -39,4 +37,11 @@ margin-top: 15px;
 .footer-menu li {
 margin-bottom: 1rem;
 }
+
+@media (max-width: 1350px) {
+    .main-wrapper {
+        flex-direction: column;
+    }
+  
+  }
 
