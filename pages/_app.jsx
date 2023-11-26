@@ -1,13 +1,12 @@
+
+import '../styles/fonts.scss';
 import '../styles/globals.scss';
 import '../styles/navBar.scss';
 import '../styles/banner.scss';
 import '../styles/whyUs.scss';
 import '../styles/achievements.scss';
 import '../styles/activeMembers.scss';
-import '../styles/footer.scss';
-import Script from "next/script";
-
-
+import '../styles/screen.scss';
 
 import Head from './components/head';
 

@@ -1,167 +1,565 @@
-.active_members {
-    text-align: center;
-
-    .account_row{
-        padding: 0px;
+.statistics{
+    height: fit-content;
+    padding: 20px;
+    border-radius: 47px;
+    .card-text{
+        font-family: "SFT";
+        font-size: 120px;
+        font-weight: 300;
+        line-height: 144px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        margin-top: 274px;
     }
-    .nav-pills{
-        flex-direction: row!important;
-        background: #f1f7fc;
-        border-radius: 14px;
-        padding: 8px;
-        width: 474px;
-        justify-content: center;
-        align-items: flex-start;
-    }
-    .tabs_titles.active{
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 16px;
-        text-align: center;
-        letter-spacing: 0.01em;
-        color: #FFFFFF;
-        height: 56px;
-        width: 150px;
-        border-radius: 14px;
-        padding-top: 20px;
-    }
-
-    .tabs_titles{
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 16px;
-        text-align: center;
-        letter-spacing: 0.01em;
-        color: #2F2C4A;
-        opacity: 0.8;
-        height: 56px;
-        width: 150px;
-        padding-top: 20px;
-    }
-
-    .table_row{
-        justify-content: center;
-    }
-
-    .content {
-        .title{
-            font-weight: 700;
-            font-size: 36px;
-            line-height: 48px;
-            /* or 133% */
-            color: #0A093D;
-            margin-top: 10px;
-            margin-bottom: 18px;
-            
-        }
-        .sub_title{
-            justify-content: center;
-        }
-
-        p {
+    .paragraph{
+        font-family: "SFT";
+        font-size: 18px;
         font-weight: 400;
-        font-size: 16px;
-        line-height: 28px;
-        color: #656464;
-        max-width: 454px;
-        }
-
-        h1 {
-            font-size: inherit;
-        }
-
-        button {
-            background: #217BF4;
-            box-shadow: 0px 10px 22px rgba(33, 123, 244, 0.26);
-            border-radius: 14px;
-            position: relative;
-            border: none;
-            border-radius: 8px;
-            overflow: hidden;
-            padding: 18px;
-        }
-
-        button div{
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 14px;
-            /* identical to box height, or 100% */
-
-            text-align: center;
-            letter-spacing: -0.02em;
-
-            color: #FFFFFF;
-        }
+        line-height: 22px;
+        letter-spacing: -0.03em;
+        text-align: left;
     }
-
-
-    .card:hover {
-        box-shadow: 0px 26px 49px rgba(146, 165, 184, 0.14);
-    }
-
-    .card {
-        width: 265px;
-        border: 2px solid rgba(243, 243, 243, 0.5);
-        border-radius: 14px;
-        .ellipse_image {
-            position: absolute;
-            right: 18%;
-            top: 2%;
-        }
-        .account-verification {
-            width: 24px;
-            height: 24px;
-            background-color: #1DA1F2;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            right: 46%;
-            top: 152px;
-          }
-          
-          .account-verification i {
-            color: white;
-          }
-    }
-
-    .accounts{
-        gap: 30px;
-        margin-top: 44px;
-        justify-content: center;
-
-        .member_name {
-            justify-content: center;
-            font-weight: 600;
-            font-size: 24px;
-            line-height: 26px;
-            text-align: center;
-            color: #2F2C4A;
-            margin-top: 30px;
-        }
-        .member_account {
-            justify-content: center;
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 16px;
-            text-align: center;
-            margin-top: 15px;
-            
-            color: #656464;
-        }
-    }
-
-    .members_options{
-        width: fit-content;
-    }
-    
 
 }
 
+.timeline-container {
+    position: relative;
+    width: 90%;
+    max-width: 1800px;
+    height: 300px;
+    margin: auto;
+    border-left: 2px solid #000;
+    border-bottom: 2px solid #000;
+
+    .active {
+        background-color: #1A1A1A;
+        color: white;
+    }
+    .gray{
+        background-color: #1A1A1A08;
+    }
+
+    .q_text{
+        font-family: "SFT";
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: -0.04em;
+        text-align: left;
+    }
+    .separator{
+        opacity: unset;
+        border: 2px solid #d9d9d93d;
+        position: absolute;
+        width: 100%;
+    }
+
+  }
+.timeline-container_header{
+
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    margin-top: 7%;
+    max-width: 1800px;
+    margin-bottom: 50px;
+
+    .nasdaq_image{
+        width: 264px;
+        height: 75px;
+    }
+    .header_text{
+        width:fit-content
+    }
+    
+}
+
+  .timeline-section {
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    padding: 5px 10px;
+    width: 100%;
+    transition: background-color 0.5s ease-out;
+  }
+
+  .timeline-section:hover {
+
+    background-color: #1A1A1A;
+    color: white;
+
+  }
+  .q3 {
+    left: 0;
+    width: 20%;
+    height: 20%;
+  }
+  .q4 {
+    left: -20%;
+    width: 20%;
+    height: 20%;
+    margin-bottom: 4.7%;
+  }
+  .h1 {
+    left: 20%;
+    width: 20%;
+    height: 20%;
+    margin-bottom: 9.7%;
+  }
+  .h2 {
+    right: -60%;
+    width: 20%;
+    height: 20%;
+    margin-bottom: 14.5%;
+  }
+  /* Labels */
+  .axis-label {
+    position: absolute;
+    bottom: 21em;
+    font-size: 0.75em;
+    white-space: nowrap;
+  }
+  .axis-label.result {
+    left: 37px;
+    transform: rotate(-90deg);
+    transform-origin: bottom left;
+  }
+  .axis-label.time {
+    bottom: 16px;
+    left: 97%;
+  }
+  
+  .swiper_statistics_wrapper{
+    width: 90%;
+    margin: auto;
+    max-width: 1800px;
+    .swiper-pagination {
+      display: none;
+    }
+  }
+
+  .milestones-container {
+    max-width: 1800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 90%;
+    justify-content: space-between;
+    margin-top: 28px;
+    height: 731px;
+
+    .quarter-title {
+      color: #333333;
+      margin-bottom: 20px;
+      width: 50%;
+      font-family: "SFT";
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 54px;
+      letter-spacing: -0.04em;
+      text-align: left;
+
+    }
+
+    .list_wrapper{
+      width: 50%;
+    }
+  }
 
   
   
   
   
+  .milestone-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .milestone-list li {
+    padding: 10px 0;
+    border-top: 1px solid #cccccc; /* Border color for the list items */
+    position: relative;
+    padding-left: 30px; /* Adjust space for the number */
+  }
+  
+  .milestone-list li::before {
+    content: counter(item) " ";
+    counter-increment: item;
+    position: absolute;
+    left: -11px;
+    top: 4px;
+    font-weight: bold;
+    color: #555555;
+    background: rgba(242, 252, 255, 1);
+    border-radius: 114px;
+    height: 30px;
+    width: 30px;
+    padding-bottom: 20px;
+    padding-left: 11px;
+    padding-top: 5px;
+  }
+  
+  /* Start the list counter */
+  .milestone-list {
+    counter-reset: item;
+  }
+
+
+
+  //Employees
+
+  .swiper_wrapper {
+
+    width: 90%;
+    margin: auto;
+    max-width: 1800px;
+
+    .swiper-slide{
+      width: fit-content !important;
+
+    }
+    .profile-card {
+       background-color: rgba(242 , 242 , 242);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 437px;
+      font-family: 'Segoe UI', sans-serif;
+      height: 754px;
+    }
+    
+    .card-header {
+      position: relative;
+      border-bottom: unset;
+      background-color: rgb(242 242 242);
+    }
+    
+    .country-flag {
+      position: absolute;
+      top: 20px;
+      left: 33px;
+      width: 30px;
+      height: 20px;
+    }
+    
+    .profile-picture {
+      width: 100%;
+      height: auto;
+      display: block;
+      grayscale: 100%;
+      border-radius: 30px;
+    }
+    
+    .card-body {
+      text-align: center;
+      padding: unset;
+      width: 30%;
+      background-color: rgb(242 242 242);
+      padding-left: 38px;
+      text-align: left;
+      
+    }
+    
+    .title {
+      color: #757575;
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+    
+    .name {
+      color: #333;
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    
+    .read-more-btn {
+      background-color: rgb(242 242 242);
+      color: black;
+      border: none;
+      border-radius: 20px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 20px;
+      border: 1px solid rgba(0,0,0,.125);
+      padding-left: 0px;
+      width: 135px;
+      display: none;
+
+      span {
+        background-color: #1a1a1a;
+        color: white;
+        border-radius: 50px;
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        padding-bottom: 23px;
+        padding-left: 2px;
+        left: 126px;
+      }
+      
+    }
+    .swiper-pagination , .swiper-button-next , .swiper-button-prev {
+      display: none;
+    }
+    
+    .card-footer {
+      padding: unset;
+      text-align: center;
+      width: 20%;
+      padding-right: 20px;
+      border-top: unset;
+      background-color: rgb(242 242 242);
+    }
+    
+    .company-logo {
+      width: 50px;
+      height: auto;
+      position: absolute;
+      bottom: 12px;
+      left: 26px;
+    }
+  
+    .car_body_wrapper{
+      justify-content: space-around;
+      padding-bottom: 16px;
+      background-color: rgb(242 242 242);
+    }
+
+    .emp_details{
+      color: #1A1A1A;
+      font-family: "SFT";
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%; /* 22.4px */
+      letter-spacing: -0.32px;
+    }
+  }
+
+  .emps_header{
+    justify-content: space-between;
+    margin-bottom: 20px;
+    max-width: 1800px;
+    width: 95%;
+    margin-right: 2%;
+    .header_text{
+      width: 30%;
+    }
+    .arrows_group{
+      width: 30%;
+      text-align: right;
+    }
+  }
+
+footer{
+  background-color:rgba(26, 26, 26, 1);
+  padding: 57px;
+  max-width: 1800px;
+  margin: auto;
+  border-radius: 47px;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  
+  .lower_content {
+    justify-content: space-between;
+    color: white;
+  }
+
+  .request_pitch {
+    background-color: rgb(242 242 242);
+    text-align: center;
+    font-family: 'SFT';
+    border-radius: 40px;
+    padding-bottom: 10px;
+
+    .header_text {
+      font-family: "SFT";
+      font-size: 66px;
+      font-weight: 500;
+      line-height: 74px;
+      letter-spacing: -0.04em;
+      text-align: center;
+      padding-top: 50px;
+
+    }
+
+    .sub_header{
+      width: 650px;
+      margin: auto;
+      font-family: "SFT";
+      font-size: 28px;
+      font-weight: 400;
+      line-height: 39px;
+      letter-spacing: -0.03em;
+      text-align: center;
+
+    }
+
+    .pitch_deck_button{
+        color: white;
+        background-color: rgba(26, 26, 26, 1);
+        border-radius: 30px;
+        width: 230px;
+        margin-top: 50px;
+        height: 48px;
+        margin-bottom: 50px;
+    }
+  }
+
+  .left_side_list {
+      width: fit-content;
+      margin-top: 100px;
+
+      .buttons_group{
+        margin-top:100px;
+      }
+
+      .footer_button {
+        background: #F4F6F5;
+        border-radius: 45px;
+        width: 123px;
+        height: 50px;
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        padding: 4px;
+        color: black;
+      }
+  }
+
+  .lists_wrapper{
+    width : 50%;
+    margin-top: 100px;
+
+    .bottom_text {
+      color:  rgba(255, 255, 255, 0.3);
+      padding-left: 14px;
+      margin-top: 104px;
+      display: block;
+     }
+  }
+
+  .right_side_list{
+     width: fit-content;
+     justify-content: space-between;
+
+     .nav_links {
+      font-family: "SFT";
+      font-size: 48px;
+      font-weight: 400;
+      line-height: 54px;
+      letter-spacing: -0.04em;
+      text-align: left;
+      width: fit-content;
+      display: block;
+      white-space: nowrap;
+
+    }
+
+    .inner_list_right{
+      width: 49%;
+    }
+
+    .inner_list_left{
+      width: 48%;
+    }
+
+    
+  }
+}
+
+
+// Statistics desktop //
+.stat-card{
+  width: 100%;
+  height: 100%;
+  border-radius: 47px;
+  padding: 20px;
+
+  .card-text{
+    color: #1A1A1A;
+    font-family: "SFT";
+    font-size: 120px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%; /* 144px */
+    letter-spacing: -4.8px;
+  }
+}
+.container_stat {  
+  width: 90%;
+  margin: auto;
+  max-width: 1800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Card-1 card-3 ."
+    "card-2 card-4 ."
+    ". . .";
+}
+
+.Card-1 { grid-area: Card-1; }
+
+.card-2 { grid-area: card-2; }
+
+.card-3 {  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px 20px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    ". ."
+    ". .";
+  grid-area: card-3;
+}
+
+.card-4 { grid-area: card-4; }
+
+
+//animation // 
+
+.animated-element {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.animated-element:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.animated-element:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+} 
+
+.animateFromDownToTop {
+  opacity: 0;
+  transform: translateY(1000px); /* Start from 20px below */
+  animation: moveFromDownToTop 0.8s ease forwards;
+}
+
+@keyframes moveFromDownToTop {
+  to {
+      opacity: 1;
+      transform: translateY(50px);
+  }
+}
   

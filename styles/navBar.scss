@@ -1,34 +1,21 @@
 
 .nav-menu-text {
-font-family: 'Inter';
 font-style: normal;
-font-weight: 600;
-font-size: 14px;
 line-height: 14px;
 /* identical to box height, or 100% */
 letter-spacing: 0.01em;
-color: #2B2B39;
+color: #1a1a1a9c;
 margin: 10px;
 cursor: pointer;
+font-family: "SFT";
+font-size: 18px;
+font-weight: 400;
+line-height: 22px;
+letter-spacing: -0.02em;
+text-align: left;
 }
 
-.nav-button {
-background: #217BF4;
-box-shadow: 0px 7px 22px -6px rgba(33, 123, 244, 0.34);
-border-radius: 14px;
-width: 123px;
-height: 50px;
-font-family: 'Inter';
-font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 14px;
-/* identical to box height, or 117% */
 
-text-align: center;
-padding: 18px;
-color: #FFFFFF;
-}
 
 .nav-menu-text:hover {
   width: 100%;
@@ -43,10 +30,35 @@ color: #FFFFFF;
   align-items: center;
   padding: 1rem;
   background-color: #FFFFFF;
+  max-width: 1818px;
+    width: 97%;
+    margin: auto;
+
+  .nav-button {
+    background: #F4F6F5;
+    border-radius: 45px;
+    width: 123px;
+    height: 50px;
+    font-family: 'Inter';
+    font-style: normal;
+    /* identical to box height, or 117% */
+    font-family: "SFT";
+    text-align: center;
+    padding: 3px;
+    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: -0.02em;
+    text-align: center;
+    border: unset;
+
+    }
 }
 
 .logo {
   /* Add your logo styles here */
+  width: fit-content;
 }
 
 .menu-toggle {
@@ -74,6 +86,7 @@ color: #FFFFFF;
   list-style: none;
   margin: 0;
   padding: 0;
+  white-space: nowrap;
 }
 
 

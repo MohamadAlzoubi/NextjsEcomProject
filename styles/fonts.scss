@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'SFT'; /* Give a name to your font */
+    src: url('/public/fonts/SFT/SFT-Schrifted-Sans-TRIAL-Var-BF6413e215ec95b.ttf') format('woff2'), /* Modern Browsers */
+         url('/public/fonts/SFT/SFTSchriftedSansTRIAL-BlackComp-BF6413e2144d679.woff') format('woff'), /* Older Browsers */
+         url('/public/fonts/SFT/SFT-Schrifted-Sans-TRIAL-Var-BF6413e215ec95b.ttf') format('truetype'); /* Fallback */
+    font-weight: normal;
+    font-style: normal;
+}

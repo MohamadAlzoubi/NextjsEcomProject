@@ -1,0 +1,151 @@
+@media (max-width: 1504px) {
+    .second_right_text {
+        width: 366px;
+        font-size: 34px
+    }
+    .image_details {
+        right: -22px;
+    }
+  
+    .problem_text{
+        font-size: 34px;
+        line-height: 46px;
+        width: 187px;
+    }
+  }
+  
+  @media (max-width: 1418px) {
+    .banner .banner_image {
+        height: 643px;
+    }
+    .image_details {
+        height: 490px;
+    }
+  
+  }
+  
+  @media (max-width: 1418px) {
+    .second_right_text {
+        width: 260px;
+        font-size: 23px;
+        line-height: 39px;
+    }
+    .first_right_text {
+        font-size: 19px;
+        width: 347px;
+    }
+  }
+  
+  @media (max-width: 1418px) {
+    .banner .banner_image {
+        height: 535px;
+    }
+  }
+  
+  @media (max-width: 1185px) {
+    .banner .banner_image {
+        height: 510px;
+    }
+    .first_right_text {
+        left: 66%;
+        font-size: 29px;
+        width: 347px;
+    }
+    .second_right_text {
+        width: 319px;
+        font-size: 35px;
+        line-height: 53px;
+    }
+
+    .gallery_wrapper {
+        height: 446px;
+        .gallery > img {
+            width: 76%;
+            height: 72%;
+            transform-origin: 10% 251.7%;
+            grid-area: 1/2;
+        }
+    }
+
+    .app_details .card_wrapper .card{
+        width: 332px;
+        white-space: unset !important;
+    }
+
+    footer .right_side_list .nav_links {
+        font-size: 40px;
+    }
+
+  }
+
+
+  @media (max-width: 414px) {
+    .banner .banner_image {
+        height: 510px;
+        margin-left: 0%;
+        margin-top: 121px;
+    }
+    .first_right_text {
+        left: 7%;
+        font-size: 15px;
+        width: 347px;
+        top: 447%;
+    }
+    .second_right_text {
+        left: 7%;
+        font-size: 44px;
+        width: 347px;
+        top: 360%;
+    }
+
+    .gallery_wrapper {
+        height: 446px;
+        .gallery > img {
+            width: 76%;
+            height: 72%;
+            transform-origin: 10% 251.7%;
+            grid-area: 1/2;
+        }
+    }
+
+    .app_details{
+        display: none;
+    }
+
+    .milestones-container {
+        display: block;
+
+        .quarter-title{
+            width: 100%;
+            font-size:20px;
+        }
+        .list_wrapper{
+            width: 100%;
+        }
+    }
+
+    .timeline-container_header {
+
+        .header_text{
+        font-family: "SFT";
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 45px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        }
+
+        .nasdaq_image{
+            display: none;
+        }
+    }
+
+    footer .request_pitch .sub_header{
+        width: 297px;
+    }
+
+    .swiper_statistics_wrapper{
+        display: none;
+    }
+    
+  }
