@@ -10,6 +10,7 @@ import Statistics from './components/Statistics';
 import StatisticsDesktop from './components/StatisticsDesktop';
 import QuarterTable from './components/QuarterTable';
 import Employees from './components/Employees';
+import DataSubmit from './components/DataSubmit';
 
 const HomePage = () => {
   return (
@@ -22,6 +23,7 @@ const HomePage = () => {
     <QuarterTable/>
     <Employees/>  
     <Footer/>
+    <DataSubmit/>
     </>
   );
 };

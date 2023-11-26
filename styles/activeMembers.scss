@@ -30,6 +30,7 @@
     margin: auto;
     border-left: 2px solid #000;
     border-bottom: 2px solid #000;
+    background-image: url("../public/images/background.png");
 
     .active {
         background-color: #1A1A1A;
@@ -375,6 +376,7 @@ footer{
     font-family: 'SFT';
     border-radius: 40px;
     padding-bottom: 10px;
+    height: 582px;
 
     .header_text {
       font-family: "SFT";
@@ -383,7 +385,7 @@ footer{
       line-height: 74px;
       letter-spacing: -0.04em;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 95px;
 
     }
 
@@ -475,6 +477,23 @@ footer{
   }
 }
 
+.backText{
+  position: relative;
+  top: -139px;
+  right: 1635px;
+}
+.backTextValue{
+  color: rgba(26, 26, 26, 0.10);
+  text-align: center;
+  font-family: "SFT";
+  font-size: 168px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 112%; /* 188.16px */
+  letter-spacing: -6.72px;
+  white-space: nowrap;
+  position: absolute;
+}
 
 // Statistics desktop //
 .stat-card{
@@ -506,6 +525,7 @@ footer{
     "Card-1 card-3 ."
     "card-2 card-4 ."
     ". . .";
+    margin-top: 200px;
 }
 
 .Card-1 { grid-area: Card-1; }
@@ -562,4 +582,7 @@ footer{
       transform: translateY(50px);
   }
 }
+
+
+
   

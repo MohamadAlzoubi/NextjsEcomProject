@@ -5,11 +5,12 @@
     padding-top: 17px;
     max-width: 1800px;
     margin: auto;
+    
 
 
     .banner_back_ground{
         
-        height: 4400px;
+        height: 3200px;
     }
 
     .content {
@@ -50,11 +51,14 @@
         height: 262px;
         border-radius: 48px;
         margin: auto;
+        
 
         .content {
             height: 800px;
             background: #FAFAFA;
             border-radius: 45px;
+            background-image: url('../public/images/backBanner.png');
+
         }
     }
     
@@ -136,9 +140,10 @@
       .banner_image {
         position: -webkit-sticky;
         position: sticky;
-        top: 90px;
-        margin-left: 37%;
+        top: 408px;
+        margin-left: 39%;
         height: 827px;
+        z-index: 3;
     }
 
 
@@ -201,6 +206,9 @@
     border-radius: 49px;
     max-width: 1800px;
     margin: auto;
+    background-image: url('../public/images/arch.png');
+    background-repeat: no-repeat;
+    background-position-y: 505px;
 
     .howItWorks{
         color: var(--5, #FFF);
@@ -212,13 +220,14 @@
         line-height: 112%; /* 76.16px */
         letter-spacing: -2.72px;
         position: absolute;
+        top: 3519px;
     }
 }
 .circle-container {
     translate: none;
     rotate: none;
     scale: none;
-    transform: translate3d(0px, 0px, 6px) rotate(6deg);
+    transform: translate3d(0px, 0px, 6px) rotate(39deg);
     align-items: center;
     display: flex;
     height: 210% !important;
@@ -250,7 +259,7 @@
     translate: none;
     rotate: none;
     scale: none;
-    transform: translate(-1165.442px, -284.61px) rotate(313deg);
+    transform: translate(-1214.442px, -284.61px) rotate(321deg);
 }
 
 #image4{
@@ -294,7 +303,7 @@
 // }
 
 .first_right_text {
-    position: absolute;
+    position: relative;
     font-family: "SFT";
     font-size: 28px;
     font-weight: 400;
@@ -303,8 +312,9 @@
     text-align: left;
     color: rgba(26, 26, 26, 0.4);
     width: 446px;
-    left: 69%;
-    top: 555%;
+    top: -78vh;
+    height: 0px;
+
 }
 
 .second_right_text {
@@ -315,10 +325,11 @@
     letter-spacing: -0.04em;
     color: rgba(26, 26, 26, 0.4);
     text-align: left;
-    position: absolute;
+    position: relative;
     width: 472px;
     left: 0%;
-    top: 555%;
+    top: -140vh;
+    height: 0px;
 }
 
 .problem_text {
@@ -329,12 +340,17 @@
     letter-spacing: -0.04em;
     color: rgba(26, 26, 26, 0.4);
     text-align: left;
-    position: absolute;
+    position: relative;
     width: 606px;
-    left: 0%;
-    top: 951%;
+    display: block !important;
+    bottom: 84vh;
+    height: 0px;
 }
 
+.buttonsWrapper{
+    top: -21vh;
+    position: relative;
+}
 .startup_image {
 }
 
@@ -347,22 +363,28 @@
 }
 
 .images_wrapper_invest{
-    position: fixed;
-    right: 78px;
+    position: relative;
+    top: -964px;
     display: none;
     width: fit-content;
-    display: none !important;
 
 }
 
+.controlWrapper{
+    width: 90%;
+    margin: auto;
+    max-width: 1800px;
+    height: 59px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .banner_investors_buttons{
-    left: 7%;
     background: white;
     padding: 20px;
     border-radius: 35px;
-    top: 1048px;
-    position: fixed;
-    display: none !important;
+    top:  -20px;
+    position: relative;
     
 
     div{

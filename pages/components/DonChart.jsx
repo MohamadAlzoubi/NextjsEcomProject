@@ -1,92 +1,160 @@
 import React, { useRef, useEffect } from 'react';
 import Chart from 'chart.js/auto';
+import * as d3 from 'd3';
 
 const DonChart = () => {
-  const chartRef = useRef(null);
-  const chartInstance = useRef(null); // Ref to store the chart instance
+  const pieData = [
+    {name: 'Angel Investor', value: 48, color: '#CBB2FF'},
+    {name: 'VC Fund', value: 26, color: '#0288D1'},
+    {name: 'Family Office', value: 7, color: '#BF360C'},
+    {name: 'Syndicate', value: 13, color: '#F4511E'},
+    {name: 'Other', value: 19, color: '#F9A825'},
+  ];
   
 
   useEffect(() => {
-    const createChart = () => {
-      const ctx = chartRef.current.getContext('2d');
+    bakeDonut(pieData);
 
-      const data =  {
-        labels: ['Angel Investor', 'VC Fund', 'Family Office', 'Syndicate', 'Other'],
-        datasets: [
-          {
-            label: 'Investors Presence',
-            data: [48, 22, 11, 12, 7], // These numbers should match the percentages from your data
-            backgroundColor: [
-              '#CBB2FF',
-              '#C2DAFF ',
-              '#ECD6FD ',
-              '#C8F0FF',
-              '#C5FAE1'
-            ],
-            borderWidth: -2
-          },
-        ],
-      };
+function bakeDonut(d) {
+  let activeSegment;
+  const data = d.sort( (a, b) => b['value'] - a['value']),
+        viewWidth = 500,
+        viewHeight = 300,
+        svgWidth = viewHeight,
+        svgHeight = viewHeight,
+        thickness = 40,
+        colorArray = data.map(k => k.color),
+        el = d3.select('.card-2'),
+        radius = Math.min(svgWidth, svgHeight) / 2,
+        color = d3.scaleOrdinal()
+          .range(colorArray);
 
-      const textPlugin = {
-        id: 'textPlugin',
-        afterDatasetsDraw(chart, args, options) {
-          const { ctx, data } = chart;
-          ctx.save();
-          data.datasets.forEach((dataset, datasetIndex) => {
-            chart.getDatasetMeta(datasetIndex).data.forEach((element, index) => {
-              const { x, y, innerRadius, outerRadius, startAngle, endAngle } = element;
-              const middleAngle = startAngle + (endAngle - startAngle) / 2;
-              const textX = x + (outerRadius + innerRadius) / 2 * Math.cos(middleAngle);
-              const textY = y + (outerRadius + innerRadius) / 2 * Math.sin(middleAngle);
-              const value = dataset.data[index] + '%';
+      const max = d3.max(data, (maxData) => maxData.value );
 
-              ctx.fillStyle = 'black'; // Text color
-              ctx.font = '16px Arial'; // Text font
-              ctx.textAlign = 'center';
-              ctx.textBaseline = 'middle';
-              ctx.fillText(value, textX, textY);
-            });
-          });
-          ctx.restore();
+      const svg = el.append('svg')
+      .attr('viewBox', `0 0 ${viewWidth + thickness} ${viewHeight + thickness}`)
+      .attr('class', 'pie')
+      .attr('width', viewWidth)
+      .attr('height', svgHeight);
+
+      const g = svg.append('g')
+      .attr('transform', `translate( ${ (svgWidth / 2) + (thickness / 2) }, ${ (svgHeight / 2) + (thickness / 2)})`);
+
+      const arc = d3.arc()
+      .innerRadius(radius - thickness)
+      .outerRadius(radius);
+
+      const arcHover = d3.arc()
+      .innerRadius(radius - ( thickness + 5 ))
+      .outerRadius(radius + 8);
+
+      const pie = d3.pie()
+      .value(function(pieData) { return pieData.value; })
+      .sort(null);
+
+
+      const path = g.selectAll('path')
+      .attr('class', 'data-path')
+      .data(pie(data))
+      .enter()
+      .append('g')
+      .attr('class', 'data-group')
+      .each(function(pathData, i) {
+        const group = d3.select(this)
+
+        group.append('text')
+          .text(`${pathData.data.value}`)
+          .attr('class', 'data-text data-text__value')
+          .attr('text-anchor', 'middle')
+          .attr('dy', '1rem')
+
+        group.append('text')
+          .text(`${pathData.data.name}`)
+          .attr('class', 'data-text data-text__name')
+          .attr('text-anchor', 'middle')
+          .attr('dy', '3.5rem')
+
+        // Set default active segment
+        if (pathData.value === max) {
+          const textVal = d3.select(this).select('.data-text__value')
+          .classed('data-text--show', true);
+
+          const textName = d3.select(this).select('.data-text__name')
+          .classed('data-text--show', true);
         }
-      };
 
-      chartInstance.current = new Chart(ctx, {
-        type: 'doughnut',
-        data : data,
-        options: {
-          cutoutPercentage: 50, // Adjust the thickness of the donut here
-          cutout: '85%',
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'bottom',
-            },
-          },
-        },
-        plugins: [textPlugin],
+      })
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', (fillData, i) => color(fillData.data.name))
+      .attr('class', 'data-path')
+      .on('mouseover', function() {
+        const _thisPath = this,
+              parentNode = _thisPath.parentNode;
+
+        if (_thisPath !== activeSegment) {
+
+          activeSegment = _thisPath;
+
+          const dataTexts = d3.selectAll('.data-text')
+          .classed('data-text--show', false);
+
+          const paths = d3.selectAll('.data-path')
+          .transition()
+          .duration(250)
+          .attr('d', arc);
+
+          d3.select(_thisPath)
+            .transition()
+            .duration(250)
+            .attr('d', arcHover);
+
+          const thisDataValue = d3.select(parentNode).select('.data-text__value')
+          .classed('data-text--show', true);
+          const thisDataText = d3.select(parentNode).select('.data-text__name')
+          .classed('data-text--show', true);
+        }
+
+
+      })
+      .each(function(v, i) {
+        if (v.value === max) {
+          const maxArc = d3.select(this)
+          .attr('d', arcHover);
+          activeSegment = this;
+        }
+        this._current = i;
       });
-    };
 
-    if (chartRef && chartRef.current) {
-      if (chartInstance.current) {
-        chartInstance.current.destroy(); // Destroy any existing chart instance before creating a new one
-      }
-      createChart();
+      const legendRectSize = 15;
+      const legendSpacing = 10;
+
+      const legend = svg.selectAll('.legend')
+      .data(color.domain())
+      .enter()
+      .append('g')
+      .attr('class', 'legend')
+      .attr('transform', function(legendData, i) {
+        const itemHeight =    legendRectSize + legendSpacing;
+        const offset =        legendRectSize * color.domain().length;
+        const horz =          svgWidth + 80;
+        const vert =          (i * itemHeight) + legendRectSize + (svgHeight - offset) / 2;
+        return `translate(${horz}, ${vert})`;
+      });
+
+      legend.append('circle')
+        .attr('r', legendRectSize / 2)
+        .style('fill', color);
+
+      legend.append('text')
+        .attr('x', legendRectSize + legendSpacing)
+        .attr('y', legendRectSize - legendSpacing)
+        .attr('class', 'legend-text')
+        .text( (legendData) => legendData )
     }
 
-    // Clean up on component unmount
-    return () => {
-      if (chartInstance.current) {
-        chartInstance.current.destroy(); // Destroy the chart instance to prevent memory leaks
-      }
-    };
   }, []); // Empty dependency array ensures this effect runs once on mount and once on unmount
 
-  return (
-    <canvas ref={chartRef} />
-  );
 };
 
 export default DonChart;

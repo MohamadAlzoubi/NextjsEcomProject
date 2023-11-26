@@ -7,6 +7,8 @@ import '../styles/whyUs.scss';
 import '../styles/achievements.scss';
 import '../styles/activeMembers.scss';
 import '../styles/screen.scss';
+import '../styles/pieChart.scss';
+
 
 import Head from './components/head';
 

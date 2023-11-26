@@ -18,13 +18,17 @@ const Card = ({ imageSrc, info, cardStyle , para}) => {
 const StatisticsDesktop = () => {
   return (
     <div className="container_stat">
+      <div className="backText">
+          <div className="backTextValue"> Unimatch in numbers</div>
+      </div>
+
         <div className="Card-1"><Card
           imageSrc="/images/stat1.png"
           info="94.37%"
           para="Investors retention rate"
           cardStyle = {{zIndex: 1 , whiteSpace: "nowrap"}}
         /></div>
-        <div className="card-2"><DonChart /></div>
+        <div className="card-2"><img src="./images/StatisticsImage.png" alt="" /></div>
         <div className="card-3"><Card
           imageSrc="/images/stat2.png"
           info="2780"
