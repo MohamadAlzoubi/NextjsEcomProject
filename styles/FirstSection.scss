@@ -5,6 +5,7 @@
     padding-top: 17px;
     max-width: 1800px;
     margin: auto;
+    width: 97%;
     
 
 
@@ -48,9 +49,9 @@
         display: flex;
         text-align: center;
         position: relative;
-        height: 262px;
         border-radius: 48px;
         margin: auto;
+        height: 265px;
         
 
         .content {
@@ -140,10 +141,12 @@
       .banner_image {
         position: -webkit-sticky;
         position: sticky;
-        top: 408px;
         margin-left: 39%;
         height: 827px;
         z-index: 3;
+        top: 100px;
+        margin-left: 38.5%;
+        
     }
 
 
@@ -199,7 +202,7 @@
 .gallery_wrapper {
     justify-content: center;
     height: 1000px;
-    width: 90%;
+    width: 97%;
     overflow: hidden;
     background-color: #1A1A1A;
     margin: auto;
@@ -312,7 +315,7 @@
     text-align: left;
     color: rgba(26, 26, 26, 0.4);
     width: 446px;
-    top: -78vh;
+    top: -70vh;
     height: 0px;
 
 }
@@ -348,7 +351,6 @@
 }
 
 .buttonsWrapper{
-    top: -21vh;
     position: relative;
 }
 .startup_image {
@@ -364,7 +366,7 @@
 
 .images_wrapper_invest{
     position: relative;
-    top: -964px;
+    bottom: 70vh;
     display: none;
     width: fit-content;
 
@@ -386,6 +388,7 @@
     top:  -20px;
     position: relative;
     
+    
 
     div{
     background: white;
@@ -394,6 +397,7 @@
     display: inline-block;
     margin-left: 5px;
     cursor: pointer;
+    margin-bottom: -53%;
     }
 
     .active {

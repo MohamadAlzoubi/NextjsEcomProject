@@ -4,13 +4,11 @@ import Separator from './separator';
 const QuarterTable = () => {
 
 
-     // State to track the currently selected section
-     const [selectedSection, setSelectedSection] = useState('q3');
+    const [selectedSection, setSelectedSection] = useState('q3');
 
-     // Function to handle section click
-     const handleSectionClick = (section) => {
-         setSelectedSection(section);
-     };
+    const handleSectionClick = (section) => {
+        setSelectedSection(section);
+    };
  
      // Content for different sections
      const contentMap = {
@@ -82,22 +80,22 @@ const QuarterTable = () => {
     </div>
     <div className="timeline-container">
     <div className="row">
-        <div className="timeline-section h2 gray" onClick={() => handleSectionClick('h2')} style={{position: 'relative', top: '52px', height: '59px'}}>
+        <div className={`timeline-section h2 ${selectedSection === 'h2' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h2')} style={{position: 'relative', top: '52px', height: '59px'}}>
             <div className="q_text">
                 H2 2024
             </div>
         </div>
-        <div className="timeline-section h1 gray" onClick={() => handleSectionClick('h1')} style={{position: 'relative', top: '114px', height: '59px'}}>
+        <div className={`timeline-section h1 ${selectedSection === 'h1' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h1')} style={{position: 'relative', top: '114px', height: '59px'}}>
             <div className="q_text">
                 H1 2024
             </div>
         </div>
-        <div className="timeline-section q4 gray" onClick={() => handleSectionClick('q4')}style={{position: 'relative', top: '175px', height: '59px'}}>
+        <div className={`timeline-section q4 ${selectedSection === 'q4' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('q4')}style={{position: 'relative', top: '175px', height: '59px'}}>
             <div className="q_text">
             Q4 2023
             </div>
         </div>
-        <div className="timeline-section q3 active" onClick={() => handleSectionClick('q3')}>
+        <div className={`timeline-section q3 ${selectedSection === 'q3' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('q3')}>
             <div className="q_text">
                 Q3 2023
             </div>
