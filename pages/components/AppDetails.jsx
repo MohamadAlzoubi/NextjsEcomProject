@@ -19,7 +19,7 @@ const GalleryImage = ({ src, alt , className}) => {
 };
 
 
-const AchievementSection = () => {
+const AppDetails = () => {
   
   return (
     <div className="app_details">
@@ -72,4 +72,4 @@ const AchievementSection = () => {
   );
 };
 
-export default AchievementSection;
+export default AppDetails;

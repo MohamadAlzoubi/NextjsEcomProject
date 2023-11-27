@@ -4,7 +4,7 @@ import NavBar from './components/navbar';
 import Separator from './components/separator';
 import Banner from './components/banner';
 import GalleryRotation from './components/galleryRotation';
-import Achievements from './components/achievements';
+import AppDetails from './components/AppDetails';
 import Footer from './components/footer';
 import Statistics from './components/Statistics';
 import StatisticsDesktop from './components/StatisticsDesktop';
@@ -18,7 +18,7 @@ const HomePage = () => {
     <NavBar/>
     <Banner/>
     <GalleryRotation/>
-    <Achievements/>
+    <AppDetails/>
     <StatisticsDesktop/>
     <QuarterTable/>
     <Employees/>  

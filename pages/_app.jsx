@@ -2,10 +2,9 @@
 import '../styles/fonts.scss';
 import '../styles/globals.scss';
 import '../styles/navBar.scss';
-import '../styles/banner.scss';
-import '../styles/whyUs.scss';
-import '../styles/achievements.scss';
-import '../styles/activeMembers.scss';
+import '../styles/FirstSection.scss';
+import '../styles/MidSection.scss';
+import '../styles/LowerSection.scss';
 import '../styles/screen.scss';
 import '../styles/pieChart.scss';
 
