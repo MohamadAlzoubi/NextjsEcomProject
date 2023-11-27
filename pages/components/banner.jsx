@@ -1,7 +1,7 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect  , useContext } from 'react';
 
+const Banner = ({ onOpenModal }) => {
 
-const Banner = () => {
 
   return (
     <div className="banner">
@@ -16,8 +16,8 @@ const Banner = () => {
               <p>It’s like <span><b>Tinder</b></span> <span><img src="./images/plus.png"/></span> <span><b>LinkedIn</b></span> for the LinkedIn <span><b>venture capital sector</b></span></p>
             </div>
             <div className="row buttons_banner_group animated-element">
-              <button className='banner_buttons '>Invest <span><img src="./images/bannerIcon.png"/></span></button>
-              <button className='banner_buttons '>Try it<span><img src="./images/bannerIcon.png"/></span></button>
+              <button type='button' className='banner_buttons' onClick={onOpenModal}>Invest <span><img src="./images/bannerIcon.png"/></span></button>
+              <button type='button' className='banner_buttons '>Try it<span><img src="./images/bannerIcon.png"/></span></button>
             </div>
             
             

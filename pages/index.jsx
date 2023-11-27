@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useState } from "react";
 import Script from 'next/script';
 import NavBar from './components/navbar';
 import Separator from './components/separator';
@@ -11,12 +11,21 @@ import StatisticsDesktop from './components/StatisticsDesktop';
 import QuarterTable from './components/QuarterTable';
 import Employees from './components/Employees';
 import DataSubmit from './components/DataSubmit';
+import Modal from './components/Modal';
+
+
 
 const HomePage = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
+
   return (
     <>
     <NavBar/>
-    <Banner/>
+    <Banner onOpenModal={toggleModal}/>
     <GalleryRotation/>
     <AppDetails/>
     <StatisticsDesktop/>
@@ -24,6 +33,7 @@ const HomePage = () => {
     <Employees/>  
     <Footer/>
     <DataSubmit/>
+    <Modal isOpen={modalOpen} toggle={toggleModal}/>
     </>
   );
 };
