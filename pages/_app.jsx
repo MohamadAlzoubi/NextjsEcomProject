@@ -5,7 +5,7 @@ import '../styles/navBar.scss';
 import '../styles/FirstSection.scss';
 import '../styles/MidSection.scss';
 import '../styles/LowerSection.scss';
-import '../styles/screen.scss';
+
 import '../styles/pieChart.scss';
 import '../styles/modal.scss';
 
