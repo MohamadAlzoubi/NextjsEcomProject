@@ -7,16 +7,6 @@ const GalleryRotation = () => {
   return (
     <>
     
-    <div className="controlWrapper" style={{width : '90%' , margin : 'auto' , maxWidth: '1800px'}}>
-      <div className="banner_investors_buttons" id='myAbsoluteElement'>
-      
-      
-     
-      </div>
-           
-        
-    </div>
-    
       <div className="row gallery_wrapper" id='howItWorks'>
         <h1 className="howItWorks">How it works</h1>
         <div className="circle-container">

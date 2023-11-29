@@ -8,9 +8,13 @@ const Banner = ({ onOpenModal }) => {
 
   const [activeButton, setActiveButton] = useState('startups');
   const [activeSection, setActiveSectionn] = useState('first');
-
+  let active = 'startups';
+  let sectionType = 'first';
+  let shouldScrollSection1 = true; // Flag variable
+    let shouldScrollSection2 = true; // Flag variable
 
   const showImage = (image) => {
+    active = image;
     setActiveImage(image);
     setActiveButton(image);
   };
@@ -19,86 +23,128 @@ const Banner = ({ onOpenModal }) => {
     return `banner_buttons_ ${button === activeButton ? 'active' : ''}`;
   };
 
-  function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-      const args = arguments;
-      const context = this;
-      if (!inThrottle) {
-        func.apply(context, args);
-        inThrottle = true;
-        setTimeout(() => inThrottle = false, limit);
-      }
-    };
-  }
 
   useEffect(() => {
     const howItWorks = document.getElementById('howItWorks');
-    let lastScrollTop = 0;
-    let isScrolling;
     
+    
+    
+    
+
 
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     const lenis = new Lenis({
-      lerp: 0.5, 
-      wheelMultiplier : 3,
+      lerp: 0.04, 
       })
+
+      
 
       lenis.on('scroll', (e) => {
         const scrollY = window.scrollY;
-        console.log(scrollY)
-        if(scrollY >= 2019 ){
-  
-          if(scrollY >= 1900){
-            if (currentScroll > lastScrollTop) {
-              // Scrolling down
-              showImage('investors')
-              howItWorks.style.top = '0px';
-            } else {
+        console.log(e.direction)
+        
+        if(scrollY >= 1000 && shouldScrollSection1){
+          //console.log(sectionType)
+          lenis.scrollTo(howItWorks , {
+            offset : -1100,
+            lerp: 0.08, 
+            lock : false,
+            onComplete : () => {
+              console.log('completed')
+              console.log(sectionType)
+              if(e.direction > 0){
+                if(sectionType == 'first' && active == 'investors'){
                   showImage('startups')
-                // Scrolling up
-                console.log('Scrolling up');
+                }
+              }else if(e.direction < 0){
+                if(sectionType == 'first' && active == 'startups'){
+                  shouldScrollSection1 = false;
+                  sectionType = 'second';
+                  showImage('investors')
+                 
+                  //lenis.destroy()
+                  setTimeout(() => {
+                    secondSection();
+                  }, 1000)
+                }
+              }
             }
-          }
-         
-  
-        }else {
-          if(scrollY < 1900){
-            showImage('startups')
-          }
+          })
+          //lenis.stop()
+          
+          
+         // 
+          //smoothScrollToElement(howItWorks);
+          
         }
       })
 
+      const secondSection = () => {
+        console.log('I am here' , sectionType)
+        lenis.scrollTo('.app_details' , {
+          offset : -100,
+          lerp: 0.08, 
+          lock : true,
+          onComplete : () => {
+            console.log('completed2')
+          }
+        })
+      }
+
       function raf(time) {
-        lenis.raf(time * 1000)
+        lenis.raf(time)
         requestAnimationFrame(raf)
       }
 
       requestAnimationFrame(raf)
 
-
-
-
-    const handleScroll = () => {
       
 
+
+
+
+
+    const handleScroll = (e) => {
       
 
-      if (window.scrollY > 3374 && window.scrollY < 6000) {
+
+    // if(scrollY >= 2019 ){
+    //   window.addEventListener('wheel', handleScroll);
+    //   lenis.stop()
+    //   if(scrollY >= 1900){
+    //     if (currentScroll > lastScrollTop) {
+    //       // Scrolling down
+    //       showImage('investors')
+    //       howItWorks.style.top = '0px';
+    //     } else {
+    //           showImage('startups')
+    //         // Scrolling up
+    //         console.log('Scrolling up');
+    //     }
+    //   }
+     
+
+    // }else {
+    //   if(scrollY < 1900){
+    //     showImage('startups')
+    //   }
+    // }
+    //   if (window.scrollY > 3374 && window.scrollY < 6000) {
 
 
-      const st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st > lastScrollTop) {
-        angle = Math.min(angle - 1, 77);
-      } else {
-        angle = Math.max(angle + 1, -88);
-      }
+    //   const st = window.pageYOffset || document.documentElement.scrollTop;
+    //   if (st > lastScrollTop) {
+    //     angle = Math.min(angle - 1, 77);
+    //   } else {
+    //     angle = Math.max(angle + 1, -88);
+    //   }
 
-      updateImagePositions(angle);
-      lastScrollTop = st <= 0 ? 0 : st;
-    }
+    //   updateImagePositions(angle);
+    //   lastScrollTop = st <= 0 ? 0 : st;
+    // }
     };
+
 
     const updateImagePositions = (angle) => {
       
@@ -112,12 +158,12 @@ const Banner = ({ onOpenModal }) => {
 
     // const throttledHandleScroll = throttle(handleScroll, 100);
 
-    // window.addEventListener('scroll', throttledHandleScroll);
+    // window.addEventListener('wheel', handleScroll);
 
     // return () => {
-    //   window.removeEventListener('scroll', throttledHandleScroll);
+    //   window.removeEventListener('wheel', handleScroll);
     // };
-  }, []);
+  }, [activeImage , activeButton , activeSection ,sectionType , shouldScrollSection1 , shouldScrollSection2]);
 
   return (
     <div className="banner">
@@ -158,6 +204,7 @@ const Banner = ({ onOpenModal }) => {
             </div>
             </li>
           </ul>
+          {/* <div className='backGroundPlate'></div> */}
         </div>
         
       </div>

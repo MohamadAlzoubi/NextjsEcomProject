@@ -1,7 +1,42 @@
 
+@keyframes backGroundPlate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.backGroundPlate {
+    background: #FAFAFA;
+
+    background: linear-gradient(-45deg, #F1FBFE, #EFF2FF, #F1FBFE, #EFF2FF);
+    background-size: 200% 200%;
+    animation: backGroundPlate 5s ease infinite;
+    height: 760px;
+    width: 100%;position: absolute;
+    bottom: -1816px;
+    z-index: 1;
+    max-width: 1800px;
+    margin: auto;
+}
+
+
+html.lenis {
+    height: auto;
+  }
+  
+  .lenis.lenis-smooth {
+    scroll-behavior: auto;
+  }
+  
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
 
 .banner {
-    padding-bottom: 85px;
+    padding-bottom: 250px;
     padding-top: 17px;
     max-width: 1800px;
     margin: auto;
@@ -22,6 +57,7 @@
             top: 1479px;
             position: relative;
             left: -51px;
+            z-index: 2;
         }
 
         .right_list{
@@ -29,6 +65,7 @@
             width: 5%;
             top: 1479px;
             right: 255px;
+            z-index: 2;
         }
 
         .middle_list{
@@ -240,6 +277,8 @@
     background-image: url('../public/images/arch.png');
     background-repeat: no-repeat;
     background-position-y: 505px;
+    z-index: 2;
+    position: relative;
 
 
     .howItWorks{
@@ -252,7 +291,7 @@
         line-height: 112%; /* 76.16px */
         letter-spacing: -2.72px;
         position: absolute;
-        top: 3519px;
+        top: 92px;
     }
 }
 .circle-container {
@@ -393,6 +432,7 @@
     bottom: -395px;
     display: none;
     width: fit-content;
+    z-index: 2;
 
 }
 
