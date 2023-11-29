@@ -27,77 +27,72 @@ const Banner = ({ onOpenModal }) => {
   useEffect(() => {
     const howItWorks = document.getElementById('howItWorks');
     
-    
-    
-    
-
-
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-    const lenis = new Lenis({
-      lerp: 0.04, 
-      })
+    // const lenis = new Lenis({
+    //   lerp: 0.04, 
+    //   })
 
       
 
-      lenis.on('scroll', (e) => {
-        const scrollY = window.scrollY;
-        console.log(e.direction)
+    //   lenis.on('scroll', (e) => {
+    //     const scrollY = window.scrollY;
+    //     console.log(e.direction)
         
-        if(scrollY >= 1000 && shouldScrollSection1){
-          //console.log(sectionType)
-          lenis.scrollTo(howItWorks , {
-            offset : -1100,
-            lerp: 0.08, 
-            lock : false,
-            onComplete : () => {
-              console.log('completed')
-              console.log(sectionType)
-              if(e.direction > 0){
-                if(sectionType == 'first' && active == 'investors'){
-                  showImage('startups')
-                }
-              }else if(e.direction < 0){
-                if(sectionType == 'first' && active == 'startups'){
-                  shouldScrollSection1 = false;
-                  sectionType = 'second';
-                  showImage('investors')
+    //     if(scrollY >= 1000 && shouldScrollSection1){
+    //       //console.log(sectionType)
+    //       lenis.scrollTo(howItWorks , {
+    //         offset : -1100,
+    //         lerp: 0.08, 
+    //         lock : false,
+    //         onComplete : () => {
+    //           console.log('completed')
+    //           console.log(sectionType)
+    //           if(e.direction > 0){
+    //             if(sectionType == 'first' && active == 'investors'){
+    //               showImage('startups')
+    //             }
+    //           }else if(e.direction < 0){
+    //             if(sectionType == 'first' && active == 'startups'){
+    //               shouldScrollSection1 = false;
+    //               sectionType = 'second';
+    //               showImage('investors')
                  
-                  //lenis.destroy()
-                  setTimeout(() => {
-                    secondSection();
-                  }, 1000)
-                }
-              }
-            }
-          })
-          //lenis.stop()
+    //               //lenis.destroy()
+    //               setTimeout(() => {
+    //                 secondSection();
+    //               }, 1000)
+    //             }
+    //           }
+    //         }
+    //       })
+    //       //lenis.stop()
           
           
-         // 
-          //smoothScrollToElement(howItWorks);
+    //      // 
+    //       //smoothScrollToElement(howItWorks);
           
-        }
-      })
+    //     }
+    //   })
 
-      const secondSection = () => {
-        console.log('I am here' , sectionType)
-        lenis.scrollTo('.app_details' , {
-          offset : -100,
-          lerp: 0.08, 
-          lock : true,
-          onComplete : () => {
-            console.log('completed2')
-          }
-        })
-      }
+      // const secondSection = () => {
+      //   console.log('I am here' , sectionType)
+      //   lenis.scrollTo('.app_details' , {
+      //     offset : -100,
+      //     lerp: 0.08, 
+      //     lock : true,
+      //     onComplete : () => {
+      //       console.log('completed2')
+      //     }
+      //   })
+      // }
 
-      function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-      }
+      // function raf(time) {
+      //   lenis.raf(time)
+      //   requestAnimationFrame(raf)
+      // }
 
-      requestAnimationFrame(raf)
+      // requestAnimationFrame(raf)
 
       
 
