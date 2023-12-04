@@ -80,17 +80,17 @@ const QuarterTable = () => {
     </div>
     <div className="timeline-container">
     <div className="row">
-        <div className={`timeline-section h2 ${selectedSection === 'h2' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h2')} style={{position: 'relative', top: '52px', height: '59px'}}>
+        <div className={`timeline-section h2 ${selectedSection === 'h2' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h2')} style={{position: 'relative', top: '52px'}}>
             <div className="q_text">
                 H2 2024
             </div>
         </div>
-        <div className={`timeline-section h1 ${selectedSection === 'h1' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h1')} style={{position: 'relative', top: '114px', height: '59px'}}>
+        <div className={`timeline-section h1 ${selectedSection === 'h1' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h1')} style={{position: 'relative', top: '114px'}}>
             <div className="q_text">
                 H1 2024
             </div>
         </div>
-        <div className={`timeline-section q4 ${selectedSection === 'q4' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('q4')}style={{position: 'relative', top: '175px', height: '59px'}}>
+        <div className={`timeline-section q4 ${selectedSection === 'q4' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('q4')}>
             <div className="q_text">
             Q4 2023
             </div>
@@ -101,11 +101,11 @@ const QuarterTable = () => {
             </div>
         </div>
     </div>
-    <div className="separator" style={{top: "234px"}}></div>
+    <div className="separator sep1" style={{top: "196px"}}></div>
 
-    <div className="separator" style={{top: "173px"}}></div>
+    <div className="separator sep2" style={{top: "95px"}}></div>
 
-    <div className="separator" style={{top: "110px"}}></div>
+    <div className="separator sep3" style={{top: "-9px"}}></div>
 
   
     <span className="axis-label result">Result</span>

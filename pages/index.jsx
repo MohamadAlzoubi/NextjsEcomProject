@@ -28,6 +28,7 @@ const HomePage = () => {
     <Banner onOpenModal={toggleModal}/>
     <GalleryRotation/>
     <AppDetails/>
+    <Statistics/>
     <StatisticsDesktop/>
     <QuarterTable/>
     <Employees/>  

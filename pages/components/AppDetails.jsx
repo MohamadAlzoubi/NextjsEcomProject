@@ -24,42 +24,45 @@ const AppDetails = () => {
   useEffect(() => {
     var cards = document.querySelectorAll(".app_details .card");
 
-    cards.forEach(function(cardWrapper) {
-        cardWrapper.addEventListener("mousemove", function (event) {
-            var boundingClientRect = cardWrapper.getBoundingClientRect();
-            var cardWidth = boundingClientRect.width;
-            var cardHeight = boundingClientRect.height;
-            var cardX = boundingClientRect.left + window.scrollX;
-            var cardY = boundingClientRect.top + window.scrollY;
+cards.forEach(function(cardWrapper) {
+    // Store the initial rotation values
+    var initialRotateY = 29;
+    var initialRotateX = -387.65;
 
-            // Calculate mouse position relative to the card
-            var mouseX = event.pageX - cardX - (cardWidth / 2);
-            var mouseY = event.pageY - cardY - (cardHeight / 2);
+    cardWrapper.addEventListener("mousemove", function(event) {
+        var boundingClientRect = cardWrapper.getBoundingClientRect();
+        var cardWidth = boundingClientRect.width;
+        var cardHeight = boundingClientRect.height;
+        var cardX = boundingClientRect.left + window.scrollX;
+        var cardY = boundingClientRect.top + window.scrollY;
 
-            // Sensitivity factors
-            var sensitivityX = 20; // Adjust as needed
-            var sensitivityY = 15; // Adjust as needed
+        var mouseX = event.pageX - cardX - (cardWidth / 2);
+        var mouseY = event.pageY - cardY - (cardHeight / 2);
 
-            // Calculate rotation values
-            var rotateY = (mouseX / sensitivityX);
-            var rotateX = -(mouseY / sensitivityY);
+        var sensitivityX = 20;
+        var sensitivityY = 15;
 
-            // Limit the rotation angles to avoid flipping
-            rotateY = Math.min(Math.max(rotateY, -15), 15);
-            rotateX = Math.min(Math.max(rotateX, -15), 15);
+        // Calculate rotation values
+        var rotateY = (mouseX / sensitivityX);
+        var rotateX = -(mouseY / sensitivityY);
 
-            cardWrapper.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-            cardWrapper.style.webkitTransform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-            cardWrapper.style.mozTransform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-        });
+        // Limit the rotation angles to avoid flipping
+        rotateY = Math.min(Math.max(rotateY, -15), 15);
+        rotateX = Math.min(Math.max(rotateX, -15), 15);
 
-        cardWrapper.addEventListener("mouseleave", function () {
-          // Resetting the transform properties to the original values
-          cardWrapper.style.transform = 'rotateY(29deg) rotateX(-387.65deg)';
-          cardWrapper.style.webkitTransform = 'rotateY(29deg) rotateX(-387.65deg)';
-          cardWrapper.style.mozTransform = 'rotateY(29deg) rotateX(-387.65deg)';
-      });
+        // Combine the initial rotation with the calculated rotation
+        cardWrapper.style.transform = `rotateY(${initialRotateY + rotateY}deg) rotateX(${initialRotateX + rotateX}deg)`;
+        cardWrapper.style.webkitTransform = `rotateY(${initialRotateY + rotateY}deg) rotateX(${initialRotateX + rotateX}deg)`;
+        cardWrapper.style.mozTransform = `rotateY(${initialRotateY + rotateY}deg) rotateX(${initialRotateX + rotateX}deg)`;
     });
+
+    cardWrapper.addEventListener("mouseleave", function() {
+        // Resetting the transform properties to the original values
+        cardWrapper.style.transform = `rotateY(${initialRotateY}deg) rotateX(${initialRotateX}deg)`;
+        cardWrapper.style.webkitTransform = `rotateY(${initialRotateY}deg) rotateX(${initialRotateX}deg)`;
+        cardWrapper.style.mozTransform = `rotateY(${initialRotateY}deg) rotateX(${initialRotateX}deg)`;
+    });
+});
 
   }, []);
   
@@ -80,31 +83,31 @@ const AppDetails = () => {
                 <Card
                   imageSrc="/images/Icon1Details.png"
                   info="AI-powered matchmaking"
-                  cardStyle = {{position: 'relative', bottom: '398%', left: "38%" , zIndex: 1 , whiteSpace: "nowrap"}}
+                  cardStyle = {{position: 'relative', bottom: '385%', left: "37%" , zIndex: 1 , whiteSpace: "nowrap"}}
                   id = 'test1'
                 />
               </div>
-              <div className="col-sm-8 col-md-6 col-lg-6">
+              <div className="col-sm-8 col-md-6 col-lg-6 card_wrapper2">
                 <Card
                   imageSrc="/images/Icon2Details.png"
                   info="OTC secondary market for early-stage equities"
-                  cardStyle = {{position: 'relative', bottom: '234%', left: "-90%" , zIndex: 4}}
+                  cardStyle = {{position: 'relative', bottom: '190%', left: "-93%" , zIndex: 4}}
                   id = 'test2'
                 />
               </div>
-              <div className="col-sm-8 col-md-6 col-lg-6">
+              <div className="col-sm-8 col-md-6 col-lg-6 card_wrapper3">
                 <Card
                   imageSrc="/images/Icon3Details.png"
                   info="AI tools for startups"
-                  cardStyle = {{position: 'relative', bottom: '316%', left: "188%", zIndex: 4}}
+                  cardStyle = {{position: 'relative', bottom: '247%', left: "221%", zIndex: 4}}
                   id = 'test3'
                 />
               </div>
-              <div className="col-sm-8 col-md-6 col-lg-6">
+              <div className="col-sm-8 col-md-6 col-lg-6 card_wrapper4">
                 <Card
                   imageSrc="/images/Icon4Details.png"
                   info="AI-powered automated startup scoring"
-                  cardStyle = {{position: 'relative', bottom: '503%', left: "120%" ,zIndex: 4}}
+                  cardStyle = {{position: 'relative', bottom: '448%', left: "135%" ,zIndex: 4}}
                   id = 'test4'
                 />
               </div>

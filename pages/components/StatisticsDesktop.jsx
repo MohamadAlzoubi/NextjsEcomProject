@@ -17,7 +17,7 @@ const Card = ({ imageSrc, info, cardStyle , para , classExtra}) => {
 
 const StatisticsDesktop = () => {
   return (
-    <div className="stat_container" style={{display : 'flex' , flexWrap: 'wrap'}}>
+    <div className="stat_container desktop_view" style={{display : 'flex' , flexWrap: 'wrap'}}>
     <div className="backText">
           <div className="backTextValue"> Unimatch in numbers</div>
       </div>

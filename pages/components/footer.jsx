@@ -45,7 +45,6 @@ const Footer = () => {
                 <a href="#" className="nav_links">Inside the app</a>
               </div>
             </div>
-            <div className='row bottom_text'>Made by <span><a style={{color : 'white' , textDecoration : "underline"}} >Karankola</a></span></div>
             </div>
           </div>
            

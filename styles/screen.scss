@@ -92,14 +92,89 @@
 
   @media (max-width: 414px) {
 
+    .moving-element{
+        top: 0px !important;
+        left: 0px;
+    }
+    .timeline-container , .app_details , .gallery_wrapper , .banner{
+         max-width: 414px !important;
+    }
     .mobile_view{
         display: block;
     }
 
     .desktop_view{
-        display: none;
+        display: none !important;
     }
 
+    .problem_text_mobile{
+        color: rgba(26, 26, 26, 0.25);
+        font-family: "SFT";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 112%; /* 44.8px */
+        letter-spacing: -1.6px;
+        width: 293px;
+
+        span {
+            color: #1A1A1A;
+            font-family: "SFT";
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 112%;
+            letter-spacing: -1.6px;
+        }
+        
+    }
+
+    .swiper_statistics_wrapper_mobile{
+
+        .backTextValue{
+            font-size: 73px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 92%; /* 67.16px */
+            letter-spacing: -2.92px;
+            white-space: wrap;
+        }
+        .cards_group_wrapper{
+            display: flex;
+            width: 94%;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            .card-text{
+                font-size: 52px;
+                font-style: normal;
+                font-weight: 300;
+                line-height: 120%; /* 62.4px */
+                letter-spacing: -2.08px;
+                margin-top: 0px !important;
+            }
+            .card{
+                border-radius: 26px;
+                height: 216px !important;
+                margin: 5px;
+            }
+
+            img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        img {
+            width: 339px;
+            height: 428px;
+        }
+        .arrows_stat{
+            width: 52px;
+            height: 48px;
+        }
+
+        
+    }
 
     .banner {
 
@@ -137,18 +212,108 @@
     }
 
     .gallery_wrapper {
-        height: 446px;
+        height: 545px;
         .gallery > img {
             width: 76%;
             height: 72%;
             transform-origin: 10% 251.7%;
             grid-area: 1/2;
         }
+        .howItWorks{
+            font-size: 40px;
+        }
+        .moving-element{
+            width: 252px;
+            height: 325px;
+        }
+
+        .circle-container{
+            transform: translate3d(0px, 0px, 6px) rotate(317deg);
+            align-items: center;
+            display: flex;
+            height: 40% !important;
+            width: 29%;
+            top: 1011px;
+            left: -116px;
+        }
     }
 
     .app_details{
-        display: none;
+        margin: 80px auto;
+        h1 {
+            font-size: 40px;
+            width: 295px;
+            font-style: normal;
+            font-weight: 500; 
+            line-height: 112%; /* 44.8px */
+        }
+
+        .iphone_image{
+            width: 288px !important;
+            height: 454px !important;
+        }
+
+        .card{
+            width: 153px !important;
+            height: 65px !important;
+            flex-shrink: 0;
+            border-radius: 12px !important;
+
+            .card-text{
+                font-size: 13px !important;
+                font-weight: 400;
+                line-height: 14px !important;
+                letter-spacing: -0.04em;
+                text-align: left;
+                width: 138px !important;
+                top: -29px;
+                position: relative;
+                left: 22px;
+            }
+
+            img {
+                height: 22px;
+                width: 22px;
+                left: -12px;
+                position: relative;
+                top: -12px;
+            }
+        }
+
+        .card_wrapper1{
+            .card {
+                bottom: 756% !important;
+                left: -1% !important;
+            }
+            
+        }
+
+        .card_wrapper2{
+            
+            .card {
+                bottom: 565% !important;
+                left: -1% !important;
+            }
+        }
+
+        .card_wrapper3{
+            .card {
+                bottom: 527% !important;
+                left: 50% !important;
+            }
+        }
+
+        .card_wrapper4{
+            .card {
+                bottom: 945% !important;
+                left: 48% !important;
+            }
+        }
+
+
     }
+
+
 
     .milestones-container {
         display: block;
@@ -162,9 +327,36 @@
         }
     }
 
-    .timeline-container_header {
+    .axis-label{
+        bottom: 15em;
+        .result{
+            left: 21px;
+        }
+        
+    }
+    .axis-label.time{
+        bottom: 9px;
+        left: 92%;
+    }
+    .q_text{
+        font-size: 12px !important;
+        font-style: normal !important;
+        font-weight: 400 !important;
+        line-height: 14.4px !important; /* 14.4px */
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        padding-left: 12px !important;
+        padding-right: 21px !important;
+        white-space: nowrap !important;
+        }
 
-        .header_text{
+    .timeline-container_header {
+        position: relative;
+        .nasdaq_image{
+            display: none;
+        }
+    }
+    .header_text{
         font-family: "SFT";
         font-size: 40px;
         font-weight: 500;
@@ -173,18 +365,54 @@
         text-align: left;
         }
 
-        .nasdaq_image{
-            display: none;
+    .timeline-container{
+        width: 86.5%;
+        height: 217px;
+
+        .separator{
+            border: 1px solid rgba(217, 217, 217, 0.23921)
         }
     }
+
+    .q4 , .h2 , .h1 , .q3{
+        width: 22%;
+        height: 20%;
+        padding: 0px;
+    }
+
+    .h1{
+        left: 22% !important;
+        top: 82px !important;
+    }
+    .h2{
+        top: 38px !important;
+        right: -66% !important;
+    }
+    .q3{
+        top: 175px !important;
+    }
+    .q4{
+        left: -21% !important;
+        top: 130px !important;
+    }
+
+    .sep1 {
+        top: 126px !important;
+    }
+
+    .sep3 {
+        top: 79px !important;
+    }
+
+    .emps_header{
+        white-space: nowrap;
+    }
+
 
     footer .request_pitch .sub_header{
         width: 297px;
     }
 
-    .swiper_statistics_wrapper{
-        display: none;
-    }
     
   }
 

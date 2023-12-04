@@ -52,14 +52,15 @@ const Banner = ({ onOpenModal }) => {
             </li>
             <li className='middle_list'>
             <div className="row animated-element">
-              <h1> AI app where startups <br/>and investors find each other</h1>
+              <h1> AI app where startups
+                and investors find each other</h1>
             </div>
             <div className="row animated-element">
-              <p className="header_text_gray">It’s like <span><b className="bold">Tinder</b></span> <span><img src="./images/plus.png"/></span> <span><b className="bold">LinkedIn</b></span> for the LinkedIn <span><b className="bold">venture capital sector</b></span></p>
+              <p>It’s like <span><b>Tinder</b></span> <span><img src="./images/plus.png"/></span> <span><b>LinkedIn</b></span> for the LinkedIn <span><b>venture capital sector</b></span></p>
             </div>
             <div className="row buttons_banner_group animated-element">
-              <button type='button' className='banner_buttons '>Try it<span><img src="./images/bannerIcon.png"/></span></button>
               <button type='button' className='banner_buttons' onClick={onOpenModal}>Invest <span><img src="./images/bannerIcon.png"/></span></button>
+              <button type='button' className='banner_buttons '>Try it<span><img src="./images/bannerIcon.png"/></span></button>
             </div>
             <img className="banner_image animateFromDownToTop" id="image"src="./images/iphone14.png" alt="" />
             </li>
@@ -73,7 +74,48 @@ const Banner = ({ onOpenModal }) => {
           </ul>
           
         </div>
-
+        <div className="mobile_view">
+        <div className="problem_text_mobile"> <span>Problems</span> we address</div>
+        <Swiper
+        slidesPerView={1}
+        spaceBetween={3}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+        }}
+        modules={[Pagination]}
+        className="mySwiper"
+        >
+          <SwiperSlide> 
+            <img className="" id='' src="./images/startupsM.png"/>
+          </SwiperSlide>
+          <SwiperSlide> 
+            <img className="s" id='' src="./images/expertsM.png" />
+          </SwiperSlide>
+        </Swiper>
+        <div className="control_group">
+          <div className="arrows_group">
+            <img
+              src="./images/arrow-left.png"
+              className="arrows_stat"
+              alt=""
+            
+            />
+            <img
+              src="./images/arrow-right.png"
+              className="arrows_stat"
+              alt=""
+            
+            />
+          </div>
+        <div className="loader-line"></div>
+        </div>
+      </div>
       </div>
       </div>
       

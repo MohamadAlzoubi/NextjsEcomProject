@@ -36,8 +36,6 @@ html.lenis {
   }
 
 .banner {
-    padding-bottom: 250px;
-    padding-top: 17px;
     max-width: 1800px;
     margin: auto;
     width: 97%;
@@ -54,7 +52,7 @@ html.lenis {
         width: 100%;
         .left_list{
             width: 5%;
-            top: 1479px;
+            top: 731px;
             position: relative;
             left: -51px;
             z-index: 2;
@@ -63,7 +61,7 @@ html.lenis {
         .right_list{
             position: relative;
             width: 5%;
-            top: 1479px;
+            top: 737px;
             right: 255px;
             z-index: 2;
         }
@@ -71,6 +69,36 @@ html.lenis {
         .middle_list{
             height: 2800px;
             width: 80%;
+
+            h1 {
+                color: #1A1A1A;
+                text-align: center;
+                font-size: 72px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 112%; /* 80.64px */
+                letter-spacing: -2.88px;
+                margin-bottom: 32px;
+            }
+
+            .header_text_gray{
+                color: rgba(26, 26, 26, 0.30);
+                text-align: center;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%; /* 28.8px */
+                letter-spacing: -0.72px;
+                margin-bottom: 54px;
+            }
+            .bold{
+                color: #1A1A1A;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%;
+                letter-spacing: -0.72px;
+            }
         }
     }
 
@@ -280,7 +308,7 @@ html.lenis {
     background-position-y: 505px;
     z-index: 2;
     position: relative;
-
+    margin-top: 108px;
 
     .howItWorks{
         color: var(--5, #FFF);
@@ -384,6 +412,7 @@ html.lenis {
     text-align: left;
     color: rgba(26, 26, 26, 0.4);
     width: 446px;
+    margin-top: 700px;
 
 }
 
@@ -397,6 +426,7 @@ html.lenis {
     text-align: left;
     position: relative;
     width: 472px;
+    margin-top: 673px;
 }
 
 .problem_text {
@@ -456,7 +486,7 @@ html.lenis {
     display: flex;
     margin-left: 5px;
     cursor: pointer;
-    margin-top: 624px;
+    margin-top: 445px;
     width: 235px;
 }
 .banner_buttons_ {

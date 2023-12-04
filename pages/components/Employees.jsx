@@ -24,30 +24,30 @@ const Employees = () => {
     <div className="swiper_wrapper">
     <div className="row emps_header">
         <h1 className="header_text">C-level team</h1>
-        <div className="arrows_group">
+        <div className="arrows_group desktop_view">
             <img src="./images/arrow-left.png" className="nasdaq_image"alt="" onClick={goPrev}/>
             <img src="./images/arrow-right.png" className="nasdaq_image"alt="" onClick={goNext} />
         </div>
     </div>
     <Swiper
        onSwiper={(swiper) => (swiperRef.current = swiper)}
-       slidesPerView={2}
-       spaceBetween={3}
+       slidesPerView={4}
+       spaceBetween={40}
        navigation={true}
        pagination={{
          clickable: true,
        }}
        breakpoints={{
-         640: {
+         414: {
            slidesPerView: 1,
-           spaceBetween: 20,
+           spaceBetween: 15,
          },
          768: {
            slidesPerView: 3,
            spaceBetween: 40,
          },
          1024: {
-           slidesPerView: 5,
+           slidesPerView: 4,
            spaceBetween: 35,
          },
        }}
@@ -233,6 +233,25 @@ const Employees = () => {
         </div>
          </SwiperSlide>
        </Swiper>
+       <div className="control_group">
+      <div className="arrows_group">
+        
+        <img
+          src="./images/arrow-left.png"
+          className="arrows_stat"
+          alt=""
+          onClick={goPrev}
+        />
+        <img
+          src="./images/arrow-right.png"
+          className="arrows_stat"
+          alt=""
+          onClick={goNext}
+        />
+      </div>
+      <div className="loader-line"></div>
+
+      </div>
        </div>
   );
 };
