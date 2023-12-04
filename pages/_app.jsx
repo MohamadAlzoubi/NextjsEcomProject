@@ -8,6 +8,7 @@ import '../styles/LowerSection.scss';
 
 import '../styles/pieChart.scss';
 import '../styles/modal.scss';
+import '../styles/screen.scss';
 
 import React from 'react';
 

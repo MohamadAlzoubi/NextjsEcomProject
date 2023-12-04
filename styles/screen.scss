@@ -1,34 +1,8 @@
-@media (max-width: 1647px) {
-  
-    .banner {
-        .banner_image{
-            margin-left: 37.5%;
-        }
-        .inner-banner{
-            height: 275px;
-        }
-    }
-    
-  }
+
+
 
   @media (max-width: 1460px) {
   
-    .banner {
-        .banner_image{
-            margin-left: 37.5%;
-        }
-        .inner-banner{
-            height: 275px;
-        }
-    }
-    
-  }
-
-  @media (max-width: 1460px) {
-  
-    .banner .banner_image{
-        margin-left: 35.5%;
-    }
     .banner .inner-banner{
         height: 333px;
     }
@@ -36,9 +10,6 @@
 
   @media (max-width: 1224px) {
   
-    .banner .banner_image{
-        margin-left: 33.5%;
-    }
     .banner .inner-banner{
         height: 416px;
     }
@@ -52,6 +23,8 @@
     .image_details {
         right: -22px;
     }
+
+    
   
     .problem_text{
         font-size: 34px;
@@ -118,11 +91,38 @@
 
 
   @media (max-width: 414px) {
-    .banner .banner_image {
-        height: 510px;
-        margin-left: 0%;
-        margin-top: 121px;
+
+    .mobile_view{
+        display: block;
     }
+
+    .desktop_view{
+        display: none;
+    }
+
+
+    .banner {
+
+        .banner_image{
+            width: 275px;
+            height: 559px;
+            flex-shrink: 0;
+        }
+
+        .middle_list h1 {
+            font-size: 40px;
+        }
+
+        .inner-banner{
+            height: 61px;
+        }
+
+        .content{
+            height: 665px;
+        }
+    }
+    
+    
     .first_right_text {
         left: 7%;
         font-size: 15px;
@@ -187,3 +187,4 @@
     }
     
   }
+

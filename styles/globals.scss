@@ -65,33 +65,8 @@ a {
   color: #217BF4;
 }
 
-@media (max-width: 766px) {
-  .banner * {
-      text-align: center;
-      justify-content: center;
-  }
-
-  .banner{
-
-    h1 {
-      font-size:31px !important;
-    }
-  }
-
-  .section_why_us * {
-    text-align: center;
-    justify-content: center;
-  }
-
-  .section_why_us{
-    .dotted-list {
-      width: fit-content;
-    }
-  }
-
-  .achievements  * {
-    text-align: center;
-    justify-content: center;
-  }
+.mobile_view{
+  display: none;
 }
+
 

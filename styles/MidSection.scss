@@ -20,7 +20,7 @@
     img.iphone_image {
         width: 492px;
         height: 774px;
-        z-index: 2;
+        z-index: 0;
         background-image: url("../public/images/background2.png");
     }
 
@@ -98,6 +98,8 @@
             width: 448px;
             height: fit-content;
             background-color: #fffffff5;
+            transform: rotateY(29deg) rotateX(-387.65deg);
+            
             a {
                 color: #4A4A56;
             }
