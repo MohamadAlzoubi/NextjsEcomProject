@@ -1,52 +1,28 @@
 import React from "react";
 import Image from "next/image";
+import Button from "../components/Button";
 import logo from "../assets/img/logonew.png";
+import Send from "../assets/svg/Send";
 
 function Navbar() {
   return (
-    <nav className={`bg-red-500 navbar`}>
-      <div className="row">
-        <div className="col-md-1">
-          <div className="logo">
-            <Image src={logo} alt="Picture of the author" />
-          </div>
-        </div>
-        <div className="col-md-6">
-          <ul className={`nav-menu`}>
-            <li className="nav-option nav-menu-text">About</li>
-            <li className="nav-option nav-menu-text">Problems</li>
-            <li className="nav-option nav-menu-text">How it works</li>
-            <li className="dropdown nav-menu-text">Inside the app</li>
-            <li className="nav-option nav-menu-text">Tracking</li>
-            <li className="nav-option nav-menu-text">Team</li>
-          </ul>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-6">
-          <button className="nav-button">
-            Try it{" "}
-            <span>
-              <img src="./images/bannerIconWhite.png" />
-            </span>
-          </button>
-        </div>
-        <div className="col-md-6">
-          <button className="nav-button">
-            Invest{" "}
-            <span>
-              <img src="./images/bannerIconWhite.png" />
-            </span>
-          </button>
-        </div>
+    <nav className="flex justify-between px-11 py-7 w-full">
+      <div className="flex items-center gap-14">
+        <Image src={logo} alt="Picture of the author" />
+
+        <ul className="flex gap-11">
+          <li className="">About</li>
+          <li className="">Problems</li>
+          <li className="">How it works</li>
+          <li className="">Inside the app</li>
+          <li className="">Tracking</li>
+          <li className="">Team</li>
+        </ul>
       </div>
 
-      <div className={`menu-toggle`}>
-        <div className="bar"></div>
-        <div className="bar"></div>
-        <div className="bar"></div>
-
-        {/* Include elements inside the menu toggle */}
+      <div className="flex items-center gap-2">
+        <Button variant="light" text="Try it" icon={<Send className="fill-gray-500" />} />
+        <Button variant="light" text="Invest" icon={<Send className="fill-gray-500" />} />
       </div>
     </nav>
   );
