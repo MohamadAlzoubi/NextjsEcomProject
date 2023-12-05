@@ -1,16 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'SFT', sans-serif;
-  
+  font-family: "SFT", sans-serif;
 }
-
 
 a {
   color: inherit;
@@ -27,7 +26,7 @@ a {
   }
   body {
     color: black;
-    background: #FFFFFF;
+    background: #ffffff;
   }
 }
 
@@ -40,7 +39,7 @@ a {
 
 .separator {
   opacity: 0.1;
-  border: 1px solid #217BF4;
+  border: 1px solid #217bf4;
 }
 
 .container_custom {
@@ -49,32 +48,28 @@ a {
   max-width: 1440px;
 }
 
-
-.nav_titles{
-  font-family: 'Inter';
+.nav_titles {
+  font-family: "Inter";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 18px;
   /* identical to box height, or 100% */
 
-
-  color: #217BF4;
+  color: #217bf4;
 }
 
-.mobile_view{
+.mobile_view {
   display: none;
 }
-.desktop_view{
+.desktop_view {
   display: block;
 }
 
-.control_group{
+.control_group {
   display: none;
   align-content: center;
   flex-wrap: nowrap;
   flex-direction: row-reverse;
   width: 90%;
 }
-
-
