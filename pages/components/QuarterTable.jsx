@@ -78,14 +78,15 @@ const QuarterTable = () => {
         <h1 className="header_text">Roadmap 2024</h1>
         <img src="./images/nasdaq.png" className="nasdaq_image"alt="" />
     </div>
-    <div className="timeline-container">
+    <div className='timeline-container'>
+    <div className="timeline-inner_wrapper">    
     <div className="row">
-        <div className={`timeline-section h2 ${selectedSection === 'h2' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h2')} style={{position: 'relative', top: '52px'}}>
+        <div className={`timeline-section h2 ${selectedSection === 'h2' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h2')}>
             <div className="q_text">
                 H2 2024
             </div>
         </div>
-        <div className={`timeline-section h1 ${selectedSection === 'h1' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h1')} style={{position: 'relative', top: '114px'}}>
+        <div className={`timeline-section h1 ${selectedSection === 'h1' ? 'active' : 'gray'}`} onClick={() => handleSectionClick('h1')}>
             <div className="q_text">
                 H1 2024
             </div>
@@ -101,16 +102,18 @@ const QuarterTable = () => {
             </div>
         </div>
     </div>
-    <div className="separator sep1" style={{top: "196px"}}></div>
+    <div className="separator sep1" style={{top: "0px"}}></div>
 
-    <div className="separator sep2" style={{top: "95px"}}></div>
+    <div className="separator sep2" style={{top: "0px"}}></div>
 
-    <div className="separator sep3" style={{top: "-9px"}}></div>
+    <div className="separator sep3" style={{top: "0px"}}></div>
 
   
     <span className="axis-label result">Result</span>
     <span className="axis-label time">Time</span>
     </div>
+        </div>
+    
 
         {contentMap[selectedSection]}
     </>

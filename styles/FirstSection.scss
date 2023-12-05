@@ -1,22 +1,5 @@
 
-@keyframes backGroundPlate {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-.backGroundPlate {
-    background: #FAFAFA;
 
-    background: linear-gradient(-45deg, #F1FBFE, #EFF2FF, #F1FBFE, #EFF2FF);
-    background-size: 200% 200%;
-    animation: backGroundPlate 5s ease infinite;
-    height: 760px;
-    width: 100%;position: absolute;
-    bottom: -1816px;
-    z-index: 1;
-    max-width: 1800px;
-    margin: auto;
-}
 
 
 html.lenis {
