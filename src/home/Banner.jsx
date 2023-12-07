@@ -16,7 +16,7 @@ function Card({ children, className }) {
 
 function Banner() {
   return (
-    <div>
+    <div className="max-w-[1800px] m-auto">
       <div
         className="flex flex-col items-center pt-16 w-full rounded-[108px] mt-8"
         style={{ background: "linear-gradient(-45deg, #f1fbfe, #eff2ff, #f1fbfe, #eff2ff)" }}>

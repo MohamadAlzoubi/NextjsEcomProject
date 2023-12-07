@@ -64,7 +64,7 @@ function What() {
   ];
 
   return (
-    <div className="flex px-14 pt-10 pb-40 items-center flex-col">
+    <div className="flex px-14 pt-10 pb-40 items-center flex-col max-w-[1800px] m-auto">
       <h2 className="text-black text-7xl">What's inside the app?</h2>
 
       <div

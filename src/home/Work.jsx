@@ -52,7 +52,7 @@ function Work() {
   ];
 
   return (
-    <div className="flex px-14 pt-10 pb-40">
+    <div className="flex px-14 pt-10 pb-40 max-w-[1800px] m-auto">
       <div className="bg-black rounded-[100px] w-full h-[1026px] flex justify-start pt-28 flex-col items-center overflow-hidden">
         <h2 className="text-white text-7xl">How it Works</h2>
 

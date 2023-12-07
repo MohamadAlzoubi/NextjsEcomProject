@@ -26,7 +26,7 @@ const Team = () => {
   };
 
   return (
-    <div className="w-full mt-[309px] p-4">
+    <div className="max-w-[1800px] m-auto mt-[309px] p-4">
       <div className="flex justify-between mb-[54px]">
         <h1 className="text-6xl text-[#1A1A1A]">C-level team</h1>
         <div className="flex">

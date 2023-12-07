@@ -6,7 +6,7 @@ import Send from "../assets/svg/Send";
 
 function Navbar() {
   return (
-    <nav className="flex justify-between px-11 py-7 w-full">
+    <nav className="flex justify-between px-11 py-7 max-w-[1800px] m-auto">
       <div className="flex items-center gap-14">
         <Image src={logo} alt="Picture of the author" />
 

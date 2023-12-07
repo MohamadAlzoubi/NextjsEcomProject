@@ -6,7 +6,7 @@ import Send from "../assets/svg/Send";
 
 function Footer() {
   return (
-    <div className="bg-[#1A1A1A] rounded-[100px] my-[54px] w-full py-20 px-20">
+    <div className="bg-[#1A1A1A] rounded-[100px] my-[54px] max-w-[1800px] m-auto py-20 px-20">
       <div className="bg-white text-center rounded-[70px] py-20">
         <h1 className="text-[66px]">Unimatch is raising Pre-seed</h1>
         <p className="text-[#1A1A1A] text-3xl w-1/2 mx-auto mt-11">

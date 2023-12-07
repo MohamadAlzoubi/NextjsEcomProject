@@ -5,7 +5,7 @@ import Image from "next/image";
 
 function RoadMap() {
   return (
-    <div className="w-full mt-36 p-9">
+    <div className="w-full mt-36 p-9 max-w-[1800px] m-auto">
       <div className="flex justify-between">
         <h1 className="text-7xl w-1/2">Roadmap 2024</h1>
         <Image src={iphone} className="w-1/7 h-[75px]" />
