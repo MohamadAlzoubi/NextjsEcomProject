@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import React from "react";
+import React, {useRef , useState , useEffect} from "react";
 import Navbar from "../components/navbar";
 import Circle from "../assets/svg/Circle";
 import Button from "../components/Button";
@@ -15,11 +15,42 @@ function Card({ children, className }) {
 }
 
 function Banner() {
+  const parallax = useRef(null)
+  const [rotate, setRotate] = useState(0)
+  const PAGES = 5
+  useEffect(() => {
+    const handleScroll = (e) => {
+      const height = parallax.current.space
+      const scrollablePages = PAGES - 1 // because you can't scroll past the last page 
+      const scrollHeight = height * scrollablePages
+
+      const scrollTop = e.target.scrollTop
+      const percentScrolled = scrollTop / scrollHeight
+      const currentPage = Math.floor(percentScrolled * scrollablePages)
+      const currentPageScrollTop = scrollTop - (height * (currentPage))
+      const currentPagePercent = currentPageScrollTop / height
+
+      // because the ParallaxLayer below has an `offset` of `0`
+      console.log(currentPage)
+      if (currentPage === 0) {
+        setRotate(currentPagePercent)
+      }
+    }
+
+    const container = parallax.current.container.current
+    container.addEventListener('scroll', handleScroll)
+
+    return () => {
+      container.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
     <div>
       <Navbar />
 
       <Parallax
+      ref={parallax}
         pages={5}
         config={{}}
         onChange={(e) => {
@@ -51,22 +82,35 @@ function Banner() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 0.25, end: 3 }} className="flex flex-col items-center justify-start" style={{ top: "250px" }}>
+        <ParallaxLayer  sticky={{ start: 0.25, end: 3 }} className="flex flex-col items-center justify-start" style={{ top: "250px" }}>
           <Image src={iphone} alt="iphone" width={407} className="" />
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 1, end: 2 }} speed={1} className="flex items-center justify-around">
+        <ParallaxLayer sticky={{ start: 0, end: 1 }} speed={1} className="flex items-center justify-around " >
           <Card className="">
-            So that the best breakthrough ideas and technologies emerge faster and drive technological progress and humanity towards a
-            better future
+          <div className="text-[#1A1A1A] text-7xl">
+              <p>
+                <span className="text-[#1a1a1a4d]">We’re disrupting and building</span> a new paradigm
+                <span className="text-[#1a1a1a4d]">for VC market</span>
+              </p>
+            </div>
           </Card>
           <Card className="">
-            So that the best breakthrough ideas and technologies emerge faster and drive technological progress and humanity towards a
+          <div className="text-[#1A1A1A] text-3xl">
+              <p>
+                <span className="text-[#1a1a1a4d]">So that</span> The best breakthrough ideas 
+                <span className="text-[#1a1a1a4d]">and technologies emerge faster and</span>
+
+              </p>
+              <p>
+              and drive technological progress <span className="text-[#1a1a1a4d]">and humanity towards</span> a
             better future
+              </p>
+            </div>
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 2.5, end: 3 }} speed={1.5} className="flex items-center justify-around">
+        <ParallaxLayer sticky={{ start: 2.5, end: 3 }} speed={1.5} className="flex items-center justify-around ">
           <Card className="">Problems we adress</Card>
           <Card className="">Startups</Card>
         </ParallaxLayer>
