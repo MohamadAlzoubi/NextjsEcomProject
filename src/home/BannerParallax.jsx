@@ -3,55 +3,61 @@
 import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import React, {useRef , useState , useEffect} from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Navbar from "../components/navbar";
 import Circle from "../assets/svg/Circle";
 import Button from "../components/Button";
 import Send from "../assets/svg/Send";
 import iphone from "../assets/img/iphone14.png";
+import Footer from "../home/Footer";
+import Team from "../home/Team";
+import What from "../home/What";
+import Work from "../home/Work";
+import Statistics from "../home/Statistics";
+import RoadMap from "../home/RoadMap";
 
 function Card({ children, className }) {
   return <div className={twMerge("flex items-center justify-center text-xl p-8 w-1/6 rounded-xl z-50", className)}>{children}</div>;
 }
 
 function Banner() {
-  const parallax = useRef(null)
-  const [rotate, setRotate] = useState(0)
-  const PAGES = 5
-  useEffect(() => {
-    const handleScroll = (e) => {
-      const height = parallax.current.space
-      const scrollablePages = PAGES - 1 // because you can't scroll past the last page 
-      const scrollHeight = height * scrollablePages
+  const parallax = useRef(null);
+  const [rotate, setRotate] = useState(0);
+  const PAGES = 5;
+  // useEffect(() => {
+  //   const handleScroll = (e) => {
+  //     const height = parallax.current.space;
+  //     const scrollablePages = PAGES - 1; // because you can't scroll past the last page
+  //     const scrollHeight = height * scrollablePages;
 
-      const scrollTop = e.target.scrollTop
-      const percentScrolled = scrollTop / scrollHeight
-      const currentPage = Math.floor(percentScrolled * scrollablePages)
-      const currentPageScrollTop = scrollTop - (height * (currentPage))
-      const currentPagePercent = currentPageScrollTop / height
+  //     const scrollTop = e.target.scrollTop;
+  //     const percentScrolled = scrollTop / scrollHeight;
+  //     const currentPage = Math.floor(percentScrolled * scrollablePages);
+  //     const currentPageScrollTop = scrollTop - height * currentPage;
+  //     const currentPagePercent = currentPageScrollTop / height;
 
-      // because the ParallaxLayer below has an `offset` of `0`
-      console.log(currentPage)
-      if (currentPage === 0) {
-        setRotate(currentPagePercent)
-      }
-    }
+  //     // because the ParallaxLayer below has an `offset` of `0`
+  //     console.log(currentPage);
+  //     if (currentPage === 0) {
+  //       setRotate(currentPagePercent);
+  //     }
+  //   };
 
-    const container = parallax.current.container.current
-    container.addEventListener('scroll', handleScroll)
+  //   const container = parallax.current.container.current;
+  //   container.addEventListener("scroll", handleScroll);
 
-    return () => {
-      container.removeEventListener('scroll', handleScroll)
-    }
-  }, [])
+  //   return () => {
+  //     container.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
 
   return (
     <div>
       <Navbar />
 
-      <Parallax
-      ref={parallax}
-        pages={5}
+      {/* <Parallax
+        ref={parallax}
+        pages={7}
         config={{}}
         onChange={(e) => {
           console.log(e);
@@ -82,13 +88,13 @@ function Banner() {
           </div>
         </ParallaxLayer>
 
-        <ParallaxLayer  sticky={{ start: 0.25, end: 3 }} className="flex flex-col items-center justify-start" style={{ top: "250px" }}>
+        <ParallaxLayer sticky={{ start: 0.25, end: 3 }} className="flex flex-col items-center justify-start" style={{ top: "250px" }}>
           <Image src={iphone} alt="iphone" width={407} className="" />
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 0, end: 1 }} speed={1} className="flex items-center justify-around " >
+        <ParallaxLayer sticky={{ start: 1, end: 2 }} speed={1} className="flex items-center justify-around ">
           <Card className="">
-          <div className="text-[#1A1A1A] text-7xl">
+            <div className="text-[#1A1A1A] text-7xl">
               <p>
                 <span className="text-[#1a1a1a4d]">We’re disrupting and building</span> a new paradigm
                 <span className="text-[#1a1a1a4d]">for VC market</span>
@@ -96,15 +102,13 @@ function Banner() {
             </div>
           </Card>
           <Card className="">
-          <div className="text-[#1A1A1A] text-3xl">
+            <div className="text-[#1A1A1A] text-3xl">
               <p>
-                <span className="text-[#1a1a1a4d]">So that</span> The best breakthrough ideas 
+                <span className="text-[#1a1a1a4d]">So that</span> The best breakthrough ideas
                 <span className="text-[#1a1a1a4d]">and technologies emerge faster and</span>
-
               </p>
               <p>
-              and drive technological progress <span className="text-[#1a1a1a4d]">and humanity towards</span> a
-            better future
+                and drive technological progress <span className="text-[#1a1a1a4d]">and humanity towards</span> a better future
               </p>
             </div>
           </Card>
@@ -118,7 +122,11 @@ function Banner() {
         <ParallaxLayer sticky={{ start: 3, end: 4 }} speed={1.5} className="flex items-center justify-start">
           <div className="w-20 h-20 bg-red-200"></div>
         </ParallaxLayer>
-      </Parallax>
+      </Parallax> */}
+      <Statistics />
+      <RoadMap />
+      <Team />
+      <Footer />
     </div>
   );
 }

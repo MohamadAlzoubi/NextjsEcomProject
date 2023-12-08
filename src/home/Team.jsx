@@ -257,13 +257,6 @@ const Team = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-      <div className="control_group">
-        <div className="arrows_group">
-          <img src="./images/arrow-left.png" className="arrows_stat" alt="" onClick={goPrev} />
-          <img src="./images/arrow-right.png" className="arrows_stat" alt="" onClick={goNext} />
-        </div>
-        <div className="loader-line"></div>
-      </div>
     </div>
   );
 };

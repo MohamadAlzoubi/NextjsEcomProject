@@ -4,8 +4,7 @@ import What from "../home/What";
 import Work from "../home/Work";
 import Statistics from "../home/Statistics";
 import RoadMap from "../home/RoadMap";
-import Team from "../home/Team";
-import Footer from "../home/Footer";
+
 import Banner from "../home/BannerParallax";
 
 export default function Home() {
@@ -13,6 +12,7 @@ export default function Home() {
     <>
       {/* <Navbar /> */}
       <Banner />
+
       {/* <Work />
       <What /> */}
       {/* <Statistics/>

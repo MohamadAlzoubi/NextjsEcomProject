@@ -1,11 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@font-face {
+  font-family: "SFT"; /* Give a name to your font */
+  src: url("/fonts/SFT/SFT-Schrifted-Sans-TRIAL-Var-BF6413e215ec95b.ttf") format("woff2"),
+    /* Modern Browsers */ url("/fonts/SFT/SFTSchriftedSansTRIAL-BlackComp-BF6413e2144d679.woff") format("woff"),
+    /* Older Browsers */ url("/fonts/SFT/SFT-Schrifted-Sans-TRIAL-Var-BF6413e215ec95b.ttf") format("truetype"); /* Fallback */
+  font-weight: normal;
+  font-style: normal;
+}
 .bg-custom-gradient_stat {
   background: linear-gradient(180deg, rgba(251, 250, 250, 0.34) 0%, rgba(251, 250, 250, 0.23) 100%);
 }
 
 body {
-    font-family: "SFT";
+  font-family: "SFT";
 }
