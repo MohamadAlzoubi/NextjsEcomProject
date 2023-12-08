@@ -67,33 +67,15 @@
 
 }
 
-.timeline-container{
-  padding: 54px;
-  border-radius: 50px;
-
-  width: 96%;
-  margin: auto;
-  max-width: 1800px;
-}
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
 .timeline-container {
-  background: #FAFAFA;
-  border-radius: 45px;
-  background: linear-gradient(-45deg, #F1FBFE, #EFF2FF, #F1FBFE, #EFF2FF);
-  background-size: 200% 200%;
-  animation: gradient 5s ease infinite;
-}
-.timeline-inner_wrapper {
     position: relative;
+    width: 90%;
     max-width: 1800px;
-    height: 400px;
+    height: 300px;
+    margin: auto;
     border-left: 2px solid #000;
     border-bottom: 2px solid #000;
+    background-image: url("../public/images/background.png");
 
     .active {
         background-color: #1A1A1A;
@@ -117,7 +99,7 @@
         opacity: unset;
         border: 2px solid #d9d9d93d;
         position: absolute;
-        width: 99%;
+        width: 100%;
     }
 
   }
@@ -128,15 +110,13 @@
     margin: auto;
     max-width: 1800px;
     margin-top: 71px;
-    margin-bottom: 55px;
 
     .nasdaq_image{
         width: 264px;
         height: 75px;
     }
     .header_text{
-        width:fit-content;
-        padding-top: 10px;
+        width:fit-content
     }
     
 }
@@ -150,18 +130,6 @@
     transition: background-color 0.5s ease-out;
   }
 
-  .separator.sep1{
-    top: 99px !important;
-  }
-
-  .separator.sep2{
-    top: 297px !important;
-  }
-
-  .separator.sep3{
-    top: 201px !important;
-  }
-
   .timeline-section:hover {
 
     background-color: #1A1A1A;
@@ -170,37 +138,37 @@
   }
   .q3 {
     left: 0;
-    width: 24.7%;
+    width: 25.7%;
     height: 100px;
   }
   .q4 {
-    left: -24.5%;
-    width: 24.7%;
+    left: -25.5%;
+    width: 25.7%;
     height: 100px;
     margin-bottom: 4.7%;
-    top: 201px;
+    top: 97px;
     position: relative;
   }
   .h1 {
-    left: 24.7%;
-    width: 24.7%;
+    left: 26%;
+    width: 25.7%;
     height: 100px;
     margin-bottom: 9.7%;
     position: relative;
-    top: 102px;
+    top: -5px;
   }
   .h2 {
-    right: -73.8%;
-    width: 24.7%;
+    right: -77%;
+    width: 25.7%;
     height: 100px;
     margin-bottom: 14.5%;
     position: relative;
-    top: 1px;
+    top: -108px;
   }
   /* Labels */
   .axis-label {
     position: absolute;
-    bottom: 29em;
+    bottom: 21em;
     font-size: 0.75em;
     white-space: nowrap;
   }
