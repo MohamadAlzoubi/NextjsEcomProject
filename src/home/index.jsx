@@ -9,18 +9,19 @@ import Circle from "../assets/svg/Circle";
 import Button from "../components/Button";
 import Send from "../assets/svg/Send";
 import iphone from "../assets/img/iphone14.png";
-import Footer from "../home/Footer";
-import Team from "../home/Team";
-import What from "../home/What";
-import Work from "../home/Work";
-import Statistics from "../home/Statistics";
-import RoadMap from "../home/RoadMap";
+import Footer from "./Footer";
+import Team from "./Team";
+import What from "./What";
+import Work from "./Work";
+import Statistics from "./Statistics";
+import RoadMap from "./RoadMap";
+import Banner from "./Banner";
 
 function Card({ children, className }) {
   return <div className={twMerge("flex items-center justify-center text-xl p-8 w-1/6 rounded-xl z-50", className)}>{children}</div>;
 }
 
-function Banner() {
+function HomePage() {
   const parallax = useRef(null);
   const [rotate, setRotate] = useState(0);
   const PAGES = 5;
@@ -53,8 +54,6 @@ function Banner() {
 
   return (
     <div>
-      <Navbar />
-
       {/* <Parallax
         ref={parallax}
         pages={7}
@@ -123,12 +122,18 @@ function Banner() {
           <div className="w-20 h-20 bg-red-200"></div>
         </ParallaxLayer>
       </Parallax> */}
+
+      <Navbar />
+      <Banner />
+      <Work />
+      <What />
       <Statistics />
-      <RoadMap />
+
+      {/*    <RoadMap />
       <Team />
-      <Footer />
+      <Footer /> */}
     </div>
   );
 }
 
-export default Banner;
+export default HomePage;

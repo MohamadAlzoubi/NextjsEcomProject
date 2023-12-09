@@ -20,10 +20,10 @@ function StatisticChart({ className }) {
   };
   return (
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 504 504" className={`${className} donut-chart`}>
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" fontSize="10">
+      <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="black" fontSize="10">
         Your Text Here
       </text>
-      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="black" fontSize="8">
+      <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="black" fontSize="8">
         Your Text Here
       </text>
       <defs>
@@ -95,7 +95,7 @@ function StatisticChart({ className }) {
       </defs>
       <g mask="url(#mask)" fill="url(#linear-gradient)">
         <path
-          dataSegment="segment1"
+          datasegment="segment1"
           style={getSegmentStyle("segment1")}
           onMouseEnter={() => handleMouseEnter("segment1")}
           onMouseLeave={handleMouseLeave}
@@ -105,7 +105,7 @@ function StatisticChart({ className }) {
       </g>
       <g fill="#ecd6fd">
         <path
-          dataSegment="segment2"
+          datasegment="segment2"
           style={getSegmentStyle("segment2")}
           onMouseEnter={() => handleMouseEnter("segment2")}
           onMouseLeave={handleMouseLeave}
@@ -117,7 +117,7 @@ function StatisticChart({ className }) {
       </g>
       <g fill="url(#linear-gradient-2)">
         <path
-          dataSegment="segment3"
+          datasegment="segment3"
           style={getSegmentStyle("segment3")}
           onMouseEnter={() => handleMouseEnter("segment3")}
           onMouseLeave={handleMouseLeave}
@@ -129,7 +129,7 @@ function StatisticChart({ className }) {
       </g>
       <g mask="url(#mask-1)" fill="url(#linear-gradient-3)">
         <path
-          dataSegment="segment4"
+          datasegment="segment4"
           style={getSegmentStyle("segment4")}
           onMouseEnter={() => handleMouseEnter("segment4")}
           onMouseLeave={handleMouseLeave}
@@ -140,7 +140,7 @@ function StatisticChart({ className }) {
       </g>
       <g mask="url(#mask-2)" fill="url(#linear-gradient-4)">
         <path
-          dataSegment="segment5"
+          datasegment="segment5"
           style={getSegmentStyle("segment5")}
           onMouseEnter={() => handleMouseEnter("segment5")}
           onMouseLeave={handleMouseLeave}

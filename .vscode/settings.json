@@ -11,5 +11,6 @@
     "**/.project": true,
     "**/.settings": true,
     "**/node_modules": true
-  }
+  },
+  "cSpell.words": ["Schrifted"]
 }
