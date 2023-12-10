@@ -5,6 +5,7 @@ import Image from "next/image";
 import Button from "../components/Button";
 import logo from "../assets/img/logonew.png";
 import Send from "../assets/svg/Send";
+import { twMerge } from "tailwind-merge";
 
 function HamburgerMenu() {
   return (
@@ -15,12 +16,12 @@ function HamburgerMenu() {
   );
 }
 
-function Navbar() {
+function Navbar({ className }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
-      <nav className="flex justify-between px-11 py-7 max-w-[1800px] m-auto">
+      <nav className={twMerge("flex justify-between px-11 py-7 m-auto", className)}>
         <div className="flex items-center gap-14 w-full justify-between">
           <Image src={logo} alt="Picture of the author" />
 

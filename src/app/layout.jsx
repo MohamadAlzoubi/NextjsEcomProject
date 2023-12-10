@@ -54,8 +54,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/icon.svg" sizes="any" />
         <link rel="stylesheet" href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css" />
       </head>
-      <body>
-        <main className="">{children}</main>
+      <body className="w-full">
+        <main className="w-full">{children}</main>
         {/* <Footer className="overflow-hidden pb-16 pl-0 md:pb-0 ltr:md:pl-16" /> */}
       </body>
     </html>

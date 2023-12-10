@@ -2,10 +2,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
 import React from "react";
-import StatIcon from "../assets/svg/StatIcon";
-import StatisticChart from "../assets/svg/StatisticChart";
+import StatIcon from "../../assets/svg/StatIcon";
+import StatisticChart from "../../assets/svg/StatisticChart";
 import { twMerge } from "tailwind-merge";
-import Arrow from "../assets/svg/Arrow";
+import Arrow from "../../assets/svg/Arrow";
 
 function Card({ className, number, text }) {
   return (
@@ -95,17 +95,17 @@ function Mobile({ className }) {
         </div>
 
         <div className="flex gap-2">
-          <Arrow className="prev-statics w-[52px] h-[48px]" />
-          <Arrow className="next-statics -scale-x-100 w-[52px] h-[48px]" />
+          <Arrow className="prev-statics cursor-pointer w-[52px] h-[48px]" />
+          <Arrow className="next-statics cursor-pointer -scale-x-100 w-[52px] h-[48px]" />
         </div>
       </div>
     </div>
   );
 }
 
-function Statistics() {
+function Statistics({ className }) {
   return (
-    <div className="p-4 h-[1233px] max-w-[1800px] m-auto">
+    <div className={className}>
       <h1 className="text-center text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)]">Unimatch in numbers</h1>
 
       <Desktop className="hidden xl:block" />
