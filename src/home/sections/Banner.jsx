@@ -34,7 +34,7 @@ function Banner({ className }) {
         </div>
 
         <div className="mt-14 flex gap-2">
-          <Button variant="dark" text="Invest" icon={<Send className="fill-white" />} />
+          <Button variant="dark" text="Try it" icon={<Send className="fill-white" />} />
           <Button variant="dark" text="Invest" icon={<Send className="fill-white" />} />
         </div>
 

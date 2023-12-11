@@ -98,7 +98,7 @@ function DesktopHomePage() {
         </ParallaxLayer>
 
         <ParallaxLayer sticky={{ start: 0.75, end: 1.2 }} className="flex items-center justify-around relative">
-          <Card className="w-[42.5%] absolute left-0 bg-red-200">
+          <Card className="w-[42.5%] absolute left-0">
             <p className="text-[68px] leading-[76.16px]">
               <span className="text-[#1a1a1a4d]">
                 We’re disrupting <br /> and building
@@ -110,7 +110,7 @@ function DesktopHomePage() {
               </span>
             </p>
           </Card>
-          <Card className="w-[42.5%] absolute right-0 bg-red-200">
+          <Card className="w-[42.5%] absolute right-0">
             <p className="text-[28px] leading-[39.2px] w-[446px]">
               <span className="text-[#1a1a1a4d]">So that</span> The best breakthrough ideas{" "}
               <span className="text-[#1a1a1a4d]">and technologies emerge faster and</span> drive technological progress{" "}
@@ -119,13 +119,33 @@ function DesktopHomePage() {
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-around relative">
-          <Card className="w-[42.5%] absolute left-0 bg-red-200">
-            <p className="text-[68px] leading-[76.16px]">Problems we adress</p>
+        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-around relative background">
+          <Card className="w-[42.5%] absolute left-0">
+            <div className="flex flex-col gap-80">
+              <p className="text-[68px] leading-[76.16px]">Problems <br/> <span className="text-[#1a1a1a4d]">we address</span></p>
+            <div className="flex gap-4">
+              <p className={twMerge("text-lg text-[#00000070]" , phoneSlide !== "1" && "text-black")}>Startups</p> <p className={twMerge("text-lg text-[#00000070]" , phoneSlide === "1" && "text-black")}>Investors & Experts</p>
+            </div>
+            </div>
+            
           </Card>
-          <Card className="w-[42.5%] absolute right-0 bg-red-200">
+          <Card className="w-[42.5%] absolute right-0">
             {phoneSlide === 1 ? (
               <div className="mt-4 xl:w-1/2">
+                <p className="text-[32px] leading-[35.84px] mb-[36px]">Investors</p>
+                <Item
+                  title="Hundreds of pitchdecks per month are coming in, most of which are irrelevant and a lot of resource is consumed in processing them"
+                  index={1}
+                />
+                <Item title="There are lots of scam projects around and you have to spend a lot of time researching applications, gathering information from different sources" index={2} />
+                <Item title="There is no clear and safe infrastructure for the secondary allocations market" index={3} />
+                <p className="text-[32px] leading-[35.84px] mt-[52px] mb-[36px]">Experts</p>
+                <Item title="Lack of targeted and solvent leads for services" index={1}
+                />
+              </div>
+            ) : (
+              <div className="mt-4 xl:w-1/2">
+                <p className="text-[32px] leading-[35.84px] mb-[36px]">Investors</p>
                 <Item
                   title="Searching for suitable investors and filling out briefs to venture capital funds take up to 10 hours per each"
                   index={1}
@@ -138,13 +158,11 @@ function DesktopHomePage() {
                   index={5}
                 />
               </div>
-            ) : (
-              <p className="">Funk my lIf</p>
             )}
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 3.5, end: 6 }} className="flex items-center  relative">
+        <ParallaxLayer sticky={{ start: 3.2, end: 6 }} className="flex items-center  relative">
           <DesktopWork className="w-full mt-[150px]" rotate={rotate.current} />
         </ParallaxLayer>
 

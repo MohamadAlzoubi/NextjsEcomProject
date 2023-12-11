@@ -4,6 +4,9 @@ import Image from "next/image";
 import { twMerge } from "tailwind-merge";
 import React, { useEffect, useRef, useState } from "react";
 import Send from "../../assets/svg/Send";
+
+import WorkIcon1 from "../../assets/svg/WorkIcon1";
+
 import { Heading } from "../../components/Typography/Heading";
 
 function Card({ icon, text, number, className, transform }) {
@@ -19,7 +22,7 @@ function Card({ icon, text, number, className, transform }) {
           {icon}
           <div className="flex flex-col gap-5">
             <p className="text-[#1A1A1A] text-opacity-40"> {number}</p>
-            {/* <p className="text-[#1A1A1A] text-3xl">{text}</p> */}
+            <p className="text-[#1A1A1A] text-[28px] font-medium">{text}</p>
           </div>
         </div>
       </div>
@@ -29,7 +32,7 @@ function Card({ icon, text, number, className, transform }) {
 
 export function DesktopWork({ className, rotate = 0 }) {
   const data = [
-    { icon: <Send className="w-24 h-24" />, number: "01", text: "Sign up in UniMatch as a startup, investor or expert" },
+    { icon: <WorkIcon1 className="w-24 h-24" />, number: "01", text: "Sign up in UniMatch as a startup, investor or expert" },
     {
       icon: <Send className="w-24 h-24" />,
       number: "02",
