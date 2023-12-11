@@ -15,7 +15,7 @@ function Card({ children, className }) {
 
 function Banner({ className }) {
   return (
-    <div className={twMerge("px-2", className)}>
+    <div className={twMerge("px-2 max-w-[1700px] m-auto", className)}>
       <div
         className="flex flex-col items-center pt-16 w-full rounded-[28px] xl:rounded-[108px] pb-[414px]"
         style={{ background: "linear-gradient(-45deg, #f1fbfe, #eff2ff, #f1fbfe, #eff2ff)" }}>

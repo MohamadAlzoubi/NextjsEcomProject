@@ -1,50 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
-// reactstrap components
-import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
+const Modal = ({ children }) => {
+  const [isOpen, setIsOpen] = useState(false);
 
-function Example({ isOpen, toggle }) {
- // const [modalOpen, setModalOpen] = React.useState(false);
- 
   return (
     <>
-      <Button
-        color="primary"
-        type="button"
-        onClick={() => setModalOpen(!modalOpen)}
-      >
-        Launch demo modal
-      </Button>
-      <Modal toggle={toggle} isOpen={isOpen}>
-        <div className=" modal-header">
-          <h5 className="modal-title" id="exampleModalLabel">
-            Fill out the form to request a Pitch Deck
-          </h5>
-          <button
-            aria-label="Close"
-            className=" close"
-            type="button"
-            onClick={toggle}
-          >
-            <span aria-hidden={true}>×</span>
-          </button>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {isOpen && (
+        <div className="modal z-[2000]  bg-white fixed">
+          <div className="modal-content rounded-[50px] p-14">
+            <span className="close-button" onClick={() => setIsOpen(false)}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M4 4L20 20M20 4L4 20" stroke="#A8A8A8" />
+              </svg>
+            </span>
+            <div className="flex flex-col justify-between gap-8">
+              <div className="text-5xl">Fill out the form to request a Pitch Deck</div>
+              <input className="rounded-2xl bg-[#bababa12] p-8" placeholder="Your Name"></input>
+              <input className="rounded-2xl bg-[#bababa12] p-8" placeholder="Telegram"></input>
+              <input className="rounded-2xl bg-[#bababa12] p-8" placeholder="Investment amount"></input>
+            </div>
+          </div>
         </div>
-        <ModalBody>...</ModalBody>
-        <ModalFooter>
-          <Button
-            color="secondary"
-            type="button"
-            onClick={toggle}
-          >
-            Close
-          </Button>
-          <Button color="primary" type="button">
-            Save changes
-          </Button>
-        </ModalFooter>
-      </Modal>
+      )}
     </>
   );
-}
+};
 
-export default Example;
+export default Modal;

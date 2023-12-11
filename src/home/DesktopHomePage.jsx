@@ -5,9 +5,6 @@ import { twMerge } from "tailwind-merge";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import Navbar from "../components/navbar";
-import Circle from "../assets/svg/Circle";
-import Button from "../components/Button";
-import Send from "../assets/svg/Send";
 import iphone from "../assets/img/iphone14.png";
 import Footer from "./sections/Footer";
 import Team from "./sections/Team";
@@ -16,6 +13,8 @@ import { DesktopWork } from "./sections/Work";
 import Statistics from "./sections/Statistics";
 import RoadMap from "./sections/RoadMap";
 import Banner from "./sections/Banner";
+
+import Modal from "../components/Modal";
 
 function Card({ children, className }) {
   return <div className={twMerge("flex items-center justify-center rounded-xl z-50", className)}>{children}</div>;
@@ -76,9 +75,11 @@ function DesktopHomePage() {
 
   return (
     <div className="w-full">
-      <Navbar className="absolute w-full z-[999] bg-white" />
+      {/* <Navbar className="absolute w-full z-[999] bg-white" /> */}
       <p className="fixed z-[999999] top-3 left-1/2 text-8xl -translate-x-1/2">{currentPage}</p>
-
+      <Modal>
+        <p>This is modal content!</p>
+      </Modal>
       <Parallax
         ref={parallax}
         pages={PAGES}
@@ -119,7 +120,7 @@ function DesktopHomePage() {
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-around relative background">
+        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-around relative">
           <Card className="w-[42.5%] absolute left-0">
             <div className="flex flex-col gap-80">
               <p className="text-[68px] leading-[76.16px]">
@@ -174,8 +175,8 @@ function DesktopHomePage() {
           <DesktopWhat isIn={currentPage > 6.7} />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={7.5} className="">
-          <Statistics className="p-4" />
+        <ParallaxLayer offset={7.7} className="">
+          <Statistics className="p-4" isInStat={currentPage > 7.5} />
         </ParallaxLayer>
 
         <ParallaxLayer offset={8.8} className="">
@@ -186,7 +187,7 @@ function DesktopHomePage() {
           <Team />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={10.3} className="">
+        <ParallaxLayer offset={10.5} className="">
           <Footer />
         </ParallaxLayer>
       </Parallax>
