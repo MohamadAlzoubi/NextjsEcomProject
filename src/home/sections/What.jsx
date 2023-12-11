@@ -5,10 +5,19 @@ import React, { useEffect, useRef, useState } from "react";
 import iphone from "../../assets/img/image2Details.png";
 import Battery from "../../assets/svg/Battery";
 import InsideLogo from "../../assets/svg/InsideLogo";
-import Verified from "../../assets/svg/Verified";
 
-import FacebookIcon from "../../assets/svg/FacebookIcon";
+import FacebookIcon from "../../assets/svg/InsideWhatPhone/FacebookIcon";
+import Verified from "../../assets/svg/InsideWhatPhone/Verified";
+import MsgIcon from "../../assets/svg/InsideWhatPhone/MsgIcon";
+import BandCamp from "../../assets/svg/InsideWhatPhone/BandCamp";
+import TeleIcon from "../../assets/svg/InsideWhatPhone/TeleIcon";
+import Wifi from "../../assets/svg/InsideWhatPhone/wifi";
+import Signal from "../../assets/svg/InsideWhatPhone/Signal";
+
+import Card1 from "../../assets/svg/InsideWhatPhone/Card1";
+
 import { Heading } from "../../components/Typography/Heading";
+import AnimatedCard from "../../components/AnimatedCard";
 import useIsInViewport from "../../hooks/useIsInViewport";
 import Image from "next/image";
 
@@ -69,8 +78,8 @@ function InsideMobile({ containerRef, numberDisplayRef, number, isDone, isIn, cl
         <div className="text-[#FFF] gap-1"> 9:41</div>
         <div className="bg-black rounded-full w-[100px] h-[20px]" />
         <div className="flex">
-          <Battery />
-          <Battery />
+          <Signal />
+          <Wifi />
           <Battery />
         </div>
       </div>
@@ -112,24 +121,21 @@ function InsideMobile({ containerRef, numberDisplayRef, number, isDone, isIn, cl
 
       <div className="flex justify-between mt-6 px-4">
         <div className="flex gap-1 items-center">
-          <FacebookIcon />
+          <BandCamp />
           <p className="text-[#FFF] text-sm">unimatch.ai</p>
         </div>
         <div className="gap-4 flex">
-          <FacebookIcon />
-          <FacebookIcon />
+          <TeleIcon />
+          <MsgIcon />
           <FacebookIcon />
         </div>
       </div>
 
       <div className="bg-white rounded-t-3xl flex flex-col mt-11 px-4 pt-3 ">
         <div className="flex gap-2 overflow-hidden">
-          <ButtonInsidePhone {...data[0]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
-          <ButtonInsidePhone {...data[0]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
-          <ButtonInsidePhone {...data[0]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
-          <ButtonInsidePhone {...data[0]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
-          <ButtonInsidePhone {...data[0]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
-          <ButtonInsidePhone {...data[0]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
+          <ButtonInsidePhone {...data[8]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
+          <ButtonInsidePhone {...data[9]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
+          <ButtonInsidePhone {...data[10]} className="min-w-fit text-[#2f35428c] text-sm py-2 px-4" />
         </div>
 
         <div className="flex flex-wrap mt-8">
@@ -181,13 +187,16 @@ export function DesktopWhat({ isIn, className }) {
   useEffect(() => {
     if (isDone === false) return;
     containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
+    setTimeout(function () {
+      containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }, 3000);
   }, [isDone]);
 
   useEffect(() => {
     let intervalId;
     if (isIn) {
       intervalId = setInterval(() => {
-        if (number.current >= 3000) {
+        if (number.current >= 1500) {
           setDone(true);
           return clearInterval(intervalId);
         }
@@ -204,7 +213,59 @@ export function DesktopWhat({ isIn, className }) {
   return (
     <div className={twMerge("flex justify-center flex-col items-center", className)}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
-      <div className="relative flex mt-2 w-[750px] h-[450px]">
+      <div className="relative flex mt-2 w-[400px] h-[400px]">
+        <div className="absolute z-50 top-[74px] left-[-74px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
+            <div className="flex gap-2 self-start">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4">AI-powered matchmaking</p>
+            </div>
+          </AnimatedCard>
+        </div>
+        <div className="absolute z-50 top-[267px] left-[-129px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
+            <div className="flex gap-2 self-start">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4">OTC secondary market for early-stage equities</p>
+            </div>
+          </AnimatedCard>
+        </div>
+        <div className="absolute z-50 top-[364px] left-[241px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
+            <div className="flex gap-2 self-start">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4">AI-powered matchmaking</p>
+            </div>
+          </AnimatedCard>
+        </div>
+        <div className="absolute z-50 top-[83px] left-[298px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
+            <div className="flex gap-2 self-start">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4">AI-powered matchmaking</p>
+            </div>
+          </AnimatedCard>
+        </div>
         <Image src={iphone} alt="iphone" width={600} height={750} className="absolute " />
         <InsideMobile
           numberDisplayRef={numberDisplayRef}
@@ -214,12 +275,12 @@ export function DesktopWhat({ isIn, className }) {
           number={number}
           // className="max-w-[350px] max-h-[700px]"
           style={{
-            transform: "skew(-10deg, -5deg) rotate(2deg)",
-            height: "876px",
-            width: "392px",
+            transform: "skew(-10deg, 355deg) rotate(2deg)",
+            height: "599px",
+            width: "272px",
             borderRadius: "50px",
-            marginTop: "26px",
-            marginLeft: "95px",
+            marginTop: "11px",
+            marginLeft: "60px",
           }}
         />
       </div>

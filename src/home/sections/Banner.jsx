@@ -20,13 +20,13 @@ function Banner({ className }) {
         className="flex flex-col items-center pt-16 w-full rounded-[28px] xl:rounded-[108px] pb-[414px]"
         style={{ background: "linear-gradient(-45deg, #f1fbfe, #eff2ff, #f1fbfe, #eff2ff)" }}>
         <div className="flex flex-col ">
-          <Heading>AI app where startups</Heading>
-          <Heading>and investors find each other</Heading>
+          <Heading className={"text-fade-in"}>AI app where startups</Heading>
+          <Heading className={"text-fade-in"}>and investors find each other</Heading>
         </div>
 
-        <div className="flex text-2xl mt-8 items-center flex-wrap justify-center">
+        <div className="flex text-2xl mt-8 items-center flex-wrap justify-center text-fade-in">
           <p className="text-center">
-            <span className="text-[#1a1a1a4d]"> It&apos;s like</span> Tinder <Circle className="mx-2 inline-flex" /> LinkedIn{" "}
+            <span className="text-[#1a1a1a4d] "> It&apos;s like</span> Tinder <Circle className="mx-2 inline-flex" /> LinkedIn{" "}
           </p>
           <p className="text-center">
             <span className="text-[#1a1a1a4d]">for the</span> venture capital sector
@@ -39,7 +39,7 @@ function Banner({ className }) {
         </div>
 
         <div className="h-0 mt-4 xl:hidden">
-          <Image src={iphone} alt="iphone" width={400} className="" />
+          <Image src={iphone} alt="iphone" width={400} className="slide-up-animation" />
         </div>
       </div>
     </div>

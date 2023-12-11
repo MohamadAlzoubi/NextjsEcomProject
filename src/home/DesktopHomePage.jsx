@@ -94,10 +94,10 @@ function DesktopHomePage() {
         </ParallaxLayer>
 
         <ParallaxLayer sticky={{ start: 0.25, end: 2.5 }} className="flex flex-col items-center justify-start" style={{ top: "250px" }}>
-          <Image src={iphone} alt="iphone" width={400} className="w-[15%]" />
+          <Image src={iphone} alt="iphone" width={400} className="w-[15%] slide-up-animation" />
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 0.75, end: 1.2 }} className="flex items-center justify-around relative">
+        <ParallaxLayer sticky={{ start: 0.7, end: 1.1 }} className="flex items-center justify-around relative">
           <Card className="w-[42.5%] absolute left-0">
             <p className="text-[68px] leading-[76.16px]">
               <span className="text-[#1a1a1a4d]">
@@ -122,12 +122,14 @@ function DesktopHomePage() {
         <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-around relative background">
           <Card className="w-[42.5%] absolute left-0">
             <div className="flex flex-col gap-80">
-              <p className="text-[68px] leading-[76.16px]">Problems <br/> <span className="text-[#1a1a1a4d]">we address</span></p>
-            <div className="flex gap-4">
-              <p className={twMerge("text-lg text-[#00000070]" , phoneSlide !== "1" && "text-black")}>Startups</p> <p className={twMerge("text-lg text-[#00000070]" , phoneSlide === "1" && "text-black")}>Investors & Experts</p>
+              <p className="text-[68px] leading-[76.16px]">
+                Problems <br /> <span className="text-[#1a1a1a4d]">we address</span>
+              </p>
+              <div className="flex gap-4">
+                <p className={twMerge("text-lg text-[#00000070]", phoneSlide !== "1" && "text-black")}>Startups</p>{" "}
+                <p className={twMerge("text-lg text-[#00000070]", phoneSlide === "1" && "text-black")}>Investors & Experts</p>
+              </div>
             </div>
-            </div>
-            
           </Card>
           <Card className="w-[42.5%] absolute right-0">
             {phoneSlide === 1 ? (
@@ -137,15 +139,17 @@ function DesktopHomePage() {
                   title="Hundreds of pitchdecks per month are coming in, most of which are irrelevant and a lot of resource is consumed in processing them"
                   index={1}
                 />
-                <Item title="There are lots of scam projects around and you have to spend a lot of time researching applications, gathering information from different sources" index={2} />
+                <Item
+                  title="There are lots of scam projects around and you have to spend a lot of time researching applications, gathering information from different sources"
+                  index={2}
+                />
                 <Item title="There is no clear and safe infrastructure for the secondary allocations market" index={3} />
                 <p className="text-[32px] leading-[35.84px] mt-[52px] mb-[36px]">Experts</p>
-                <Item title="Lack of targeted and solvent leads for services" index={1}
-                />
+                <Item title="Lack of targeted and solvent leads for services" index={1} />
               </div>
             ) : (
               <div className="mt-4 xl:w-1/2">
-                <p className="text-[32px] leading-[35.84px] mb-[36px]">Investors</p>
+                <p className="text-[32px] leading-[35.84px] mb-[36px]">Startups</p>
                 <Item
                   title="Searching for suitable investors and filling out briefs to venture capital funds take up to 10 hours per each"
                   index={1}
@@ -166,11 +170,11 @@ function DesktopHomePage() {
           <DesktopWork className="w-full mt-[150px]" rotate={rotate.current} />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={6.9} className="">
+        <ParallaxLayer offset={7} className="">
           <DesktopWhat isIn={currentPage > 6.7} />
         </ParallaxLayer>
 
-        <ParallaxLayer offset={7.6} className="">
+        <ParallaxLayer offset={7.5} className="">
           <Statistics className="p-4" />
         </ParallaxLayer>
 

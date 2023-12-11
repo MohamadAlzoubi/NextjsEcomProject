@@ -28,7 +28,7 @@ function Desktop({ className }) {
   return (
     <div className={twMerge("flex w-full", className)}>
       <div className="grid grid-cols-4 gap-5 w-full">
-        <Card number="94.37" text="Investors retention rate" className="col-span-2" />
+        <Card number="94.37%" text="Investors retention rate" className="col-span-2" />
 
         <Card number="2780" text="Investors retention rate" />
 

@@ -27,20 +27,64 @@
 }
 
 @keyframes gradient {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-body{
+body {
   background: linear-gradient(-45deg, #f1fbfe, #eff2ff, #f1fbfe, #eff2ff);
   background-size: 200% 200%;
   animation: gradient 5s ease infinite;
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(30);
+    opacity: 1;
+  }
+}
+
+.slide-up-animation {
+  animation: slideUp 1s ease-in-out forwards;
+}
+
+@keyframes revealFromTop {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.reveal-from-top {
+  animation: revealFromTop 2s ease-in-out forwards;
+}
+
+.text-fade-in {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  color: #333;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -5,7 +5,11 @@ import { twMerge } from "tailwind-merge";
 import React, { useEffect, useRef, useState } from "react";
 import Send from "../../assets/svg/Send";
 
-import WorkIcon1 from "../../assets/svg/WorkIcon1";
+import WorkIcon1 from "../../assets/svg/HowCards/WorkIcon1";
+import WorkIcon2 from "../../assets/svg/HowCards/WorkIcon2";
+import WorkIcon3 from "../../assets/svg/HowCards/WorkIcon3";
+import WorkIcon4 from "../../assets/svg/HowCards/WorkIcon4";
+import WorkIcon5 from "../../assets/svg/HowCards/WorkIcon5";
 
 import { Heading } from "../../components/Typography/Heading";
 
@@ -15,7 +19,7 @@ function Card({ icon, text, number, className, transform }) {
       <div className="relative w-full h-full">
         <div
           className={twMerge(
-            "flex flex-col items-start justify-between text-xl p-8 w-[252px] h-[325px] xl:w-[458px] xl:h-[592px] bg-[#FAFAFA] rounded-[50px] absolute",
+            "flex flex-col items-start justify-between text-xl p-8 w-[252px] h-[325px] xl:w-[458px] xl:h-[592px] bg-[#FAFAFA] rounded-[50px] absolute transition-all",
             "top-0 left-1/2 -translate-x-1/2 -translate-y-1/2",
             className
           )}>
@@ -34,19 +38,24 @@ export function DesktopWork({ className, rotate = 0 }) {
   const data = [
     { icon: <WorkIcon1 className="w-24 h-24" />, number: "01", text: "Sign up in UniMatch as a startup, investor or expert" },
     {
-      icon: <Send className="w-24 h-24" />,
+      icon: <WorkIcon2 className="w-24 h-24" />,
       number: "02",
       text: "Fill out a questionnaire with key questions about project/investments/expertise",
     },
     {
-      icon: <Send className="w-24 h-24" />,
+      icon: <WorkIcon3 className="w-24 h-24" />,
       number: "03",
-      text: "Fill out a questionnaire with key questions about project/investments/expertise",
+      text: "UniMatch process your data with AI and suggests targeted matches",
     },
     {
-      icon: <Send className="w-24 h-24" />,
+      icon: <WorkIcon4 className="w-24 h-24" />,
       number: "04",
-      text: "Fill out a questionnaire with key questions about project/investments/expertise",
+      text: "When the first match happens - the user needs to go through KYC because only thoroughly vetted profiles get access to the match",
+    },
+    {
+      icon: <WorkIcon5 className="w-24 h-24" />,
+      number: "05",
+      text: "Once the profile has been verified, the user has access to chat with his/her match",
     },
   ];
 
@@ -66,6 +75,7 @@ export function DesktopWork({ className, rotate = 0 }) {
             <Card {...data[1]} transform="rotate-[12deg] xl:rotate-[21deg]" />
             <Card {...data[2]} transform="rotate-[24deg] xl:rotate-[42deg]" className="roa" />
             <Card {...data[3]} transform="rotate-[36deg] xl:rotate-[63deg]" className="roa" />
+            <Card {...data[4]} transform="rotate-[48deg] xl:rotate-[84deg]" className="roa" />
           </div>
         </div>
       </div>
