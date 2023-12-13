@@ -20,7 +20,9 @@ function StatisticChart({ className }) {
   };
   return (
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 504 504" className={`${className} donut-chart`}>
-      <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="black" fontSize="10"></text>
+      <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="black" fontSize="10">
+        Your Text Here
+      </text>
       <defs>
         <mask id="mask" width="293.36" height="211.14" x="9.44" y="0" maskUnits="userSpaceOnUse">
           <path

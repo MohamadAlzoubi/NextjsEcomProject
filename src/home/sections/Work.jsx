@@ -61,10 +61,10 @@ export function DesktopWork({ className, rotate = 0 }) {
 
   return (
     <div className={twMerge("flex max-w-[1700px] m-auto", className)}>
-      <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[1100px] flex justify-start flex-col items-center overflow-hidden">
-        <Heading className="text-white mt-[54px] xl:mt-[108px]">How it Works</Heading>
+      <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[1000px] 2xl:h-[1100px] flex justify-start flex-col items-center overflow-hidden relative">
+        <Heading className="text-white mt-[54px] xl:pt-[108px] relative bottom-[100px]">How it Works</Heading>
 
-        <div className="flex mt-[200px] xl:mt-[400px] w-[600px] xl:h-[500px] relative items-start justify-center">
+        <div className="flex mt-[200px] xl:mt-[250px] 2xl:mt-[400px] 2xl:w-[600px] 2xl:h-[500px] relative items-start justify-center">
           <div className="absolute w-[3105px] h-[3105px] rounded-[3105px] border-2 border-[#ffffff24]" />
           <div
             className="absolute w-[3105px] h-[3105px] flex justify-center"
