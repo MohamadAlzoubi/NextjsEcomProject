@@ -152,7 +152,7 @@ function DesktopHomePage() {
           {/* <Image src={iphone} alt="iphone" width={400} className="w-[15%] " /> */}
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 0.7, end: 1.1 }} className="flex items-center justify-around relative">
+        <ParallaxLayer sticky={{ start: 0.7, end: 0.9 }} className="flex items-center justify-between relative m-auto max-w-[1700px]">
           <Card className="w-[42.5%] absolute left-0">
             <p className="text-[68px] leading-[76.16px]">
               <span className="text-[#1a1a1a4d]">
@@ -174,7 +174,7 @@ function DesktopHomePage() {
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-around relative">
+        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-between relative m-auto max-w-[1700px]">
           <Card className="w-[42.5%] absolute left-0">
             <div className="flex flex-col gap-80">
               <p className="text-[68px] leading-[76.16px]">
@@ -221,8 +221,8 @@ function DesktopHomePage() {
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 3.2, end: 6 }} className="flex flex-col items-center  relative">
-          <DesktopWork className="w-full mt-[150px]" rotate={rotate.current} />
+        <ParallaxLayer offset={1} sticky={{ start: 3.5, end: 6 }} className="flex flex-col items-center  relative">
+          <DesktopWork className="w-full mt-[60px]" rotate={rotate.current} />
           <DesktopWhat isIn={currentPage > 6.7} />
           <Statistics className="p-4" isInStat={currentPage > 7.5} />
           <RoadMap />

@@ -189,7 +189,7 @@ export function DesktopWhat({ isIn, className }) {
     containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
     setTimeout(function () {
       containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-    }, 3000);
+    }, 1500);
   }, [isDone]);
 
   useEffect(() => {
@@ -218,7 +218,7 @@ export function DesktopWhat({ isIn, className }) {
           <AnimatedCard
             friction={1 / 9}
             className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
-            <div className="flex gap-2 self-start">
+            <div className="flex gap-2 self-start w-4">
               {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
               <Card1 />
             </div>
@@ -231,7 +231,7 @@ export function DesktopWhat({ isIn, className }) {
           <AnimatedCard
             friction={1 / 9}
             className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
-            <div className="flex gap-2 self-start">
+            <div className="flex gap-2 self-start w-4">
               {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
               <Card1 />
             </div>
@@ -244,7 +244,7 @@ export function DesktopWhat({ isIn, className }) {
           <AnimatedCard
             friction={1 / 9}
             className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
-            <div className="flex gap-2 self-start">
+            <div className="flex gap-2 self-start w-4">
               {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
               <Card1 />
             </div>
@@ -257,7 +257,7 @@ export function DesktopWhat({ isIn, className }) {
           <AnimatedCard
             friction={1 / 9}
             className="flex flex-col gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl min-w-[251px] w-[251px]">
-            <div className="flex gap-2 self-start">
+            <div className="flex gap-2 self-start w-4">
               {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
               <Card1 />
             </div>
@@ -296,6 +296,8 @@ export function MobileWhat() {
   const number = useRef(0);
   const [isDone, setDone] = useState(false);
 
+  console.log(numberDisplayRef);
+
   const isInViewport1 = useIsInViewport(numberDisplayRef);
 
   useEffect(() => {
@@ -303,6 +305,7 @@ export function MobileWhat() {
     if (isInViewport1) {
       intervalId = setInterval(() => {
         if (number.current >= 3000) {
+          console.log("i am here");
           setDone(true);
           return clearInterval(intervalId);
         }
@@ -310,6 +313,19 @@ export function MobileWhat() {
         numberDisplayRef.current.innerText = `$${formatNumber(number.current)}`;
       }, 3);
     }
+
+    window.addEventListener("scroll", function () {
+      var targetScrollY = 4884; // The Y position you want to check against
+      var currentScrollY = window.scrollY || window.pageYOffset; // Get current scroll position
+
+      if (currentScrollY >= targetScrollY) {
+        // Your code here to be executed when the scroll position reaches 500 pixels
+        containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
+        setTimeout(function () {
+          containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+        }, 1500);
+      }
+    });
 
     return () => {
       clearInterval(intervalId);
@@ -324,7 +340,59 @@ export function MobileWhat() {
   return (
     <div className={twMerge("flex justify-center flex-col items-center mt-[200px]")}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
-      <div className="relative flex mt-2 w-[400px] h-[400px]">
+      <div className="relative flex mt-2 w-[260px] h-[200px]">
+        <div className="absolute z-50 xl:top-[74px] xl:left-[-74px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
+            <div className="flex gap-2 self-start w-4">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4 text-[10px] xl:text-[16px]">AI-powered matchmaking</p>
+            </div>
+          </AnimatedCard>
+        </div>
+        <div className="absolute z-50 xl:top-[267px] xl:left-[-129px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
+            <div className="flex gap-2 self-start w-4">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4 text-[10px] xl:text-[16px]">OTC secondary market for early-stage equities</p>
+            </div>
+          </AnimatedCard>
+        </div>
+        <div className="absolute z-50 xl:top-[364px] xl:left-[241px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
+            <div className="flex gap-2 self-start w-4">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4 text-[10px] xl:text-[16px]">AI-powered matchmaking</p>
+            </div>
+          </AnimatedCard>
+        </div>
+        <div className="absolute z-50 xl:top-[83px] xl:left-[298px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
+          <AnimatedCard
+            friction={1 / 9}
+            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
+            <div className="flex gap-2 self-start w-4">
+              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
+              <Card1 />
+            </div>
+            <div className="">
+              <p className="line-clamp-4 text-[10px] xl:text-[16px]">AI-powered matchmaking</p>
+            </div>
+          </AnimatedCard>
+        </div>
         <Image src={iphone} alt="iphone" width={600} height={750} className="absolute " />
         <InsideMobile
           numberDisplayRef={numberDisplayRef}
@@ -332,6 +400,14 @@ export function MobileWhat() {
           isDone={isDone}
           isIn={isInViewport1}
           number={number}
+          style={{
+            transform: "skew(-10deg, 355deg) rotate(2deg)",
+            height: "357px",
+            width: "180px",
+            borderRadius: "19px",
+            marginTop: "11px",
+            marginLeft: "39px",
+          }}
         />
       </div>
     </div>

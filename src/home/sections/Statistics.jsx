@@ -88,8 +88,29 @@ function Desktop({ className, isInStat }) {
 
         <Card value={211} text="Startup on board" className="bg-white" duration={2000} isInStat={isInStat} IconComponent={Third} />
 
-        <div className="p-6 xl:p-11 bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
-          <StatisticChart />
+        <div className="flex flex-col justify-between p-6 xl:p-11  bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
+          <div className="flex justify-center">
+            <StatisticChart className={"w-[618px]"} />
+          </div>
+
+          <div className="flex flex-col justify-center gap-3 mt-3">
+            <div className="flex flex-grow justify-center">
+              <div className="flex gap-3 items-center">
+                <div className="bg-[#D6C2FF] h-[20px] w-[20px] rounded-md"></div>
+                <div>Angel Investor</div>
+                <div className="bg-[#BAD4FE] h-[20px] w-[20px] rounded-md"></div>
+                <div>VC Fund</div>
+              </div>
+            </div>
+            <div className="flex gap-3 items-center flex-grow justify-center">
+              <div className="bg-[#F1E1FE] h-[20px] w-[20px] rounded-md"></div>
+              <div>Family Office</div>
+              <div className="bg-[#BDEDFE] h-[20px] w-[20px] rounded-md"></div>
+              <div>Syndicate</div>
+              <div className="bg-[#CBFBE4] h-[20px] w-[20px] rounded-md"></div>
+              <div>Other</div>
+            </div>
+          </div>
         </div>
 
         <Card value={145} text="Investors on board" duration={2000} isInStat={isInStat} IconComponent={Fourth} className="bg-white" />
@@ -127,16 +148,16 @@ function Mobile({ className }) {
         className="mySwiper">
         <SwiperSlide className="!h-auto">
           <div className="h-full grid grid-cols-2 gap-[10px]">
-            <Card number="94.37" text="Investors retention rate" className="col-span-2" />
-            <Card number="94.37" text="Investors retention rate" />
-            <Card number="94.37" text="Investors retention rate" />
+            <Card value={2780} number="94.37" text="Investors retention rate" className="col-span-2" duration={2000} />
+            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
+            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
           </div>
         </SwiperSlide>
         <SwiperSlide className="!h-auto">
           <div className="h-full grid grid-cols-2 gap-[10px]">
-            <Card number="94.37" text="Investors retention rate" className="col-span-2" />
-            <Card number="94.37" text="Investors retention rate" />
-            <Card number="94.37" text="Investors retention rate" />
+            <Card value={2780} number="94.37" text="Investors retention rate" className="col-span-2" duration={2000} />
+            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
+            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
           </div>
         </SwiperSlide>
         <SwiperSlide className="!h-auto">
@@ -167,7 +188,10 @@ function Mobile({ className }) {
 function Statistics({ className, isInStat }) {
   return (
     <div className={className}>
-      <h1 className="text-center text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[200px]">Unimatch in numbers</h1>
+      <div className="flex flex-col xl:flex-row text-center text-6xl xl:text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[250px]">
+        <h1>Unimatch</h1>
+        <h1>in numbers</h1>
+      </div>
 
       <Desktop className="hidden xl:block" isInStat={isInStat} />
 

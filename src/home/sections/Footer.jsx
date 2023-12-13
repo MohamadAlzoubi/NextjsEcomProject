@@ -11,7 +11,7 @@ function Footer({ className }) {
   return (
     <div
       className={twMerge(
-        "bg-[#1A1A1A] rounded-[28px] xl:rounded-[100px] p-[10px] xl:p-20 mt-52 mx-2 max-w-[1700px] m-auto mt-[200px]",
+        "bg-[#1A1A1A] m-auto mt-20  rounded-[28px] xl:rounded-[100px] p-[10px] xl:p-20 mx-2 max-w-[1700px]  xl:mt-[200px]",
         className
       )}>
       <div className="bg-white text-center rounded-[28px] xl:rounded-[100px] py-14 xl:py-20 flex flex-col items-center ">

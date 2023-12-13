@@ -19,14 +19,14 @@ function Card({ icon, text, number, className, transform }) {
       <div className="relative w-full h-full">
         <div
           className={twMerge(
-            "flex flex-col items-start justify-between text-xl p-8 w-[252px] h-[325px] xl:w-[458px] xl:h-[592px] bg-[#FAFAFA] rounded-[50px] absolute transition-all",
+            "flex flex-col items-start justify-between text-xl rounded-[35px] p-8 w-[252px] h-[325px] xl:w-[458px] xl:h-[592px] bg-[#FAFAFA] xl:rounded-[50px] absolute transition-all",
             "top-0 left-1/2 -translate-x-1/2 -translate-y-1/2",
             className
           )}>
           {icon}
           <div className="flex flex-col gap-5">
             <p className="text-[#1A1A1A] text-opacity-40"> {number}</p>
-            <p className="text-[#1A1A1A] text-[28px] font-medium">{text}</p>
+            <p className="text-[#1A1A1A] text-sm xl:text-[28px] xl:leading-7 font-medium">{text}</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ export function DesktopWork({ className, rotate = 0 }) {
     {
       icon: <WorkIcon3 className="w-24 h-24" />,
       number: "03",
-      text: "UniMatch process your data with AI and suggests targeted matches",
+      text: `UniMatch process your data with AI and suggests targeted matches`,
     },
     {
       icon: <WorkIcon4 className="w-24 h-24" />,
@@ -61,7 +61,7 @@ export function DesktopWork({ className, rotate = 0 }) {
 
   return (
     <div className={twMerge("flex max-w-[1700px] m-auto", className)}>
-      <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[943px] flex justify-start flex-col items-center overflow-hidden">
+      <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[1100px] flex justify-start flex-col items-center overflow-hidden">
         <Heading className="text-white mt-[54px] xl:mt-[108px]">How it Works</Heading>
 
         <div className="flex mt-[200px] xl:mt-[400px] w-[600px] xl:h-[500px] relative items-start justify-center">
@@ -102,12 +102,12 @@ export function MobileWork({ className }) {
     {
       icon: <Send className="w-24 h-24" />,
       number: "03",
-      text: "Fill out a questionnaire with key questions about project/investments/expertise",
+      text: `UniMatch process your data with AI and suggests targeted matches`,
     },
     {
       icon: <Send className="w-24 h-24" />,
       number: "04",
-      text: "Fill out a questionnaire with key questions about project/investments/expertise",
+      text: "When the first match happens - the user needs to go through KYC because only thoroughly vetted profiles get access to the match",
     },
   ];
 

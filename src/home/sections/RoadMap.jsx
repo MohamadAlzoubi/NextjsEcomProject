@@ -63,7 +63,7 @@ function RoadMap({ className }) {
   const selectedData = data[selectedSection];
 
   return (
-    <div className={twMerge("w-full p-9 max-w-[1800px] m-auto mt-[200px]", className)}>
+    <div className={twMerge("w-full p-9 m-auto mt-20 max-w-[1800px]  xl:mt-[200px]", className)}>
       <div className="flex justify-between">
         <Heading>Roadmap 2024</Heading>
         <Image src={iphone} className="w-1/7 h-[75px] hidden xl:block" alt="image" />
@@ -118,10 +118,6 @@ function RoadMap({ className }) {
                 Q3 2023
               </div>
             </div>
-
-            {/* <div className="text-xl bg-[#1A1A1A] text-white p-9 relative w-1/4">Q1 2023</div>
-            <div className="text-xl bg-[#1A1A1A] text-white p-9 relative w-1/4">Q5 2023</div>
-            <div className="text-xl bg-[#1A1A1A] text-white p-9 relative w-1/4">Q4 2023</div> */}
           </div>
         </div>
       </div>
@@ -131,7 +127,7 @@ function RoadMap({ className }) {
 
         <div className="mt-4 divide-y xl:w-1/2">
           {selectedData.list.map((item, index) => (
-            <div key={index} className="flex gap-3 py-[10px]">
+            <div key={index} className="flex gap-3 py-[10px] items-start">
               <p className="bg-[#f3f7ff] px-2 rounded-full">{index + 1}</p>
               <p className="">{item}</p>
             </div>

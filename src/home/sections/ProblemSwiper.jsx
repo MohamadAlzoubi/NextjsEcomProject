@@ -67,10 +67,21 @@ const ProblemSwiper = ({ className }) => {
           <Card title="Startup" />
         </SwiperSlide>
         <SwiperSlide>
-          <Card title="Startup" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card title="Startup" />
+          <div className="text-[15px] mt-4">
+            <p className="text-2xl font-medium">Investors & Experts</p>
+            <Item
+              title="Hundreds of pitchdecks per month are coming in, most of which are irrelevant and a lot of resource is consumed in processing them"
+              index={1}
+              className="mt-6"
+            />
+            <Item
+              title="There are lots of scam projects around and you have to spend a lot of time researching applications, gathering information from different sources"
+              index={2}
+            />
+            <Item title="There is no clear and safe infrastructure for the secondary allocations market" index={3} />
+            <p className="text-2xl font-medium">Experts</p>
+            <Item title="Lack of targeted and solvent leads for services" index={1} className="mt-6" />
+          </div>
         </SwiperSlide>
       </Swiper>
 

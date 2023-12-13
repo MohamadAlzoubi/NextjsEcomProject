@@ -52,7 +52,7 @@ function MobileHomePage() {
         <Image src={iphone} alt="iphone" width={400} className="sticky top-[123px] mt-8 px-[50px]" />
       </div>
 
-      <ProblemSwiper className="mt-8 px-4 " />
+      <ProblemSwiper className="mt-10 px-4 " />
 
       <MobileWork className="w-full mt-[80px] px-2" />
 
