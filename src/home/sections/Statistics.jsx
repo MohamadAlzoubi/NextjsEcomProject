@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import StatIcon from "../../assets/svg/StatIcon";
 import StatisticChart from "../../assets/svg/StatisticChart";
 import { twMerge } from "tailwind-merge";
@@ -14,7 +14,6 @@ import Fourth from "../../assets/svg/statistics/Fourth";
 import Fifth from "../../assets/svg/statistics/Fifth";
 import Sixth from "../../assets/svg/statistics/Sixth";
 
-
 const AnimatedNumber = ({ value, duration, isInStat }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
@@ -22,7 +21,7 @@ const AnimatedNumber = ({ value, duration, isInStat }) => {
     if (isInStat) {
       const frameDuration = 1000 / 60; // Assuming 60 fps for smooth animation
       const totalFrames = Math.round(duration / frameDuration);
-      const easeOutExpo = (t) => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+      const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
       let frame = 0;
 
       const counter = setInterval(() => {
@@ -45,18 +44,19 @@ const AnimatedNumber = ({ value, duration, isInStat }) => {
   return Math.floor(displayValue);
 };
 
-function Card({ className, value, text, duration, isInStat , IconComponent}) {
+function Card({ className, value, text, duration, isInStat, IconComponent }) {
   return (
-    <div className={twMerge(
-      "p-6 xl:p-11 xl:h-[411px] bg-custom-gradient_stat border rounded-[26px] xl:rounded-[50px]",
-      "flex flex-col justify-between",
-      className
-    )}>
+    <div
+      className={twMerge(
+        "p-6 xl:p-11 xl:h-[411px] bg-custom-gradient_stat border rounded-[26px] xl:rounded-[50px]",
+        "flex flex-col justify-between",
+        className
+      )}>
       {IconComponent && <IconComponent />}
       <div className="flex flex-col">
         <div className="text-[52px] xl:text-8xl text-[#1A1A1A]">
           {isInStat && <AnimatedNumber value={value} duration={duration} isInStat={isInStat} />}
-          {!isInStat && <span>0{text.includes('%') ? '%' : ''}</span>}
+          {!isInStat && <span>0{text.includes("%") ? "%" : ""}</span>}
         </div>
         <div className="text-[15px] xl:text-lg">{text}</div>
       </div>
@@ -64,25 +64,46 @@ function Card({ className, value, text, duration, isInStat , IconComponent}) {
   );
 }
 
-function Desktop({ className  , isInStat}) {
+function Desktop({ className, isInStat }) {
   return (
-    <div className={twMerge("flex w-full bg-white", className)}>
+    <div className={twMerge("flex w-full bg-white mt-[200px] max-w-[1700px] m-auto", className)}>
       <div className="grid grid-cols-4 gap-5 w-full">
-        <Card value={94.37} text="Investors retention rate" className="col-span-2 bg-white" duration={2000} isInStat={isInStat} IconComponent={First}/>
+        <Card
+          value={94.37}
+          text="Investors retention rate"
+          className="col-span-2 bg-white"
+          duration={2000}
+          isInStat={isInStat}
+          IconComponent={First}
+        />
 
-        <Card value={2780} text="Matches between startups and investors" className="bg-white" duration={2000} isInStat={isInStat} IconComponent={Second}/>
+        <Card
+          value={2780}
+          text="Matches between startups and investors"
+          className="bg-white"
+          duration={2000}
+          isInStat={isInStat}
+          IconComponent={Second}
+        />
 
-        <Card value={211} text="Startup on board" className="bg-white"  duration={2000} isInStat={isInStat} IconComponent={Third}/>
+        <Card value={211} text="Startup on board" className="bg-white" duration={2000} isInStat={isInStat} IconComponent={Third} />
 
         <div className="p-6 xl:p-11 bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
           <StatisticChart />
         </div>
 
-        <Card value={145} text="Investors on board" duration={2000} isInStat={isInStat} IconComponent={Fourth} className='bg-white'/>
+        <Card value={145} text="Investors on board" duration={2000} isInStat={isInStat} IconComponent={Fourth} className="bg-white" />
 
-        <Card value={98} text="Startups retention rates" duration={2000} isInStat={isInStat} IconComponent={Fifth}/>
+        <Card value={98} text="Startups retention rates" duration={2000} isInStat={isInStat} IconComponent={Fifth} />
 
-        <Card value={2367} text="Startup blurb views by Investors" className="col-span-2" duration={2000} isInStat={isInStat} IconComponent={Sixth}/>
+        <Card
+          value={2367}
+          text="Startup blurb views by Investors"
+          className="col-span-2"
+          duration={2000}
+          isInStat={isInStat}
+          IconComponent={Sixth}
+        />
       </div>
     </div>
   );
@@ -143,13 +164,12 @@ function Mobile({ className }) {
   );
 }
 
-function Statistics({ className , isInStat }) {
-  
+function Statistics({ className, isInStat }) {
   return (
     <div className={className}>
-      <h1 className="text-center text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)]">Unimatch in numbers</h1>
+      <h1 className="text-center text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[200px]">Unimatch in numbers</h1>
 
-      <Desktop className="hidden xl:block" isInStat={isInStat}/>
+      <Desktop className="hidden xl:block" isInStat={isInStat} />
 
       <Mobile className="xl:hidden" />
     </div>

@@ -60,8 +60,8 @@ export function DesktopWork({ className, rotate = 0 }) {
   ];
 
   return (
-    <div className={twMerge("flex m-auto", className)}>
-      <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[1026px] flex justify-start flex-col items-center overflow-hidden">
+    <div className={twMerge("flex max-w-[1700px] m-auto", className)}>
+      <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[943px] flex justify-start flex-col items-center overflow-hidden">
         <Heading className="text-white mt-[54px] xl:mt-[108px]">How it Works</Heading>
 
         <div className="flex mt-[200px] xl:mt-[400px] w-[600px] xl:h-[500px] relative items-start justify-center">
@@ -70,6 +70,7 @@ export function DesktopWork({ className, rotate = 0 }) {
             className="absolute w-[3105px] h-[3105px] flex justify-center"
             style={{
               transform: `rotate(-${rotate}deg)`,
+              top: "top: -104px;",
             }}>
             <Card {...data[0]} transform="rotate-[0deg]" className="roa" />
             <Card {...data[1]} transform="rotate-[12deg] xl:rotate-[21deg]" />

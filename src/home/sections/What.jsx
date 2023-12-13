@@ -211,7 +211,7 @@ export function DesktopWhat({ isIn, className }) {
   }, [isIn]);
 
   return (
-    <div className={twMerge("flex justify-center flex-col items-center", className)}>
+    <div className={twMerge("flex justify-center flex-col items-center mt-[200px]", className)}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
       <div className="relative flex mt-2 w-[400px] h-[400px]">
         <div className="absolute z-50 top-[74px] left-[-74px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
@@ -322,7 +322,19 @@ export function MobileWhat() {
   }, [isDone]);
 
   return (
-    <InsideMobile numberDisplayRef={numberDisplayRef} containerRef={containerRef} isDone={isDone} isIn={isInViewport1} number={number} />
+    <div className={twMerge("flex justify-center flex-col items-center mt-[200px]")}>
+      <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
+      <div className="relative flex mt-2 w-[400px] h-[400px]">
+        <Image src={iphone} alt="iphone" width={600} height={750} className="absolute " />
+        <InsideMobile
+          numberDisplayRef={numberDisplayRef}
+          containerRef={containerRef}
+          isDone={isDone}
+          isIn={isInViewport1}
+          number={number}
+        />
+      </div>
+    </div>
   );
 }
 

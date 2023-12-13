@@ -24,14 +24,13 @@ import phone7 from "../assets/img/folder/7.png";
 import phone8 from "../assets/img/folder/8.png";
 import phone9 from "../assets/img/folder/9.png";
 import phone10 from "../assets/img/folder/10.png";
-// import phone11 from "../assets/img/folder/11.png";
+import phone11 from "../assets/img/folder/11.png";
 import phone12 from "../assets/img/folder/12.png";
 import phone13 from "../assets/img/folder/13.png";
 import phone14 from "../assets/img/folder/14.png";
 import phone15 from "../assets/img/folder/15.png";
 import phone16 from "../assets/img/folder/16.png";
-// import phone17 from "../assets/img/folder/17.png";
-
+import phone17 from "../assets/img/folder/17.png";
 
 import Modal from "../components/Modal";
 
@@ -71,23 +70,18 @@ function DesktopHomePage() {
     const startPage = 1.53;
     const endPage = 2.5;
     const rangePerPage = (endPage - startPage) / totalImages;
-  
+
     // Determine which image should be visible
-    let visibleImageIndex = Math.min(
-      totalImages - 1, 
-      Math.max(0, Math.floor((currentPage - startPage) / rangePerPage))
-    );
-  
+    let visibleImageIndex = Math.min(totalImages - 1, Math.max(0, Math.floor((currentPage - startPage) / rangePerPage)));
+
     // Iterate over all images and set their display property
-    const images = document.querySelectorAll('.animation-frame');
+    const images = document.querySelectorAll(".animation-frame");
     images.forEach((img, index) => {
-      img.style.display = index === visibleImageIndex ? 'block' : 'none';
+      img.style.display = index === visibleImageIndex ? "block" : "none";
     });
-  
   }, [currentPage]);
 
   useEffect(() => {
-
     const handleScroll = (e) => {
       const height = parallax.current.space;
       const scrollablePages = PAGES - 1; // because you can't scroll past the last page
@@ -102,7 +96,6 @@ function DesktopHomePage() {
         updatePhoneSlide();
       }
 
-
       animateImages();
       rotateWork();
     };
@@ -113,7 +106,6 @@ function DesktopHomePage() {
     return () => {
       container.removeEventListener("scroll", handleScroll);
     };
-    
   }, [currentPage, rotateWork, updatePhoneSlide]);
 
   return (
@@ -141,7 +133,7 @@ function DesktopHomePage() {
           <div id="animation-container slide-up-animation" className="flex justify-center">
             <Image src={phone1} alt="iphone" width={500} className="w-[63%] animation-frame" style={{ display: "block;" }} />
             <Image src={phone2} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-             <Image src={phone3} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone3} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone4} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone5} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone6} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
@@ -149,14 +141,13 @@ function DesktopHomePage() {
             <Image src={phone8} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone9} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone10} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            {/* <Image src={phone11} alt="iphone" width={500} className="w-[63%] animation-frame" style={{ display: "none;" }} /> */}
+            <Image src={phone11} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone12} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone13} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone14} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone15} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
             <Image src={phone16} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            {/* <Image src={phone17} alt="iphone" width={500} className="w-[63%] animation-frame" style={{ display: "none;" }} /> */}
-
+            <Image src={phone17} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
           </div>
           {/* <Image src={iphone} alt="iphone" width={400} className="w-[15%] " /> */}
         </ParallaxLayer>
@@ -230,29 +221,24 @@ function DesktopHomePage() {
           </Card>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 3.2, end: 6 }} className="flex items-center  relative">
+        <ParallaxLayer sticky={{ start: 3.2, end: 6 }} className="flex flex-col items-center  relative">
           <DesktopWork className="w-full mt-[150px]" rotate={rotate.current} />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={7} className="">
           <DesktopWhat isIn={currentPage > 6.7} />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={7.7} className="">
           <Statistics className="p-4" isInStat={currentPage > 7.5} />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={8.8} className="">
           <RoadMap />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={9.8} className="">
           <Team />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={10.5} className="">
           <Footer />
         </ParallaxLayer>
+
+        {/* <ParallaxLayer offset={7} className=""></ParallaxLayer> */}
+
+        {/* <ParallaxLayer offset={7.7} className=""></ParallaxLayer>
+
+        <ParallaxLayer offset={8.8} className=""></ParallaxLayer>
+
+        <ParallaxLayer offset={9.8} className=""></ParallaxLayer>
+
+        <ParallaxLayer offset={10.5} className=""></ParallaxLayer> */}
       </Parallax>
     </div>
   );

@@ -5,7 +5,7 @@ const Modal = ({ children }) => {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
+      {/* <button onClick={() => setIsOpen(true)}>Open Modal</button> */}
       {isOpen && (
         <div className="modal z-[2000]  bg-white fixed">
           <div className="modal-content rounded-[50px] p-14">

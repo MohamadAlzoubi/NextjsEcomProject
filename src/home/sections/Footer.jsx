@@ -9,8 +9,12 @@ import { twMerge } from "tailwind-merge";
 
 function Footer({ className }) {
   return (
-    <div className={twMerge("bg-[#1A1A1A] rounded-[28px] xl:rounded-[100px] p-[10px] xl:p-20 mt-52 mx-2 max-w-[1700px] m-auto", className)}>
-      <div className="bg-white text-center rounded-[28px] xl:rounded-[100px] py-14 xl:py-20 flex flex-col items-center">
+    <div
+      className={twMerge(
+        "bg-[#1A1A1A] rounded-[28px] xl:rounded-[100px] p-[10px] xl:p-20 mt-52 mx-2 max-w-[1700px] m-auto mt-[200px]",
+        className
+      )}>
+      <div className="bg-white text-center rounded-[28px] xl:rounded-[100px] py-14 xl:py-20 flex flex-col items-center ">
         <Heading className="leading-[44.8px]">
           Unimatch <br className="xl:hidden" /> is raising <br />
           Pre-seed
@@ -41,8 +45,7 @@ function Footer({ className }) {
           <a className="font-extralight ">About</a>
           <a className="font-extralight ">Team</a>
           <a className="font-extralight ">Problems</a>
-          
-          
+
           <a className="font-extralight ">Tracking</a>
           <a className="font-extralight ">How it works</a>
           <a className="font-extralight ">Inside the app</a>
