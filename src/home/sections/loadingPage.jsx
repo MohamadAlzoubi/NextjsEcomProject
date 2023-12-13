@@ -16,7 +16,7 @@ const RisingText = ({ text }) => {
     return <div>{letters}</div>;
   };
 
-const LoadingPage = () => {
+const LoadingPage = ({ onLoadingComplete }) => {
   const [progress, setProgress] = useState(0);
   const [loadingComplete, setLoadingComplete] = useState(false);
 
@@ -27,6 +27,7 @@ const LoadingPage = () => {
           clearInterval(interval);
           // Set a timeout to "remove" the loading bar after it reaches 100%
           setTimeout(() => setLoadingComplete(true), 500); // Adjust time as needed
+          onLoadingComplete();
           return 100;
         }
         return Math.min(oldProgress + 10, 100); // Increment progress here

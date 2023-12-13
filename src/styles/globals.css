@@ -182,3 +182,15 @@
   cursor: pointer;
   border-radius: 0.25rem;
 }
+
+#animation-container {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
+.animation-frame {
+  position: relative;
+  top: 0px;
+  left: 0;
+}

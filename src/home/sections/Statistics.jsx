@@ -145,7 +145,6 @@ function Mobile({ className }) {
 
 function Statistics({ className , isInStat }) {
   
-  console.log("i am stat" , isInStat)
   return (
     <div className={className}>
       <h1 className="text-center text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)]">Unimatch in numbers</h1>
