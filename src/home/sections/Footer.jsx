@@ -43,12 +43,12 @@ function Footer({ className }) {
 
         <div className="xl:w-1/2 mt-9 font-medium text-white text-2xl xl:text-5xl gap-3 grid grid-cols-1 xl:grid-cols-2 xl:m-0">
           <a className="font-extralight ">About</a>
-          <a className="font-extralight ">Team</a>
-          <a className="font-extralight ">Problems</a>
+          <a className="font-extralight " href='#section-team'>Team</a>
+          <a className="font-extralight " href='#section-one'>Problems</a>
 
-          <a className="font-extralight ">Tracking</a>
-          <a className="font-extralight ">How it works</a>
-          <a className="font-extralight ">Inside the app</a>
+          <a className="font-extralight " href='#section-tracking'>Tracking</a>
+          <a className="font-extralight " href='#section-how' >How it works</a>
+          <a className="font-extralight " href='#section-inside'>Inside the app</a>
         </div>
       </div>
     </div>

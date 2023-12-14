@@ -1,6 +1,6 @@
 "use client";
+import React, { useState } from 'react';
 
-import React, { useState } from "react";
 import Image from "next/image";
 import Button from "../components/Button";
 import logo from "../assets/img/logonew.png";
@@ -18,6 +18,7 @@ function HamburgerMenu() {
 
 function Navbar({ className }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
 
   return (
     <>
@@ -28,11 +29,11 @@ function Navbar({ className }) {
           <div className="hidden xl:flex items-center flex-grow">
             <ul className="flex gap-11 flex-grow">
               <li className="">About</li>
-              <li className="">Problems</li>
-              <li className="">How it works</li>
-              <li className="">Inside the app</li>
-              <li className="">Tracking</li>
-              <li className="">Team</li>
+              <li className=""><a href='#section-one'>Problems</a></li>
+              <li className=""><a href='#section-how'>How it works</a></li>
+              <li className=""><a href='#section-inside'>Inside the app</a></li>
+              <li className=""><a href='#section-tracking'>Tracking</a></li>
+              <li className=""><a href='#section-team'>Team</a></li>
             </ul>
             <div className="flex items-center gap-2">
               <Button variant="light" text="Try it" icon={<Send className="fill-gray-500" />} />

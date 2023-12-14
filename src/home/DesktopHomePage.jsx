@@ -13,6 +13,7 @@ import { DesktopWork } from "./sections/Work";
 import Statistics from "./sections/Statistics";
 import RoadMap from "./sections/RoadMap";
 import Banner from "./sections/Banner";
+import { ScrollProvider } from '../context/scrollContext';
 
 import phone1 from "../assets/img/folder/1.png";
 import phone2 from "../assets/img/folder/2.png";
@@ -47,12 +48,119 @@ function Item({ title, index, className }) {
   );
 }
 
+function useWindowSize() {
+  // Initialize state with undefined width/height so server and client renders match
+  const [windowSize, setWindowSize] = useState({
+      width: undefined,
+      height: undefined,
+  });
+
+  useEffect(() => {
+      // Handler to call on window resize
+      function handleResize() {
+          // Set window width/height to state
+          setWindowSize({
+              width: window.innerWidth,
+              height: window.innerHeight,
+          });
+      }
+    
+      // Add event listener
+      window.addEventListener("resize", handleResize);
+      
+      // Call handler right away so state gets updated with initial window size
+      handleResize();
+      
+      // Remove event listener on cleanup
+      return () => window.removeEventListener("resize", handleResize);
+  }, []); // Empty array ensures that effect is only run on mount and unmount
+
+  return windowSize;
+}
+
 function DesktopHomePage() {
+  const size = useWindowSize();
+  console.log(size)
+  let bigScreen = {
+    ImageAnimate: {
+      start: 1.46,
+      end: 1.72,
+    },
+    PhoneStart: {
+      start: 0.25,
+      end: 1.64
+    },
+    HowItWorks: {
+      start: 2.4, 
+      end: 5,
+      startRotating : 2.4,
+      endRotating : 4.86
+    },
+    otherLayers : {
+      start : 8,
+      animateApp : 4.75, 
+      animateStat :4.75
+    },
+    NumberOfPages : 12
+  };
+
+  if (size.height >= 900 && size.height <= 1296){
+    console.log('i am here1')
+    bigScreen = {
+      ImageAnimate: {
+        start: 2.18,
+        end: 2.25
+      },
+      PhoneStart: {
+        start: 0.25,
+        end: 2.18,
+        startFlipOption : 2.18,
+      },
+      HowItWorks: {
+        start: 3.2, 
+        end: 5.87,
+        startRotating : 3.4,
+        endRotating : 5.87
+      },
+      otherLayers : {
+        start : 7,
+        animateApp : 7, 
+        animateStat :8
+      },
+      NumberOfPages : 14 
+    };
+  }else if (size.height > 1296) {
+    console.log('i am here')
+    bigScreen = {
+      ImageAnimate: {
+        start: 1.46,
+        end: 1.53,
+      },
+      PhoneStart: {
+        start: 0.25,
+        end: 1.53,
+        startFlipOption : 1.53,
+      },
+      HowItWorks: {
+        start : 2.3,
+        end: 5,
+        startRotating : 2.4,
+        endRotating : 4.86
+      },
+      otherLayers : {
+        start : 6,
+        animateApp : 4.75, 
+        animateStat :6.45
+      },
+      NumberOfPages : 9
+    };
+  }
+
   const parallax = useRef(null);
   const [phoneSlide, setPhoneSlide] = useState(1);
   const [currentPage, setCurrentPage] = useState(-1);
   const rotate = useRef(0);
-  const PAGES = 12;
+  const PAGES = bigScreen.NumberOfPages;
 
   const updatePhoneSlide = useCallback(() => {
     if (currentPage > 1.67) setPhoneSlide(1);
@@ -60,15 +168,16 @@ function DesktopHomePage() {
   }, [currentPage]);
 
   const rotateWork = useCallback(() => {
-    if (currentPage < 2.4) return;
-    if (currentPage >= 4.86) return;
-    rotate.current = (currentPage - 2.4) * 25.5;
+    if (currentPage < bigScreen.HowItWorks.startRotating) return;
+    if (currentPage >= bigScreen.HowItWorks.endRotating) return;
+    rotate.current = (currentPage - bigScreen.HowItWorks.startRotating) * 25.5;
   }, [currentPage]);
 
   const animateImages = useCallback(() => {
+
     const totalImages = 15;
-    const startPage = 1.46;
-    const endPage = 1.72;
+    const startPage = bigScreen.ImageAnimate.start;
+    const endPage = bigScreen.ImageAnimate.end;
     const rangePerPage = (endPage - startPage) / totalImages;
 
     // Determine which image should be visible
@@ -79,7 +188,9 @@ function DesktopHomePage() {
     images.forEach((img, index) => {
       img.style.display = index === visibleImageIndex ? "block" : "none";
     });
-  }, [currentPage]);
+  }, [currentPage , size]);
+
+  
 
   useEffect(() => {
     const handleScroll = (e) => {
@@ -109,9 +220,9 @@ function DesktopHomePage() {
   }, [currentPage, rotateWork, updatePhoneSlide]);
 
   return (
+    
     <div className="w-full">
-      
-      <p className="fixed z-[999999] top-3 left-1/2 text-8xl -translate-x-1/2 hidden">{currentPage}</p>
+      <p className="fixed z-[999999] top-3 left-1/2 text-8xl -translate-x-1/2">{currentPage}</p>
       <Parallax
       className="bg-red"
         ref={parallax}
@@ -123,11 +234,11 @@ function DesktopHomePage() {
         onChange={(e) => {
           console.log(e);
         }}>
-        <ParallaxLayer className="parallex1">
-        <Navbar className="relative w-full z-[999] bg-white" />
+        <ParallaxLayer offset={0} className="parallex1">
+        <Navbar className="relative w-full z-[999] bg-white max-w-[1700px] m-auto" />
           <section className="max-w-[1700px] m-auto">
             <Banner />
-            <div className="flex justify-between mt-[700px]">
+            <div className="flex justify-between mt-[700px]" id="section-one">
               <Card className="w-[42.5%] relative left-0 justify-start">
                 <p className="text-[68px] leading-[76.16px]">
                   <span className="text-[#1a1a1a4d]">
@@ -207,7 +318,8 @@ function DesktopHomePage() {
         </ParallaxLayer>
 
         <ParallaxLayer
-          sticky={{ start: 0.25, end: 1.64 }}
+         offset={1}
+          sticky={{ start: bigScreen.PhoneStart.start,end: bigScreen.PhoneStart.end }}
           className="flex flex-col items-center justify-start parallex2"
           style={{ top: "250px" }}>
           <div id="animation-container slide-up-animation" className="flex justify-center">
@@ -240,12 +352,13 @@ function DesktopHomePage() {
           sticky={{ start: 0.7, end: 1.5 }}
           className="flex items-center justify-between relative m-auto max-w-[1700px]"></ParallaxLayer> */}
 
-        <ParallaxLayer sticky={{ start: 2.4, end: 5 }} className="flex flex-col items-center  relative">
-          <DesktopWork className="w-full mt-[60px]" rotate={rotate.current} />
+        <ParallaxLayer sticky={{ start: bigScreen.HowItWorks.start, end: bigScreen.HowItWorks.end }} className="flex flex-col items-center  relative">
+          <DesktopWork className="w-full" rotate={rotate.current} />
+          
         </ParallaxLayer>
-        <ParallaxLayer offset={5.8}  className="flex flex-col items-center  relative">
-          <DesktopWhat isIn={currentPage > 4.75} />
-          <Statistics className="p-4" isInStat={currentPage > 5.4} />
+        <ParallaxLayer offset={bigScreen.otherLayers.start}  className="flex flex-col items-center  relative">
+          <DesktopWhat isIn={currentPage > bigScreen.otherLayers.animateApp} />
+          <Statistics className="p-4" isInStat={currentPage > bigScreen.otherLayers.animateStat} />
           <RoadMap />
           <Team />
           <Footer />

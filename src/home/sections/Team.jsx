@@ -48,7 +48,7 @@ function Card(ImageComponent, imageProps) {
 
 const Team = ({ className }) => {
   return (
-    <div className={twMerge("px-4 xl:px-12  m-auto mt-20 max-w-[1700px] xl:mt-[200px]", className)}>
+    <div className={twMerge("px-4 xl:px-12  m-auto mt-20 max-w-[1700px] xl:mt-[200px]", className)} id="section-team">
       <div className="flex justify-between items-center">
         <Heading className="text-start">C-level team</Heading>
         <div className="gap-2 hidden xl:flex">

@@ -18,8 +18,43 @@ function StatisticChart({ className }) {
       fill: hoveredSegment && hoveredSegment !== segment ? "gray" : "inherit",
     };
   };
+
+   // Add a function to calculate the position of the text for each segment
+   const getTextPosition = (segment) => {
+    // This is a placeholder function. You'll need to implement the logic to
+    // determine the correct x and y coordinates for the text of each segment.
+    return { x: 0, y: 0 };
+  };
+  const segmentsData = [
+    { id: "segment1", value: "10", x: 100, y: 100 }, // Adjust x and y for positioning
+    { id: "segment2", value: "20", x: 150, y: 150 },
+  ];
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 504 504" className={`${className} donut-chart`}>
+       {segmentsData.map((segment, index) => {
+        const position = getTextPosition(segment);
+        return (
+          <React.Fragment key={index}>
+            <path
+              style={getSegmentStyle(segment.id)}
+              onMouseEnter={() => handleMouseEnter(segment.id)}
+              onMouseLeave={handleMouseLeave}
+              // Add other attributes for the path
+            />
+            <text
+              x={position.x}
+              y={position.y}
+              dominantBaseline="middle"
+              textAnchor="middle"
+              fill="black"
+              fontSize="10"
+            >
+              {segment.value}
+            </text>
+          </React.Fragment>
+        );
+      })}
       <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fill="black" fontSize="10">
         Your Text Here
       </text>
