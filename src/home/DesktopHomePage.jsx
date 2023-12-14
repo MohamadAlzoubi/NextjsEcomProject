@@ -35,7 +35,7 @@ import phone17 from "../assets/img/folder/17.png";
 import Modal from "../components/Modal";
 
 function Card({ children, className }) {
-  return <div className={twMerge("flex items-center justify-center rounded-xl z-50", className)}>{children}</div>;
+  return <div className={twMerge("flex items-center rounded-xl z-50", className)}>{children}</div>;
 }
 
 function Item({ title, index, className }) {
@@ -55,20 +55,20 @@ function DesktopHomePage() {
   const PAGES = 12;
 
   const updatePhoneSlide = useCallback(() => {
-    if (currentPage > 2) setPhoneSlide(1);
+    if (currentPage > 1.67) setPhoneSlide(1);
     else setPhoneSlide(2);
   }, [currentPage]);
 
   const rotateWork = useCallback(() => {
-    if (currentPage < 3.5) return;
-    if (currentPage >= 6) return;
-    rotate.current = (currentPage - 3.5) * 25.5;
+    if (currentPage < 2.4) return;
+    if (currentPage >= 4.86) return;
+    rotate.current = (currentPage - 2.4) * 25.5;
   }, [currentPage]);
 
   const animateImages = useCallback(() => {
     const totalImages = 15;
-    const startPage = 1.53;
-    const endPage = 2.5;
+    const startPage = 1.46;
+    const endPage = 1.72;
     const rangePerPage = (endPage - startPage) / totalImages;
 
     // Determine which image should be visible
@@ -110,121 +110,142 @@ function DesktopHomePage() {
 
   return (
     <div className="w-full">
-      <Navbar className="absolute w-full z-[999] bg-white" />
-      <p className="fixed z-[999999] top-3 left-1/2 text-8xl -translate-x-1/2">{currentPage}</p>
-      <Modal>
-        <p>This is modal content!</p>
-      </Modal>
+      
+      <p className="fixed z-[999999] top-3 left-1/2 text-8xl -translate-x-1/2 hidden">{currentPage}</p>
       <Parallax
+      className="bg-red"
         ref={parallax}
         pages={PAGES}
         config={{}}
         innerStyle={{
-          marginTop: "132px",
+          // marginTop: "132px",
         }}
         onChange={(e) => {
           console.log(e);
         }}>
-        <ParallaxLayer className="">
-          <Banner />
+        <ParallaxLayer className="parallex1">
+        <Navbar className="relative w-full z-[999] bg-white" />
+          <section className="max-w-[1700px] m-auto">
+            <Banner />
+            <div className="flex justify-between mt-[700px]">
+              <Card className="w-[42.5%] relative left-0 justify-start">
+                <p className="text-[68px] leading-[76.16px]">
+                  <span className="text-[#1a1a1a4d]">
+                    We’re disrupting <br /> and building
+                  </span>
+                  <br />a new paradigm
+                  <span className="text-[#1a1a1a4d]">
+                    <br />
+                    for VC market
+                  </span>
+                </p>
+              </Card>
+              <Card className="w-[42.5%] relative right-0 justify-end">
+                <p className="text-[28px] leading-[39.2px] w-[446px]">
+                  <span className="text-[#1a1a1a4d]">So that</span> The best breakthrough ideas{" "}
+                  <span className="text-[#1a1a1a4d]">and technologies emerge faster and</span> drive technological progress{" "}
+                  <span className="text-[#1a1a1a4d]">and humanity towards</span> a better future
+                </p>
+              </Card>
+            </div>
+            <div className="flex justify-between mt-[450px]">
+              <Card className="w-[42.5%] relative left-0 justify-start">
+                <div className="flex flex-col gap-80">
+                  <p className="text-[68px] leading-[76.16px]">
+                    Problems <br /> <span className="text-[#1a1a1a4d]">we address</span>
+                  </p>
+                  <div className="flex gap-4 bg-white p-4" style={{backgroundColor : 'white'}}>
+                  <div className="bg-[#F0FCFE] h-[500px] w-[500px] absolute rounded-[890px] z-10 purpelBackGround"></div>
+                    <p className={twMerge("text-lg text-[#00000070]", phoneSlide !== "1" && "text-black")}>Startups</p>{" "}
+                    <p className={twMerge("text-lg text-[#00000070]", phoneSlide === "1" && "text-black")}>Investors & Experts</p>
+                  </div>
+                </div>
+              </Card>
+              
+              <Card className="w-[42.5%] relative right-0 justify-end">
+              <div className="bg-[#F0FCFE] h-[500px] w-[500px] absolute rounded-[890px] z-10 blueBackGround"></div>
+                {phoneSlide === 1 ? (
+                  <div className="mt-4 xl:w-[410px] z-20 bg-white p-4 rounded-2xl">
+                    <p className="text-[32px] leading-[35.84px] mb-[36px]">Investors</p>
+                    <Item
+                      title="Hundreds of pitchdecks per month are coming in, most of which are irrelevant and a lot of resource is consumed in processing them"
+                      index={1}
+                    />
+                    <Item
+                      title="There are lots of scam projects around and you have to spend a lot of time researching applications, gathering information from different sources"
+                      index={2}
+                    />
+                    <Item title="There is no clear and safe infrastructure for the secondary allocations market" index={3} />
+                    <p className="text-[32px] leading-[35.84px] mt-[52px] mb-[36px]">Experts</p>
+                    <Item title="Lack of targeted and solvent leads for services" index={1} />
+                  </div>
+                ) : (
+                  <div className="mt-4 xl:w-[410px] z-20 bg-white p-4 rounded-2xl">
+                    <p className="text-[32px] leading-[35.84px] mb-[36px]">Startups</p>
+                    <Item
+                      title="Searching for suitable investors and filling out briefs to venture capital funds take up to 10 hours per each"
+                      index={1}
+                    />
+                    <Item
+                      title="The startup can't get feedback on what to improve in its pitch deck, vision, or business model"
+                      index={2}
+                    />
+                    <Item title="Funds and investors take months to respond or don't respond to messages at all" index={3} />
+                    <Item
+                      title="The startup teams lack expertise on specific domains: legal, development, tokenomics, and more"
+                      index={4}
+                    />
+                    <Item
+                      title="Not clear where to look for smartmoney and other investors, outreaches on Linkedin or email don't work"
+                      index={5}
+                    />
+                  </div>
+                )}
+              </Card>
+            </div>
+          </section>
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 0.25, end: 2.5 }} className="flex flex-col items-center justify-start" style={{ top: "250px" }}>
+        <ParallaxLayer
+          sticky={{ start: 0.25, end: 1.64 }}
+          className="flex flex-col items-center justify-start parallex2"
+          style={{ top: "250px" }}>
           <div id="animation-container slide-up-animation" className="flex justify-center">
-            <Image src={phone1} alt="iphone" width={500} className="w-[63%] animation-frame" style={{ display: "block;" }} />
-            <Image src={phone2} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone3} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone4} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone5} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone6} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone7} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone8} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone9} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone10} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone11} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone12} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone13} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone14} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone15} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone16} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone17} alt="iphone" width={500} className="w-[63%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone1} alt="iphone" width={500} className="w-[81%] animation-frame slide-up-animation" style={{ display: "block;" }} />
+            <Image src={phone2} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone3} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone4} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone5} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone6} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone7} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone8} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone9} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone10} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone11} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone12} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone13} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone14} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone15} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone16} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
+            <Image src={phone17} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
           </div>
           {/* <Image src={iphone} alt="iphone" width={400} className="w-[15%] " /> */}
         </ParallaxLayer>
 
-        <ParallaxLayer sticky={{ start: 0.7, end: 0.9 }} className="flex items-center justify-between relative m-auto max-w-[1700px]">
-          <Card className="w-[42.5%] absolute left-0">
-            <p className="text-[68px] leading-[76.16px]">
-              <span className="text-[#1a1a1a4d]">
-                We’re disrupting <br /> and building
-              </span>
-              <br />a new paradigm
-              <span className="text-[#1a1a1a4d]">
-                <br />
-                for VC market
-              </span>
-            </p>
-          </Card>
-          <Card className="w-[42.5%] absolute right-0">
-            <p className="text-[28px] leading-[39.2px] w-[446px]">
-              <span className="text-[#1a1a1a4d]">So that</span> The best breakthrough ideas{" "}
-              <span className="text-[#1a1a1a4d]">and technologies emerge faster and</span> drive technological progress{" "}
-              <span className="text-[#1a1a1a4d]">and humanity towards</span> a better future
-            </p>
-          </Card>
-        </ParallaxLayer>
+        {/* <ParallaxLayer sticky={{ start: 0.7, end: 0.9 }} className="flex items-center justify-between relative m-auto max-w-[1700px] parallex3 relative">
+         
+        </ParallaxLayer> */}
 
-        <ParallaxLayer sticky={{ start: 1.5, end: 2.5 }} className="flex items-center justify-between relative m-auto max-w-[1700px]">
-          <Card className="w-[42.5%] absolute left-0">
-            <div className="flex flex-col gap-80">
-              <p className="text-[68px] leading-[76.16px]">
-                Problems <br /> <span className="text-[#1a1a1a4d]">we address</span>
-              </p>
-              <div className="flex gap-4">
-                <p className={twMerge("text-lg text-[#00000070]", phoneSlide !== "1" && "text-black")}>Startups</p>{" "}
-                <p className={twMerge("text-lg text-[#00000070]", phoneSlide === "1" && "text-black")}>Investors & Experts</p>
-              </div>
-            </div>
-          </Card>
-          <Card className="w-[42.5%] absolute right-0">
-            {phoneSlide === 1 ? (
-              <div className="mt-4 xl:w-1/2">
-                <p className="text-[32px] leading-[35.84px] mb-[36px]">Investors</p>
-                <Item
-                  title="Hundreds of pitchdecks per month are coming in, most of which are irrelevant and a lot of resource is consumed in processing them"
-                  index={1}
-                />
-                <Item
-                  title="There are lots of scam projects around and you have to spend a lot of time researching applications, gathering information from different sources"
-                  index={2}
-                />
-                <Item title="There is no clear and safe infrastructure for the secondary allocations market" index={3} />
-                <p className="text-[32px] leading-[35.84px] mt-[52px] mb-[36px]">Experts</p>
-                <Item title="Lack of targeted and solvent leads for services" index={1} />
-              </div>
-            ) : (
-              <div className="mt-4 xl:w-1/2">
-                <p className="text-[32px] leading-[35.84px] mb-[36px]">Startups</p>
-                <Item
-                  title="Searching for suitable investors and filling out briefs to venture capital funds take up to 10 hours per each"
-                  index={1}
-                />
-                <Item title="The startup can't get feedback on what to improve in its pitch deck, vision, or business model" index={2} />
-                <Item title="Funds and investors take months to respond or don't respond to messages at all" index={3} />
-                <Item title="The startup teams lack expertise on specific domains: legal, development, tokenomics, and more" index={4} />
-                <Item
-                  title="Not clear where to look for smartmoney and other investors, outreaches on Linkedin or email don't work"
-                  index={5}
-                />
-              </div>
-            )}
-          </Card>
-        </ParallaxLayer>
+        {/* <ParallaxLayer
+          sticky={{ start: 0.7, end: 1.5 }}
+          className="flex items-center justify-between relative m-auto max-w-[1700px]"></ParallaxLayer> */}
 
-        <ParallaxLayer offset={1} sticky={{ start: 3.5, end: 6 }} className="flex flex-col items-center  relative">
+        <ParallaxLayer sticky={{ start: 2.4, end: 5 }} className="flex flex-col items-center  relative">
           <DesktopWork className="w-full mt-[60px]" rotate={rotate.current} />
-          <DesktopWhat isIn={currentPage > 6.7} />
-          <Statistics className="p-4" isInStat={currentPage > 7.5} />
+        </ParallaxLayer>
+        <ParallaxLayer offset={5.8}  className="flex flex-col items-center  relative">
+          <DesktopWhat isIn={currentPage > 4.75} />
+          <Statistics className="p-4" isInStat={currentPage > 5.4} />
           <RoadMap />
           <Team />
           <Footer />

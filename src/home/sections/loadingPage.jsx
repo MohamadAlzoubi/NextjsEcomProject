@@ -30,7 +30,7 @@ const LoadingPage = ({ onLoadingComplete }) => {
           onLoadingComplete();
           return 100;
         }
-        return Math.min(oldProgress + 10, 100); // Increment progress here
+        return Math.min(oldProgress + 20, 100); // Increment progress here
       });
     }, 200); // Speed of the loading bar. Adjust as needed.
 

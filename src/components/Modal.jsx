@@ -1,15 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ArrowButton from "../assets/svg/ArrowButton";
 
-const Modal = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Modal = ({ children, isOpen, onClose }) => {
+  const handleClose = () => {
+    if (onClose) onClose(); // Call the onClose prop if provided
+  };
+
+  // Hide or show the parallex2 element based on the isOpen state
+  useEffect(() => {
+    const parallex2Element = document.querySelector('.parallex2');
+    if (isOpen) {
+      // Disable scrolling and hide parallex2
+      document.body.style.overflow = 'hidden';
+      if (parallex2Element) {
+        parallex2Element.style.display = 'none';
+      }
+    } else {
+      // Enable scrolling and show parallex2
+      document.body.style.overflow = 'visible';
+      if (parallex2Element) {
+        parallex2Element.style.display = '';
+      }
+    }
+  }, [isOpen]);
 
   return (
     <>
-      {/* <button onClick={() => setIsOpen(true)}>Open Modal</button> */}
       {isOpen && (
-        <div className="modal z-[2000]  bg-white fixed">
-          <div className="modal-content rounded-[50px] p-14">
-            <span className="close-button" onClick={() => setIsOpen(false)}>
+        <div className="modal z-[2000] bg-white fixed h-[5000px]">
+          <div className="modal-content max-w-[637px] z-[2000] rounded-[50px] p-14">
+            <span className="close-button" onClick={(handleClose)}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path d="M4 4L20 20M20 4L4 20" stroke="#A8A8A8" />
               </svg>
@@ -19,6 +39,10 @@ const Modal = ({ children }) => {
               <input className="rounded-2xl bg-[#bababa12] p-8" placeholder="Your Name"></input>
               <input className="rounded-2xl bg-[#bababa12] p-8" placeholder="Telegram"></input>
               <input className="rounded-2xl bg-[#bababa12] p-8" placeholder="Investment amount"></input>
+              <div className="flex bg-[#1A1A1A] items-center rounded-full pl-4 py-2 gap-5 pr-2 w-1/2">
+                <button className="text-white xl:text-[14px]">Request Pitch Deck</button>
+                <ArrowButton className={"fill-white"} />
+              </div>
             </div>
           </div>
         </div>

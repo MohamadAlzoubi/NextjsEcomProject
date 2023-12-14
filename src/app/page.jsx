@@ -15,6 +15,7 @@ export default function Home() {
     <>
       <LoadingPage onLoadingComplete={handleLoadingComplete} />
       {isLoadingComplete && <HomePage />}
+      {/* <HomePage /> */}
     </>
   );
 }

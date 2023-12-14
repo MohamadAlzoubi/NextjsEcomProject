@@ -323,7 +323,7 @@ export function MobileWhat() {
         containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
         setTimeout(function () {
           containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-        }, 1500);
+        }, 800);
       }
     });
 

@@ -194,3 +194,56 @@
   top: 0px;
   left: 0;
 }
+
+
+.blueBackGround {
+  border-radius: 890px;
+  background: red;
+  filter: blur(285.5576477050781px);
+  animation: colorChange 2s infinite alternate;
+}
+
+/* Define the keyframes for the animation */
+@keyframes colorChange {
+  0% {
+    background: #F0FCFE;
+  }
+  100% {
+    background: #b7e9f1; /* Lighter shade of the original color */
+  }
+}
+
+.purpelBackGround{
+  border-radius: 890px;
+  background: red;
+  filter: blur(285.5576477050781px);
+  animation: colorChangePupel 2s infinite alternate;
+}
+
+/* Define the keyframes for the animation */
+@keyframes colorChangePupel {
+  0% {
+    background: #748cf7;
+  }
+  100% {
+    background: #758beb; /* Lighter shade of the original color */
+  }
+}
+
+
+.RoadMapBackGround{
+  border-radius: 890px;
+  background: red;
+  filter: blur(300.5576477050781px);
+  animation: RoadMapBackGroundA 2s infinite alternate;
+}
+
+/* Define the keyframes for the animation */
+@keyframes RoadMapBackGroundA {
+  0% {
+    background: #748cf7;
+  }
+  100% {
+    background: #758beb; /* Lighter shade of the original color */
+  }
+}

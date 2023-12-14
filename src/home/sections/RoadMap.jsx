@@ -69,10 +69,11 @@ function RoadMap({ className }) {
         <Image src={iphone} className="w-1/7 h-[75px] hidden xl:block" alt="image" />
       </div>
 
-      <div className="border-[#1A1A1A] flex border-b-4 border-l-4 mt-14">
+      <div className="border-[#1A1A1A] flex border-b-2 border-l-2 mt-14">
         <div className="w-full">
           <div className="grid grid-row-4">
             <div className="w-full flex h-11 xl:h-[100px] border-b-2 border-[#D9D9D9]">
+              
               <div className="w-3/4 h-full" />
               <div
                 className={twMerge(
@@ -82,8 +83,27 @@ function RoadMap({ className }) {
                 onClick={() => handleSectionClick("h2")}>
                 H2 2023
               </div>
+              <div className="relative">
+              <div style={{ transform: "rotate(270deg)", position: "absolute", top: "15px" , left : '-1719px' }}>Result</div>
+              <div style={{ transform: "rotate(270deg)", position: "absolute", bottom: "89px", left: "-1731px" }} >
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L7 7L0.999999 13" stroke="#1A1A1A" />
+                </svg>
+              </div>
+              </div>
+              
+              <div className="relative">
+              <div className="bg-[#F0FCFE] h-[500px] w-[500px] absolute rounded-[890px] left-[-917px] z-10 RoadMapBackGround"></div>
+              <div style={{ transform: "rotate(0deg)", position: "absolute", top: "363px", left: "-36px" }}>Time</div>
+              <div style={{ transform: "rotate(0deg)", position: "absolute", top: "394px", left: "-6px" }} >
+                <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M1 1L7 7L0.999999 13" stroke="#1A1A1A" />
+                </svg>
+              </div>
+              </div>
+              
             </div>
-
+            
             <div className="w-full flex h-11 xl:h-[100px] border-b-2 border-[#D9D9D9]">
               <div className="w-2/4 h-full" />
               <div
