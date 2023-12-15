@@ -39,7 +39,7 @@ function Card({ title }) {
 
 const ProblemSwiper = ({ className }) => {
   return (
-    <div className={className}>
+    <div className={className} id="section-one">
       <div className="flex justify-between flex-col">
         <p className="text-[40px] leading-[44.8px] text-[rgba(26,26,26,0.25)]">Problems</p>
         <p className="text-[40px] leading-[44.8px]">we adress</p>

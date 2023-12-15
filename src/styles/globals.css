@@ -247,3 +247,11 @@
     background: #758beb; /* Lighter shade of the original color */
   }
 }
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}

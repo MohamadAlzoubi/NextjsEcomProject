@@ -318,7 +318,7 @@ function DesktopHomePage() {
         </ParallaxLayer>
 
         <ParallaxLayer
-         offset={1}
+         offset={0.99}
           sticky={{ start: bigScreen.PhoneStart.start,end: bigScreen.PhoneStart.end }}
           className="flex flex-col items-center justify-start parallex2"
           style={{ top: "250px" }}>
@@ -356,7 +356,7 @@ function DesktopHomePage() {
           <DesktopWork className="w-full" rotate={rotate.current} />
           
         </ParallaxLayer>
-        <ParallaxLayer offset={bigScreen.otherLayers.start}  className="flex flex-col items-center  relative">
+        <ParallaxLayer offset={bigScreen.otherLayers.start} className="flex flex-col items-center  relative">
           <DesktopWhat isIn={currentPage > bigScreen.otherLayers.animateApp} />
           <Statistics className="p-4" isInStat={currentPage > bigScreen.otherLayers.animateStat} />
           <RoadMap />

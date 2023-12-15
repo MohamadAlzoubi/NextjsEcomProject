@@ -53,12 +53,12 @@ function Navbar({ className }) {
       {isMenuOpen && (
         <div className="px-10 xl:hidden">
           <ul className="flex gap-3 flex-grow flex-col ">
-            <li className="text-[32px] font-medium">About</li>
-            <li className="text-[32px] font-medium">Problems</li>
-            <li className="text-[32px] font-medium">How it works</li>
-            <li className="text-[32px] font-medium">Inside the app</li>
-            <li className="text-[32px] font-medium">Tracking</li>
-            <li className="text-[32px] font-medium">Team</li>
+          <li className="">About</li>
+              <li className=""><a href='#section-one'>Problems</a></li>
+              <li className=""><a href='#section-how'>How it works</a></li>
+              <li className=""><a href='#section-inside'>Inside the app</a></li>
+              <li className=""><a href='#section-tracking'>Tracking</a></li>
+              <li className=""><a href='#section-team'>Team</a></li>
           </ul>
 
           <div className="mt-10">

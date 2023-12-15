@@ -68,9 +68,8 @@ function Desktop({ className, isInStat }) {
   return (
     <div className={twMerge("flex w-full bg-white mt-[200px] max-w-[1700px] m-auto", className)} id="section-tracking">
       <div className="text-center text-6xl xl:text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[250px] relative">
-        <div className="flex items-center relative top-[45px]">
-          <h1>Unimatch</h1>
-          <h1> &nbsp; in numbers</h1>
+        <div className="flex items-center justify-center relative top-[45px]">
+          <h1 className="whitespace-nowrap">Unimatch <br/> in numbers</h1>
         </div>
       </div>
       <div className="block z-10 relative">
@@ -141,7 +140,7 @@ function Desktop({ className, isInStat }) {
 
 function Mobile({ className }) {
   return (
-    <div className={className}>
+    <div className={className} id="section-tracking">
       <Swiper
         slidesPerView={1}
         spaceBetween={10}

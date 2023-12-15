@@ -4,6 +4,7 @@ import { twMerge } from "tailwind-merge";
 import React, { useEffect, useRef, useState } from "react";
 import iphone from "../../assets/img/image2Details.png";
 import Battery from "../../assets/svg/Battery";
+import Cards from "../../assets/svg/Cards";
 import InsideLogo from "../../assets/svg/InsideLogo";
 
 import FacebookIcon from "../../assets/svg/InsideWhatPhone/FacebookIcon";
@@ -78,39 +79,63 @@ function InsideMobile({ containerRef, numberDisplayRef, number, isDone, isIn, cl
         <div className="text-[#FFF] gap-1"> 9:41</div>
         <div className="bg-black rounded-full w-[100px] h-[20px]" />
         <div className="flex">
-          <Signal />
-          <Wifi />
-          <Battery />
+          <Signal className={"w-[10px] xl:w-[20px]"}/>
+          <Wifi className={"w-[10px] xl:w-[20px]"}/>
+          <Battery className={"w-[10px] xl:w-[20px]"}/>
         </div>
       </div>
 
       <div className="flex mt-9 gap-5 mx-4 flex-col">
         <div className="flex gap-3">
-          <InsideLogo />
+          <InsideLogo className={"w-[10px] xl:w-[20px]"}/>
           <div className="mr">
             <div className="flex">
-              <h1 className="text-[#FFF] mr-2">Unimatch AI</h1>
+              <h1 className="text-[#FFF] mr-2 text-xs xl:text-base">Unimatch AI</h1>
               <span>
-                <Verified />
+                <Verified className={"w-[10px] xl:w-[20px]"}/>
               </span>
             </div>
-            <p className="text-[#ffffff80]"> Inc, United Kingdom</p>
+            <p className="text-[#ffffff80] text-xs xl:text-base"> Inc, United Kingdom</p>
           </div>
         </div>
 
         <div className="flex flex-wrap gap-x-2 gap-y-1">
-          <ButtonInsidePhone {...data[0]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[0]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[0]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[3]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[4]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[5]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[6]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
-          <ButtonInsidePhone {...data[7]} className="py-[5px] px-[10px] text-[13px] text-[#ffffffe6] border-[#ffffff40]" />
+          <ButtonInsidePhone
+            {...data[0]}
+            className="py-[1px] xl:py-[5px] px-[10px]   text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[0]}
+            className="py-[1px] xl:py-[5px] px-[10px]   text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[0]}
+            className="py-[1px] xl:py-[5px] px-[10px]  text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[3]}
+            className="py-[1px] xl:py-[5px] px-[10px]   text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[4]}
+            className="py-[1px] xl:py-[5px] px-[10px]   text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[5]}
+            className="py-[1px] xl:py-[5px] px-[10px]  text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[6]}
+            className="py-[1px] xl:py-[5px] px-[10px]   text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
+          <ButtonInsidePhone
+            {...data[7]}
+            className="py-[1px] xl:py-[5px] px-[10px]   text-[8px] xl:text-[13px] text-[#ffffffe6] border-[#ffffff40]"
+          />
         </div>
 
         <div className="flex">
-          <div className="text-[#FFF] text-sm">
+          <div className="text-[#FFF] text-xs xl:text-sm">
             <p className="">
               <span className="font-bold">Project idea:</span> AI app where startups <br />
               and investors find each other
@@ -121,13 +146,13 @@ function InsideMobile({ containerRef, numberDisplayRef, number, isDone, isIn, cl
 
       <div className="flex justify-between mt-6 px-4">
         <div className="flex gap-1 items-center">
-          <BandCamp />
-          <p className="text-[#FFF] text-sm">unimatch.ai</p>
+          <BandCamp className={"w-[10px] xl:w-[20px]"}/>
+          <p className="text-[#FFF] text-xs xl:text-sm">unimatch.ai</p>
         </div>
         <div className="gap-4 flex">
-          <TeleIcon />
-          <MsgIcon />
-          <FacebookIcon />
+          <TeleIcon className={"w-[10px] xl:w-[20px]"}/>
+          <MsgIcon className={"w-[10px] xl:w-[20px]"}/>
+          <FacebookIcon className={"w-[10px] xl:w-[20px]"}/>
         </div>
       </div>
 
@@ -295,6 +320,7 @@ export function MobileWhat() {
   const containerRef = useRef(null);
   const number = useRef(0);
   const [isDone, setDone] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
   console.log(numberDisplayRef);
 
@@ -302,35 +328,40 @@ export function MobileWhat() {
 
   useEffect(() => {
     let intervalId;
-    if (isInViewport1) {
+
+    if (isInViewport1 && !hasScrolled) {
       intervalId = setInterval(() => {
         if (number.current >= 3000) {
-          console.log("i am here");
-          setDone(true);
-          return clearInterval(intervalId);
+          clearInterval(intervalId);
         }
         number.current += 10;
         numberDisplayRef.current.innerText = `$${formatNumber(number.current)}`;
       }, 3);
+
+      setHasScrolled(true);
     }
 
-    window.addEventListener("scroll", function () {
-      var targetScrollY = 4884; // The Y position you want to check against
-      var currentScrollY = window.scrollY || window.pageYOffset; // Get current scroll position
+    const handleScroll = () => {
+      const targetScrollY = 4884; // The Y position you want to check against
+      const currentScrollY = window.scrollY || window.pageYOffset;
 
-      if (currentScrollY >= targetScrollY) {
-        // Your code here to be executed when the scroll position reaches 500 pixels
+      if (currentScrollY >= targetScrollY && !hasScrolled) {
         containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
-        setTimeout(function () {
+        setTimeout(() => {
           containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
         }, 800);
+
+        setHasScrolled(true);
       }
-    });
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       clearInterval(intervalId);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [isInViewport1]);
+  }, [isInViewport1, hasScrolled]);
 
   useEffect(() => {
     if (isDone === false) return;
@@ -341,58 +372,7 @@ export function MobileWhat() {
     <div className={twMerge("flex justify-center flex-col items-center mt-[200px]")}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
       <div className="relative flex mt-2 w-[260px] h-[200px]">
-        <div className="absolute z-50 xl:top-[74px] xl:left-[-74px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
-          <AnimatedCard
-            friction={1 / 9}
-            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
-            <div className="flex gap-2 self-start w-4">
-              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
-              <Card1 />
-            </div>
-            <div className="">
-              <p className="line-clamp-4 text-[10px] xl:text-[16px]">AI-powered matchmaking</p>
-            </div>
-          </AnimatedCard>
-        </div>
-        <div className="absolute z-50 xl:top-[267px] xl:left-[-129px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
-          <AnimatedCard
-            friction={1 / 9}
-            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
-            <div className="flex gap-2 self-start w-4">
-              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
-              <Card1 />
-            </div>
-            <div className="">
-              <p className="line-clamp-4 text-[10px] xl:text-[16px]">OTC secondary market for early-stage equities</p>
-            </div>
-          </AnimatedCard>
-        </div>
-        <div className="absolute z-50 xl:top-[364px] xl:left-[241px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
-          <AnimatedCard
-            friction={1 / 9}
-            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
-            <div className="flex gap-2 self-start w-4">
-              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
-              <Card1 />
-            </div>
-            <div className="">
-              <p className="line-clamp-4 text-[10px] xl:text-[16px]">AI-powered matchmaking</p>
-            </div>
-          </AnimatedCard>
-        </div>
-        <div className="absolute z-50 xl:top-[83px] xl:left-[298px]" style={{ transform: "skewX(-11deg) skewY(-4deg)" }}>
-          <AnimatedCard
-            friction={1 / 9}
-            className="flex flex-col h-fit min-w-[150px] w-[150px] gap-1 xl:gap-4 overflow-hidden bg-white p-4 shadow-lg rounded-xl xl:min-w-[251px] xl:w-[251px]">
-            <div className="flex gap-2 self-start w-4">
-              {/* <Icon className="h-6 w-6 fill-main md:h-8 md:w-8 lg:h-12 lg:w-12" /> */}
-              <Card1 />
-            </div>
-            <div className="">
-              <p className="line-clamp-4 text-[10px] xl:text-[16px]">AI-powered matchmaking</p>
-            </div>
-          </AnimatedCard>
-        </div>
+        <Cards className={"absolute z-10 h-[322px] w-[139%] left-[-63px] top-[55px]"} />
         <Image src={iphone} alt="iphone" width={600} height={750} className="absolute " />
         <InsideMobile
           numberDisplayRef={numberDisplayRef}
@@ -402,7 +382,7 @@ export function MobileWhat() {
           number={number}
           style={{
             transform: "skew(-10deg, 355deg) rotate(2deg)",
-            height: "357px",
+            height: "378px",
             width: "180px",
             borderRadius: "19px",
             marginTop: "11px",

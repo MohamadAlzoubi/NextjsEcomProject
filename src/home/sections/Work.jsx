@@ -131,7 +131,7 @@ export function MobileWork({ className }) {
   };
 
   return (
-    <div className={twMerge("flex m-auto", className)}>
+    <div className={twMerge("flex m-auto", className)} id="section-how">
       <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[1026px] flex justify-start flex-col items-center overflow-hidden">
         <Heading className="text-white mt-[54px] xl:mt-[108px]">How it Works</Heading>
 

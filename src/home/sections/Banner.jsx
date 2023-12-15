@@ -40,7 +40,7 @@ function Banner({ className }) {
           <Button variant="dark" text="Invest" icon={<Send className="fill-white" />} onClick={openModal} />
         </div>
 
-        <div className="h-0 mt-4 xl:hidden">
+        <div className="mt-4 xl:hidden">
           <Image src={iphone} alt="iphone" width={400} className="slide-up-animation" />
         </div>
       </div>
