@@ -124,23 +124,6 @@ function MobileHomePage() {
             />
           ))}
 
-          {/* <Image src={phone1} alt="iphone" width={500} className="w-[81%] animation-frame slide-up-animation" style={{ display: "block;" }} />
-            <Image src={phone2} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone3} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone4} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone5} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone6} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone7} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone8} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone9} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone10} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone11} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone12} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone13} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone14} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone15} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone16} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} />
-            <Image src={phone17} alt="iphone" width={500} className="w-[81%] animation-frame hidden" style={{ display: "none;" }} /> */}
         </div>
       </div>
 

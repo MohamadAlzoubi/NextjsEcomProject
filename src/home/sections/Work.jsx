@@ -34,7 +34,56 @@ function Card({ icon, text, number, className, transform }) {
   );
 }
 
-export function DesktopWork({ className, rotate = 0 }) {
+export function DesktopWork({ className }) {
+  const [rotate, setRotate] = useState(0);
+  const containerRef = useRef(null);
+  const initialPositionRef = useRef(0);
+
+  useEffect(() => {
+    console.log(initialPositionRef.current)
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY || window.pageYOffset;
+      const startRotatePosition = initialPositionRef.current;
+      const maxScroll = 1500; // Adjust this value based on when you want the rotation to be completed
+      const maxRotate = -83; // Adjust the maximum rotation angle
+
+      console.log('scrollPosition' ,  window.scrollY)
+      console.log('startRotatePosition' ,  startRotatePosition)
+      if (scrollPosition >= startRotatePosition) {
+        let newRotate = ((scrollPosition - startRotatePosition) / (maxScroll - startRotatePosition)) * maxRotate;
+        console.log("newRotate:", newRotate);
+        // Ensure the rotation is within the specified range
+        // newRotate = Math.max(83, Math.min(0, newRotate));
+        console.log("scrollPosition:", scrollPosition);
+        console.log("startRotatePosition:", startRotatePosition);
+       
+  
+        if(newRotate < 84){
+          setRotate(newRotate);
+        }
+        
+      }
+    };
+
+    const setInitialPosition = () => {
+      // Set the initial position of the sticky element
+      initialPositionRef.current = containerRef.current.getBoundingClientRect().top + window.scrollY;
+    };
+
+    // Set the initial position when the component mounts
+    setInitialPosition();
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', setInitialPosition); // Handle resize events
+
+    // Cleanup the event listeners on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', setInitialPosition);
+    };
+  }, []);
+
   const data = [
     { icon: <WorkIcon1 className="w-24 h-24" />, number: "01", text: "Sign up in UniMatch as a startup, investor or expert" },
     {
@@ -60,7 +109,8 @@ export function DesktopWork({ className, rotate = 0 }) {
   ];
 
   return (
-    <div className={twMerge("flex max-w-[1700px] m-auto", className)} id="section-how">
+    <div className="relative h-[3000px] mt-[200px]"  ref={containerRef}>
+    <div className={twMerge("flex max-w-[1700px] m-auto", className)} id="section-how" >
       <div className="bg-black rounded-[28px] xl:rounded-[108px] w-full h-[545px] xl:h-[1000px] 2xl:h-[1100px] flex justify-start flex-col items-center overflow-hidden relative">
         <Heading className="text-white mt-[54px] xl:pt-[108px] relative bottom-[100px]">How it Works</Heading>
 
@@ -69,7 +119,7 @@ export function DesktopWork({ className, rotate = 0 }) {
           <div
             className="absolute w-[3105px] h-[3105px] flex justify-center"
             style={{
-              transform: `rotate(-${rotate}deg)`,
+              transform: `rotate(-${rotate}deg)`, // Note the change here to use positive rotation
               top: "top: -104px;",
             }}>
             <Card {...data[0]} transform="rotate-[0deg]" className="roa" />
@@ -80,6 +130,7 @@ export function DesktopWork({ className, rotate = 0 }) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
