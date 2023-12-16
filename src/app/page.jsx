@@ -13,9 +13,8 @@ export default function Home() {
 
   return (
     <>
-      {/* <LoadingPage onLoadingComplete={handleLoadingComplete} />
-      {isLoadingComplete && <HomePage />} */}
-      <HomePage />
+      <LoadingPage onLoadingComplete={handleLoadingComplete} />
+      {isLoadingComplete && <HomePage />}
     </>
   );
 }

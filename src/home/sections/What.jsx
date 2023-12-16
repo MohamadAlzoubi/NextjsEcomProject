@@ -52,7 +52,7 @@ function Founder({ title, body }) {
   );
 }
 
-function InsideMobile({ containerRef, numberDisplayRef, number, isDone, isIn, className, style }) {
+function InsideMobile({ containerRef, numberDisplayRef, number, isIn, className, style }) {
   const data = [
     { text: "Pre-Seed" },
     { text: "Prototype" },
@@ -168,8 +168,8 @@ function InsideMobile({ containerRef, numberDisplayRef, number, isDone, isIn, cl
           <div className="w-full bg-gray-700 group rounded-full mt-5 relative flex justify-center">
             <div
               className={twMerge(
-                "absolute left-0 bg-green-600 text-xs font-medium text-blue-100 p-0.5 leading-5 rounded-full text-center w-8 transition-all h-full duration-1000",
-                (isDone || isIn) && "w-full"
+                "absolute left-0 bg-green-600 text-xs font-medium text-blue-100 p-0.5 leading-5 rounded-full text-center transition-all h-full duration-1000 w-full",
+                 
               )}
             />
             <p className="text-white relative" ref={numberDisplayRef}>
@@ -209,34 +209,31 @@ export function DesktopWhat({ isIn, className }) {
   const number = useRef(0);
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  console.log(numberDisplayRef);
-
-  const isInViewport1 = useIsInViewport(numberDisplayRef);
+  
 
   useEffect(() => {
     let intervalId;
-
-    if (isInViewport1 && !hasScrolled) {
-      intervalId = setInterval(() => {
-        if (number.current >= 3000) {
-          clearInterval(intervalId);
-        }
-        number.current += 10;
-        numberDisplayRef.current.innerText = `$${formatNumber(number.current)}`;
-      }, 3);
-
-      setHasScrolled(true);
-    }
 
     const handleScroll = () => {
       const targetScrollY = 5000; // The Y position you want to check against
       const currentScrollY = window.scrollY || window.pageYOffset;
 
       if (currentScrollY >= targetScrollY && !hasScrolled) {
+         intervalId = setInterval(() => {
+          console.log(number.current);
+        
+          if (number.current >= 3000) {
+            console.log(number.current >= 3000);
+            clearInterval(intervalId);
+          } else {
+            number.current += 10;
+            numberDisplayRef.current.innerText = `$${formatNumber(number.current)}`;
+          }
+        }, 3);
         containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
         setTimeout(() => {
           containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-        }, 1000);
+        }, 1500);
 
         setHasScrolled(true);
       }
@@ -248,9 +245,11 @@ export function DesktopWhat({ isIn, className }) {
       clearInterval(intervalId);
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isInViewport1, hasScrolled]);
+  }, [hasScrolled]);
 
   return (
+    <>
+    <div className="bg-[#F0FCFE] h-[500px] w-[500px] rounded-[890px] z-10 blueBackGround absolute"></div>
     <div className={twMerge("flex justify-center flex-col items-center mt-[200px]", className)} id="section-inside">
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
       <div className="relative flex mt-2 w-[400px] h-[400px]">
@@ -324,6 +323,8 @@ export function DesktopWhat({ isIn, className }) {
         />
       </div>
     </div>
+    </>
+    
   );
 
   // return ;
@@ -378,15 +379,18 @@ export function MobileWhat() {
 
 
   return (
-    <div className={twMerge("flex justify-center flex-col items-center mt-[80px]")}>
+    <>
+    <div className="bg-[#F0FCFE] h-[500px] w-[500px] rounded-[890px] z-10 blueBackGround absolute"></div>
+    <div className={twMerge("flex justify-center flex-col items-center mt-[80px] z-20")}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
-      <div className="relative flex mt-2 w-[260px] h-[200px]">
+      
+      <div className="relative flex mt-2 w-[260px] h-[200px] z-20">
+      
         <Cards className={"absolute z-10 h-[322px] w-[139%] left-[-63px] top-[55px]"} />
         <Image src={iphone} alt="iphone" width={600} height={750} className="absolute " />
         <InsideMobile
           numberDisplayRef={numberDisplayRef}
           containerRef={containerRef}
-          isIn={isInViewport1}
           number={number}
           style={{
             transform: "skew(-10deg, 355deg) rotate(2deg)",
@@ -399,6 +403,7 @@ export function MobileWhat() {
         />
       </div>
     </div>
+    </>
   );
 }
 

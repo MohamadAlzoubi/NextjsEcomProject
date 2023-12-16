@@ -92,13 +92,14 @@ function Desktop({ className, isInStat }) {
       </div>
       <div className="block z-10 relative">
         <div className="grid grid-cols-4 gap-5 w-full">
-          <Card value={94.37} text="Investors retention rate" className="col-span-2 bg-white" duration={2000} IconComponent={First} />
+          <Card value={94.37} number="%" text="Investors retention rate" className="col-span-2 bg-white" duration={2000} IconComponent={First} />
 
           <Card value={2780} text="Matches between startups and investors" className="bg-white" duration={2000} IconComponent={Second} />
 
           <Card value={211} text="Startup on board" className="bg-white" duration={2000} IconComponent={Third} />
 
           <div className="flex flex-col justify-between p-6 xl:p-11  bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
+            <p>Investors presence</p>
             <div className="flex justify-center">
               <StatisticChart className={"w-[618px]"} />
             </div>
@@ -125,7 +126,7 @@ function Desktop({ className, isInStat }) {
 
           <Card value={145} text="Investors on board" duration={2000} IconComponent={Fourth} className="bg-white" />
 
-          <Card value={98} text="Startups retention rates" duration={2000} IconComponent={Fifth} />
+          <Card value={98} number="%" text="Startups retention rates" duration={2000} IconComponent={Fifth} />
 
           <Card value={2367} text="Startup blurb views by Investors" className="col-span-2" duration={2000} IconComponent={Sixth} />
         </div>

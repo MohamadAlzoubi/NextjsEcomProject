@@ -17,7 +17,7 @@ function Banner({ className, children }) {
   const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <div className={twMerge("px-2", className)}>
+      <div className={twMerge("px-6", className)}>
         <div
           className="flex flex-col items-center xl:pt-10 w-full"
           >

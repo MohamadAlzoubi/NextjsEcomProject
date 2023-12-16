@@ -150,7 +150,7 @@ const Team = ({ className }) => {
         modules={[Navigation, Pagination]}
         className="mySwiper mt-7">
         <SwiperSlide className="!h-auto">
-          <div className="bg-[#FAFAFA] rounded-[50px] p-8 xl:h-full flex flex-col">
+          <div className="bg-[#FAFAFA] rounded-[50px] p-4 xl:h-full flex flex-col">
             <div>
               <Image src={Emp1} alt="Company Logo" />
             </div>
@@ -177,7 +177,7 @@ const Team = ({ className }) => {
         </SwiperSlide>
 
         <SwiperSlide className="!h-auto">
-          <div className="bg-[#FAFAFA] rounded-[50px] p-8 xl:h-full flex flex-col">
+          <div className="bg-[#FAFAFA] rounded-[50px] p-4 xl:h-full flex flex-col">
             <div>
               <Image src={Emp2} alt="Company Logo" />
             </div>
@@ -207,18 +207,20 @@ const Team = ({ className }) => {
         </SwiperSlide>
 
         <SwiperSlide className="!h-auto">
-          <div className="bg-[#FAFAFA] rounded-[50px] p-8 xl:h-full flex flex-col">
+          <div className="bg-[#FAFAFA] rounded-[50px] p-4 xl:h-full flex flex-col">
             <Image src={Emp3} alt="Company Logo" />
 
-            <div className="flex flex-col justify-between">
-              <p className="text-[#1a1a1a80] text-xs mt-5">Investors relation</p>
-              <h2 className="text-2xl xl:text-4xl text-[#1A1A1A]">Tommy Walker</h2>
-              <div className="flex flex-col flex-grow">
-                <div className="hidden xl:block flex-grow">
-                  <p className="text-[#1A1A1A] opacity-60 pt-4 pb-3">Expertise in Partner Network Development for SaaS and AI Products</p>
-                  <p className="text-[#1A1A1A] opacity-60 pb-3">Tashkent University: Computer Engineering</p>
-                  <p className="text-[#1A1A1A] opacity-60 pb-3">CTO at Etangle Protocol (London)</p>
-                  <p className="text-[#1A1A1A] opacity-60 pb-3">7+ years experience in Sales Closure</p>
+            <div className="flex flex-col flex-grow justify-between">
+              <div>
+                <p className="text-[#1a1a1a80] text-xs mt-5">Investors relation</p>
+                <h2 className="text-2xl xl:text-4xl text-[#1A1A1A]">Tommy Walker</h2>
+                <div className="flex flex-col flex-grow">
+                  <div className="hidden xl:block flex-grow">
+                    <p className="text-[#1A1A1A] opacity-60 pt-4 pb-3">Expertise in Partner Network Development for SaaS and AI Products</p>
+                    <p className="text-[#1A1A1A] opacity-60 pb-3">Tashkent University: Computer Engineering</p>
+                    <p className="text-[#1A1A1A] opacity-60 pb-3">CTO at Etangle Protocol (London)</p>
+                    <p className="text-[#1A1A1A] opacity-60 pb-3">7+ years experience in Sales Closure</p>
+                  </div>
                 </div>
               </div>
               <div className="flex justify-between items-center mt-4">
@@ -234,11 +236,12 @@ const Team = ({ className }) => {
         </SwiperSlide>
 
         <SwiperSlide className="!h-auto">
-          <div className="bg-[#FAFAFA] rounded-[50px] p-8 xl:h-full flex flex-col">
+          <div className="bg-[#FAFAFA] rounded-[50px] p-4 xl:h-full flex flex-col">
             <div>
               <Image src={Emp4} alt="Company Logo" />
             </div>
-            <div className="flex flex-col justify-between">
+            <div className="flex flex-col flex-grow justify-between">
+            <div>
               <p className="text-[#1a1a1a80] text-xs mt-5">Operation management</p>
               <h2 className="text-2xl xl:text-4xl text-[#1A1A1A]">Max Bozhko</h2>
               <div className="flex flex-col flex-grow">
@@ -250,13 +253,64 @@ const Team = ({ className }) => {
                   <p className="text-[#1A1A1A] opacity-60 pb-3">9+ years in crypto projects</p>
                 </div>
               </div>
+              </div>
               <div className="flex justify-between items-center mt-4">
                 <button
                   onClick={() => handleReadMore(employeeData4)}
                   className="px-4 py-2 border rounded-full flex justify-between items-center gap-4 xl:hidden">
                   Read More <span className="bg-black rounded-full text-white w-[18px] h-[18px] flex items-center justify-center">+</span>
                 </button>
-                <Image src={Company4} alt="Company Logo" className="w-[22%] xl:w-[27%]"/>
+                <Image src={Company4} alt="Company Logo" className="w-[22%] xl:w-[27%]" />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="!h-auto">
+          <div className="bg-[#FAFAFA] rounded-[50px] p-4 xl:h-full flex flex-col">
+            <div>
+              <Image src={Emp1} alt="Company Logo" />
+            </div>
+            <div className="flex flex-col flex-grow">
+              <p className="text-[#1a1a1a80] text-xs mt-5">Founder</p>
+              <h2 className="text-2xl xl:text-4xl text-[#1A1A1A]">Oleksandr Vinichenko</h2>
+              <div className="hidden xl:block flex-grow">
+                <p className="text-[#1A1A1A] opacity-60 pt-4 pb-3">12+ years of experience in tech companies</p>
+                <p className="text-[#1A1A1A] opacity-60 pb-3">MBA - ESBS, Valencia</p>
+                <p className="text-[#1A1A1A] opacity-60 pb-3">Bachelor of Law and master of Law - National University of Kyiv-Mohyla Academy MBA - ESBS, Valencia</p>
+              </div>
+
+              <div className="flex justify-between items-center mt-4">
+                <button
+                  onClick={() => handleReadMore(employeeData1)}
+                  className="px-4 py-2 border rounded-full flex justify-between items-center gap-4 xl:hidden">
+                  Read More <span className="bg-black rounded-full text-white w-[18px] h-[18px] flex items-center justify-center">+</span>
+                </button>
+                <Image src={Company} alt="Company Logo" className="w-[11%] xl:w-[16%]" />
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide className="!h-auto">
+          <div className="bg-[#FAFAFA] rounded-[50px] p-4 xl:h-full flex flex-col">
+            <div>
+              <Image src={Emp1} alt="Company Logo" />
+            </div>
+            <div className="flex flex-col flex-grow">
+              <p className="text-[#1a1a1a80] text-xs mt-5">Founder</p>
+              <h2 className="text-2xl xl:text-4xl text-[#1A1A1A]">Grigory Gonastarev</h2>
+              <div className="hidden xl:block flex-grow">
+                <p className="text-[#1A1A1A] opacity-60 pt-4 pb-3">Experienced AI engineer and mathematician</p>
+                <p className="text-[#1A1A1A] opacity-60 pb-3">M.S. in Computer Science (Harvard), M.S. in Technology Commercialization (UT), B.S. in Applied Mathematics (UM)</p>
+                <p className="text-[#1A1A1A] opacity-60 pb-3">Prominent member of the Token Engineering academy and Solana ecosystem</p>
+              </div>
+
+              <div className="flex justify-between items-center mt-4">
+                <button
+                  onClick={() => handleReadMore(employeeData1)}
+                  className="px-4 py-2 border rounded-full flex justify-between items-center gap-4 xl:hidden">
+                  Read More <span className="bg-black rounded-full text-white w-[18px] h-[18px] flex items-center justify-center">+</span>
+                </button>
+                <Image src={Company} alt="Company Logo" className="w-[11%] xl:w-[16%]" />
               </div>
             </div>
           </div>

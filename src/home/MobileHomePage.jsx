@@ -113,7 +113,7 @@ function MobileHomePage() {
       </Card>
 
       <div className="h-[1800px]">
-        <div id="animation-container slide-up-animation" className="flex justify-center sticky top-[118px]">
+        <div id="animation-container slide-up-animation" className="flex justify-center sticky top-[118px] mt-[50px]">
           {imagePaths.map((path, index) => (
             <Image
               key={index}

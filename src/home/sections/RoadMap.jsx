@@ -73,7 +73,7 @@ function RoadMap({ className }) {
             Result
           </div>
           <div
-            className="left-[21px] top-[95px] xl:left-[22.5px] xl:top-[109px]"
+            className="left-[21px] top-[95px] xl:left-[20.5px] xl:top-[109px]"
             style={{ transform: "rotate(270deg)", position: "absolute" }}>
             <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M1 1L7 7L0.999999 13" stroke="#1A1A1A" />
@@ -87,7 +87,7 @@ function RoadMap({ className }) {
       <div className="bg-[#eff2ff9e] mx-3 p-6 rounded-2xl">
         <div className="border-[#1A1A1A] flex border-b-2 border-l-2">
           <div className="w-full">
-            <div className="grid grid-row-4">
+            <div className="grid grid-row-4 z-20">
               <div className="w-full flex h-11 xl:h-[100px] border-b-2 border-[#D9D9D9] z-10">
                 <div className="w-3/4 h-full" />
                 <div
@@ -151,6 +151,7 @@ function RoadMap({ className }) {
                 </div>
               </div>
             </div>
+            <div className="bg-[#F0FCFE] h-[500px] w-[500px] rounded-[890px] z-10 blueBackGround absolute"></div>
           </div>
         </div>
       </div>

@@ -14,6 +14,7 @@ import Statistics from "./sections/Statistics";
 import RoadMap from "./sections/RoadMap";
 import Banner from "./sections/Banner";
 import { ScrollProvider } from "../context/scrollContext";
+import { debounce } from 'lodash';
 
 import phone1 from "../assets/img/folder/1.png";
 import phone2 from "../assets/img/folder/2.png";
@@ -104,7 +105,6 @@ function DesktopHomePage() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updatePhoneSlide = useCallback((numberOfPage) => {
-    console.log(numberOfPage);
     if (numberOfPage == 1) setPhoneSlide(1);
     else setPhoneSlide(2);
   }, []);
@@ -122,18 +122,21 @@ function DesktopHomePage() {
       updatePhoneSlide(2);
     }
 
-    // updatePhoneSlide(2)
-    console.log(newScrollPosition);
-    // Toggle the visibility only when the scroll position passes the threshold
-    if (newScrollPosition >= threshold) {
-      const imageIndex = Math.floor((newScrollPosition - threshold) / 100);
+     // updatePhoneSlide(2)
 
-      setVisibleImage(imageIndex);
-    } else {
-      // If the scroll position is below the threshold, keep the first image visible
-      setVisibleImage(0);
-    }
-  }
+     // Use requestAnimationFrame for smoother animations
+     requestAnimationFrame(() => {
+       // Toggle the visibility only when the scroll position passes the threshold
+       if (newScrollPosition >= threshold) {
+         const imageIndex = Math.floor((newScrollPosition - threshold) / 100);
+ 
+         setVisibleImage(imageIndex);
+       } else {
+         // If the scroll position is below the threshold, keep the first image visible
+         setVisibleImage(0);
+       }
+     });
+   }
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -149,7 +152,7 @@ function DesktopHomePage() {
       <section className="max-w-[1900px] m-auto">
         <ul className="flex justify-center h-[2719px]">
           <li className="w-[0%] relative top-[1255px]">
-            <div className="flex flex-col justify-between right-[-429%] top-[19%] w-[764px] gap-[660px] xl:ml-[123px]" id="section-one">
+            <div className="flex flex-col justify-between right-[-429%] top-[19%] w-[764px] gap-[534px] xl:ml-[123px]" id="section-one">
               <Card className="relative left-0 justify-start">
                 <p className="text-[50px] 2xl:text-[65px] leading-[76.16px]">
                   <span className="text-[#1a1a1a4d]">
@@ -163,12 +166,13 @@ function DesktopHomePage() {
                 </p>
               </Card>
               <Card className="relative left-0 justify-start">
-                <div className="flex flex-col gap-80">
+                <div className="flex flex-col gap-[22rem]">
                   <p className="text-[68px] leading-[76.16px]">
                     Problems <br /> <span className="text-[#1a1a1a4d]">we address</span>
                   </p>
-                  <div className="flex gap-4 bg-white p-4" style={{ backgroundColor: "white" }}>
-                    <div className="bg-[#F0FCFE] h-[500px] w-[500px] absolute rounded-[890px] top-[40px] z-10 purpelBackGround"></div>
+                  <div className="bg-[#F0FCFE] h-[549px] w-[500px] absolute rounded-[890px] top-[106px] z-[3] purpelBackGround"></div>
+                  <div className="flex justify-around gap-4 bg-white p-4 z-10 rounded-[16px]" style={{ backgroundColor: "white" }}>
+                    
                     <p className={`text-lg ${phoneSlide === 2 && scrollPosition <= 2000 ? "text-black" : "text-[#00000070]"}`}>Startups</p>
                     <p className={`text-lg ${phoneSlide === 1 && scrollPosition > 2000 ? "text-black" : "text-[#00000070]"}`}>
                       Investors & Experts
@@ -178,9 +182,9 @@ function DesktopHomePage() {
               </Card>
             </div>
           </li>
-          <li className="w-[100%]">
+          <li className="w-[100%] z-[60]">
             <Banner>
-              <div id="animation-container slide-up-animation" className="flex justify-center z-[2] sticky top-[79px] mt-[80px]">
+              <div id="slide-up-animation" className="flex justify-center z-[2] sticky top-[79px] mt-[80px]">
                 {imagePaths.map((path, index) => (
                   <Image
                     key={index}

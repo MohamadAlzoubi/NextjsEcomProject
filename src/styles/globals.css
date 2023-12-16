@@ -185,16 +185,12 @@
   position: relative;
 }
 
-.animation-frame {
-  position: relative;
-  top: 0px;
-  left: 0;
-}
+
 
 
 .blueBackGround {
   border-radius: 890px;
-  background: red;
+  background: #F0FCFE;
   filter: blur(285.5576477050781px);
   animation: colorChange 2s infinite alternate;
 }
@@ -205,28 +201,31 @@
     background: #F0FCFE;
   }
   100% {
-    background: #b7e9f1; /* Lighter shade of the original color */
+    background: #e0f2f5; /* Lighter shade of the original color */
   }
 }
 
 .purpelBackGround{
   border-radius: 890px;
-  background: red;
-  filter: blur(285.5576477050781px);
+  background: #EFF2FF;
+  filter: blur(161.5576477050781px);
   animation: colorChangePupel 2s infinite alternate;
 }
 
 /* Define the keyframes for the animation */
 @keyframes colorChangePupel {
   0% {
-    background: #748cf7;
+    background: #EFF2FF;
   }
   100% {
-    background: #758beb; /* Lighter shade of the original color */
+    background: #EFF2FF; /* Lighter shade of the original color */
   }
 }
 
-
+.your-component:hover {
+  background: linear-gradient(95deg, #5100ff 7.33%, #DCCCFF 102.12%);
+  box-shadow: -2px 3px 24px 0px rgba(0, 0, 0, 0.13);
+}
 
 
 .block {
@@ -301,3 +300,51 @@
   background: radial-gradient(124.82% 124.82% at 78.5% -3%, #F2FCFF 0%, #F1F3FF 49.18%, #F4FCFF 100%), var(--5, #FFF);
 
 }
+
+
+.donut {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.donut-default {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.donut-white {
+  width: 70%;
+  height: 70%;
+  border-radius: 50%;
+  background: #fff;
+  top: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.donut-line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.donut-text {
+  top: 25px;
+  left: 25px;
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
