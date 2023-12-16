@@ -29,23 +29,27 @@ function StatisticChart({ className, isMobile }) {
   };
   switch (hoveredSegment) {
     case "segment1":
-      break;
-    case "segment2":
       value = {
         text: "VC Fund",
         number: 22,
+      };
+      break;
+    case "segment2":
+      value = {
+        text: "Family office",
+        number: 12,
       };
       break;
     case "segment3":
       value = {
-        text: "VC Fund",
-        number: 22,
+        text: "Syndicate",
+        number: 11,
       };
       break;
     case "segment4":
       value = {
-        text: "VC Fund",
-        number: 22,
+        text: "Other",
+        number: 7,
       };
       break;
     case "segment5":
@@ -65,7 +69,7 @@ function StatisticChart({ className, isMobile }) {
   return (
     <div className="relative flex items-center justify-center">
       <div className="absolute flex flex-col items-center">
-        {!!value.number && <p className="text-center bg-black w-fit text-white px-2 py-1 rounded">{value.number}</p>}
+        {!!value.number && <p className="text-center bg-black w-fit text-white px-2 py-1 rounded">{value.number}%</p>}
         {!!value.text && <p className="text-center mt-1">{value.text}</p>}
       </div>
 
