@@ -6,6 +6,7 @@ import Button from "../components/Button";
 import logo from "../assets/img/logonew.png";
 import Send from "../assets/svg/Send";
 import { twMerge } from "tailwind-merge";
+import Modal from "../components/Modal"; // Import your Modal component
 
 function HamburgerMenu() {
   return (
@@ -18,11 +19,14 @@ function HamburgerMenu() {
 
 function Navbar({ className }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <>
-      <nav className={twMerge("flex justify-between px-11 py-7 m-auto", className)}>
+      <nav className={twMerge("flex justify-between px-11 py-4 xl:py-7 m-auto", className)}>
         <div className="flex items-center gap-14 w-full justify-between">
           <Image src={logo} alt="Picture of the author" />
 
@@ -36,8 +40,8 @@ function Navbar({ className }) {
               <li className=""><a href='#section-team'>Team</a></li>
             </ul>
             <div className="flex items-center gap-2">
-              <Button variant="light" text="Try it" icon={<Send className="fill-gray-500" />} />
-              <Button variant="light" text="Invest" icon={<Send className="fill-gray-500" />} />
+              <Button variant="light" text="Try it" href="https://t.me/unimatchai_bot?start=utm_website" icon={<Send className="fill-gray-500" />} />
+              <Button variant="light" text="Invest" onClick={openModal} icon={<Send className="fill-gray-500" />} />
             </div>
           </div>
 
@@ -67,11 +71,12 @@ function Navbar({ className }) {
           </div>
 
           <div className="flex items-center gap-2 mt-5">
-            <Button variant="dark" text="Try it" icon={<Send className="fill-gray-500" />} />
-            <Button variant="dark" text="Invest" icon={<Send className="fill-gray-500" />} />
+            <Button variant="dark" text="Try it" href="https://t.me/unimatchai_bot?start=utm_website" icon={<Send className="fill-gray-500" />} />
+            <Button variant="dark" text="Invest" onClick={openModal} icon={<Send className="fill-gray-500" />} />
           </div>
         </div>
       )}
+      <Modal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
 }

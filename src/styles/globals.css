@@ -167,10 +167,6 @@
 }
 
 .modal-content {
-  position: fixed;
-  background: white;
-  top:50%;
-  left:50%;
   transform: translate(-50%,-50%);
 }
 
@@ -231,12 +227,42 @@
 }
 
 
-.RoadMapBackGround{
+
+
+.block {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.card-container {
+  overflow: hidden;
+  max-height: 200px; /* Set an initial max-height */
+  transition: max-height 0.5s ease;
+}
+
+.card-container.expanded {
+  max-height: 1000px; /* Set a larger max-height to reveal the content */
+}
+
+.expanded-content {
+  transition: transform 0.5s ease;
+  transform: translateY(0); /* Initially hidden below */
+}
+
+.card-container.expanded .expanded-content {
+  transform: translateY(0); /* Move up to show content */
+}
+
+
+/* .RoadMapBackGround{
   border-radius: 890px;
-  background: red;
+  background: 3748cf7;
   filter: blur(300.5576477050781px);
   animation: RoadMapBackGroundA 2s infinite alternate;
-}
+} */
 
 /* Define the keyframes for the animation */
 @keyframes RoadMapBackGroundA {
@@ -248,10 +274,30 @@
   }
 }
 
-.block {
-  display: block;
+@keyframes slideAnimation {
+  0% {
+    transform: translateX(100%);
+    background: #748cf7;
+  }
+  100% {
+    transform: translateX(0);
+    background: #758beb; 
+  }
 }
 
-.hidden {
-  display: none;
+.RoadMapBackGround {
+  border-radius: 890px;
+  background: #758beb;
+  filter: blur(300.5576477050781px);
+  animation: slideAnimation 3s ease infinite alternate;
+}
+
+.radSharp {
+  border-radius: 0px !important;
+  transition: border-radius 0.3s ease; /* Adjust the duration and timing function as needed */
+}
+
+.cardBackGround {
+  background: radial-gradient(124.82% 124.82% at 78.5% -3%, #F2FCFF 0%, #F1F3FF 49.18%, #F4FCFF 100%), var(--5, #FFF);
+
 }

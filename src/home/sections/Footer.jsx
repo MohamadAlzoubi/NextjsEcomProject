@@ -1,17 +1,21 @@
 "use client";
-
-import React from "react";
+import React, { useState } from "react";
 import ArrowButton from "../../assets/svg/ArrowButton";
 import Button from "../../components/Button";
 import Send from "../../assets/svg/Send";
 import { Heading } from "../../components/Typography/Heading";
 import { twMerge } from "tailwind-merge";
+import Modal from "../../components/Modal"; // Import your Modal component
 
 function Footer({ className }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
   return (
     <div
       className={twMerge(
-        "bg-[#1A1A1A] m-auto mt-20  rounded-[28px] xl:rounded-[100px] p-[10px] xl:p-20 mx-2 max-w-[1700px]  xl:mt-[200px]",
+        "bg-[#1A1A1A] m-auto mt-20 rounded-[28px] xl:rounded-[100px] p-[10px] xl:p-20 max-w-[1900px] xl:mt-[200px]",
         className
       )}>
       <div className="bg-white text-center rounded-[28px] xl:rounded-[100px] py-14 xl:py-20 flex flex-col items-center ">
@@ -36,8 +40,8 @@ function Footer({ className }) {
           <p className="text-white xl:text-xl">Office Address:</p>
           <p className="text-[#ffffff66] xl:text-xl">7 Bell Yard London England WCA 2JR</p>
           <div className="mt-6 xl:mt-14 flex gap-2">
-            <Button variant="light" text="Invest" icon={<Send className="fill-black" />} />
-            <Button variant="light" text="Try it" icon={<Send className="fill-black" />} />
+            <Button variant="light" text="Invest" onClick={openModal} icon={<Send className="fill-black" />} />
+            <Button variant="light" text="Try it"  href="https://t.me/unimatchai_bot?start=utm_website" icon={<Send className="fill-black" />} />
           </div>
         </div>
 
@@ -50,6 +54,7 @@ function Footer({ className }) {
           <a className="font-extralight " href='#section-how' >How it works</a>
           <a className="font-extralight " href='#section-inside'>Inside the app</a>
         </div>
+        <Modal isOpen={isModalOpen} onClose={closeModal} />
       </div>
     </div>
   );

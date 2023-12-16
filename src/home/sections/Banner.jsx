@@ -17,12 +17,12 @@ function Banner({ className, children }) {
   const closeModal = () => setIsModalOpen(false);
   return (
     <>
-      <div className={twMerge("px-2 m-[15px]'", className)}>
+      <div className={twMerge("px-2", className)}>
         <div
-          className="flex flex-col items-center pt-10 w-full"
+          className="flex flex-col items-center xl:pt-10 w-full"
           >
             <div className="h-[0] w-full z-[1]">
-            <div className="relative w-[100%] max-w-[1900px] h-[805px] m-auto xl:rounded-[108px]" style={{ background: "linear-gradient(-45deg, #f1fbfe, #eff2ff, #f1fbfe, #eff2ff)" }}></div>
+            <div className="relative w-[100%] max-w-[1900px] h-[805px] m-auto rounded-[30px] xl:rounded-[108px]" style={{ background: "linear-gradient(-45deg, #f1fbfe, #eff2ff, #f1fbfe, #eff2ff)" }}></div>
             </div>
             
           <div className="flex flex-col z-[2] mt-[62px]">
@@ -50,8 +50,8 @@ function Banner({ className, children }) {
           </div>
           <div className="h-[0]"></div>
 
-          <div className="mt-4 xl:hidden">
-            <Image src={iphone} alt="iphone" width={400} className="slide-up-animation" />
+          <div className="mt-4 xl:hidden z-10">
+            <Image src={iphone} alt="iphone" width={400} className="slide-up-animation z-10 w-[275px] xl:w-[407px]"/>
           </div>
         </div>
         <Modal isOpen={isModalOpen} onClose={closeModal} />

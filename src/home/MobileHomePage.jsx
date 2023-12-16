@@ -65,7 +65,7 @@ function MobileHomePage() {
     const scrollPosition = window.scrollY || window.pageYOffset;
   
     // Adjust the threshold value to determine when the animation should start
-    const threshold = 2500; // Change this value based on your design
+    const threshold = 1700; // Change this value based on your design
   
     // Toggle the visibility only when the scroll position passes the threshold
     if (scrollPosition >= threshold) {
@@ -92,7 +92,7 @@ function MobileHomePage() {
 
       <Banner className="px-2" />
 
-      <Card className="mt-[420px]">
+      <Card className="mt-[80px]">
         <p className="text-[40px] leading-[44.8px]">
           <span className="text-[#1a1a1a4d]">
             We’re disrupting <br /> and building
@@ -119,8 +119,8 @@ function MobileHomePage() {
               key={index}
               src={path}
               alt={`iphone ${index + 1}`}
-              width={500}
-              className={`w-[81%] animation-frame ${visibleImage === index ? "block" : "hidden"}`}
+              width={275}
+              className={`animation-frame ${visibleImage === index ? "block" : "hidden"}`}
             />
           ))}
 
@@ -135,7 +135,7 @@ function MobileHomePage() {
 
       <Statistics className="p-4 mt-[250px]" />
 
-      <RoadMap className="p-4" />
+      <RoadMap className="" />
 
       <Team className="p-4" />
 

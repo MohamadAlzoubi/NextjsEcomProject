@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect , useRef} from "react";
 import StatIcon from "../../assets/svg/StatIcon";
 import StatisticChart from "../../assets/svg/StatisticChart";
 import { twMerge } from "tailwind-merge";
@@ -14,37 +14,49 @@ import Fourth from "../../assets/svg/statistics/Fourth";
 import Fifth from "../../assets/svg/statistics/Fifth";
 import Sixth from "../../assets/svg/statistics/Sixth";
 
-const AnimatedNumber = ({ value, duration, isInStat }) => {
+const AnimatedNumber = ({ value, duration , number}) => {
   const [displayValue, setDisplayValue] = useState(0);
+  const animatedNumberRef = useRef(null);
 
   useEffect(() => {
-    if (isInStat) {
-      const frameDuration = 1000 / 60; // Assuming 60 fps for smooth animation
-      const totalFrames = Math.round(duration / frameDuration);
-      const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-      let frame = 0;
+    const handleIntersection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const frameDuration = 1000 / 60;
+          const totalFrames = Math.round(duration / frameDuration);
+          const easeOutExpo = (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+          let frame = 0;
 
-      const counter = setInterval(() => {
-        frame++;
-        const progress = easeOutExpo(frame / totalFrames);
-        setDisplayValue(value * progress);
+          const counter = setInterval(() => {
+            frame++;
+            const progress = easeOutExpo(frame / totalFrames);
+            setDisplayValue(value * progress);
 
-        if (frame === totalFrames) {
-          clearInterval(counter);
+            if (frame === totalFrames) {
+              clearInterval(counter);
+            }
+          }, frameDuration);
+
+          observer.unobserve(entry.target);
         }
-      }, frameDuration);
+      });
+    };
 
-      return () => clearInterval(counter);
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
+
+    const element = animatedNumberRef.current;
+    if (element) {
+      observer.observe(element);
     }
-    // This will reset the displayValue to 0 when isInStat is false again if needed.
-    // Remove the next line if you do not want to reset the value to 0.
-    setDisplayValue(0);
-  }, [isInStat, value, duration]);
 
-  return Math.floor(displayValue);
+    return () => observer.disconnect();
+  }, [value, duration]);
+
+  return <div ref={animatedNumberRef}>{Math.floor(displayValue)}{number}</div>;
 };
 
-function Card({ className, value, text, duration, isInStat, IconComponent }) {
+
+function Card({ className, value, text, duration, IconComponent , number}) {
   return (
     <div
       className={twMerge(
@@ -55,8 +67,7 @@ function Card({ className, value, text, duration, isInStat, IconComponent }) {
       {IconComponent && <IconComponent />}
       <div className="flex flex-col">
         <div className="text-[52px] xl:text-8xl text-[#1A1A1A]">
-          {isInStat && <AnimatedNumber value={value} duration={duration} isInStat={isInStat} />}
-          {!isInStat && <span>0{text.includes("%") ? "%" : ""}</span>}
+          <AnimatedNumber value={value} duration={duration} number={number}/>
         </div>
         <div className="text-[15px] xl:text-lg">{text}</div>
       </div>
@@ -64,12 +75,13 @@ function Card({ className, value, text, duration, isInStat, IconComponent }) {
   );
 }
 
+
 function Desktop({ className, isInStat }) {
   return (
     <div className={twMerge("flex w-full bg-white mt-[200px] max-w-[1700px] m-auto", className)} id="section-tracking">
-      <div className="text-center text-6xl xl:text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[250px] relative">
+      <div className="text-center text-6xl xl:text-[134px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[250px] relative">
         <div className="flex items-center justify-center relative top-[45px]">
-          <h1 className="whitespace-nowrap">Unimatch <br/> in numbers</h1>
+          <h1 className="whitespace-nowrap">Unimatch in numbers</h1>
         </div>
       </div>
       <div className="block z-10 relative">
@@ -79,7 +91,7 @@ function Desktop({ className, isInStat }) {
           text="Investors retention rate"
           className="col-span-2 bg-white"
           duration={2000}
-          isInStat={isInStat}
+          
           IconComponent={First}
         />
 
@@ -88,11 +100,11 @@ function Desktop({ className, isInStat }) {
           text="Matches between startups and investors"
           className="bg-white"
           duration={2000}
-          isInStat={isInStat}
+          
           IconComponent={Second}
         />
 
-        <Card value={211} text="Startup on board" className="bg-white" duration={2000} isInStat={isInStat} IconComponent={Third} />
+        <Card value={211} text="Startup on board" className="bg-white" duration={2000}  IconComponent={Third} />
 
         <div className="flex flex-col justify-between p-6 xl:p-11  bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
           <div className="flex justify-center">
@@ -119,16 +131,16 @@ function Desktop({ className, isInStat }) {
           </div>
         </div>
 
-        <Card value={145} text="Investors on board" duration={2000} isInStat={isInStat} IconComponent={Fourth} className="bg-white" />
+        <Card value={145} text="Investors on board" duration={2000}  IconComponent={Fourth} className="bg-white" />
 
-        <Card value={98} text="Startups retention rates" duration={2000} isInStat={isInStat} IconComponent={Fifth} />
+        <Card value={98} text="Startups retention rates" duration={2000}  IconComponent={Fifth} />
 
         <Card
           value={2367}
           text="Startup blurb views by Investors"
           className="col-span-2"
           duration={2000}
-          isInStat={isInStat}
+          
           IconComponent={Sixth}
         />
       </div>
@@ -141,6 +153,11 @@ function Desktop({ className, isInStat }) {
 function Mobile({ className }) {
   return (
     <div className={className} id="section-tracking">
+      <div className="text-center text-6xl xl:text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[87px]  xl:mt-[250px] relative">
+        <div className="flex items-center justify-center relative top-[18px] xl:top-[45px]">
+          <h1 className="whitespace-nowrap">Unimatch <br/> in numbers</h1>
+        </div>
+      </div>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -153,19 +170,19 @@ function Mobile({ className }) {
           nextEl: ".next-statics",
         }}
         modules={[Navigation, Pagination]}
-        className="mySwiper">
+        className="mySwiper z-10 bg-white">
         <SwiperSlide className="!h-auto">
           <div className="h-full grid grid-cols-2 gap-[10px]">
-            <Card value={2780} number="94.37" text="Investors retention rate" className="col-span-2" duration={2000} />
-            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
-            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
+            <Card value={2780} number="" text="Matches between startups and investors" className="col-span-2" duration={2000} />
+            <Card value={211} number="" text="Startup on board" duration={2000} />
+            <Card value={145} number="" text="Investors on board" duration={2000} />
           </div>
         </SwiperSlide>
         <SwiperSlide className="!h-auto">
           <div className="h-full grid grid-cols-2 gap-[10px]">
-            <Card value={2780} number="94.37" text="Investors retention rate" className="col-span-2" duration={2000} />
-            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
-            <Card value={2780} number="94.37" text="Investors retention rate" duration={2000} />
+            <Card value={94.37} number="%" text="Investors retention rate" className="col-span-2" duration={2000} />
+            <Card value={121} number="" text="Startup blurb views by Investors" duration={2000} />
+            <Card value={98} number="%" text="Startups retention rates" duration={2000} />
           </div>
         </SwiperSlide>
         <SwiperSlide className="!h-auto">
@@ -197,7 +214,7 @@ function Statistics({ className, isInStat }) {
   return (
     <>
       <div className={className}>
-        <Desktop className="hidden xl:block bg-white" isInStat={isInStat} />
+        <Desktop className="hidden xl:block bg-white"  />
 
         <Mobile className="xl:hidden" />
       </div>

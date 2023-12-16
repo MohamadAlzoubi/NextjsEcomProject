@@ -98,55 +98,36 @@ function DesktopHomePage() {
     phone16,
     phone17,
   ];
-  const size = useWindowSize();
-  console.log(size);
-  let bigScreen = {
-    ImageAnimate: {
-      start: 1.46,
-      end: 1.72,
-    },
-    PhoneStart: {
-      start: 0.25,
-      end: 1.64,
-    },
-    HowItWorks: {
-      start: 2.4,
-      end: 5,
-      startRotating: 2.4,
-      endRotating: 4.86,
-    },
-    otherLayers: {
-      start: 8,
-      animateApp: 4.75,
-      animateStat: 4.75,
-    },
-    NumberOfPages: 12,
-  };
 
-  const parallax = useRef(null);
-  const [phoneSlide, setPhoneSlide] = useState(1);
-  const [currentPage, setCurrentPage] = useState(-1);
+  const [phoneSlide, setPhoneSlide] = useState(2);
   const [visibleImage, setVisibleImage] = useState(0);
-  const rotate = useRef(0);
-  const PAGES = bigScreen.NumberOfPages;
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  const updatePhoneSlide = useCallback(() => {
-    if (currentPage > 1.67) setPhoneSlide(1);
+  const updatePhoneSlide = useCallback((numberOfPage) => {
+    console.log(numberOfPage);
+    if (numberOfPage == 1) setPhoneSlide(1);
     else setPhoneSlide(2);
-  }, [currentPage]);
-
-
+  }, []);
 
   function handleScroll() {
-    const scrollPosition = window.scrollY || window.pageYOffset;
-  
+    const newScrollPosition  = window.scrollY || window.pageYOffset;
+    setScrollPosition(newScrollPosition);
     // Adjust the threshold value to determine when the animation should start
     const threshold = 1000; // Change this value based on your design
-  
+    const flipOptions = 2000;
+
+    if (newScrollPosition  >= flipOptions) {
+      updatePhoneSlide(1);
+    } else {
+      updatePhoneSlide(2);
+    }
+
+    // updatePhoneSlide(2)
+    console.log(newScrollPosition );
     // Toggle the visibility only when the scroll position passes the threshold
-    if (scrollPosition >= threshold) {
-      const imageIndex = Math.floor((scrollPosition - threshold) / 100);
-  
+    if (newScrollPosition  >= threshold) {
+      const imageIndex = Math.floor((newScrollPosition  - threshold) / 100);
+
       setVisibleImage(imageIndex);
     } else {
       // If the scroll position is below the threshold, keep the first image visible
@@ -160,18 +141,17 @@ function DesktopHomePage() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [updatePhoneSlide]);
 
   return (
     <div className="w-full">
-      <p className="fixed z-[999999] top-3 left-1/2 text-8xl -translate-x-1/2">{currentPage}</p>
       <Navbar className="relative w-full z-[999] bg-white max-w-[1900px] m-auto" />
       <section className="max-w-[1900px] m-auto">
         <ul className="flex justify-center h-[2719px]">
           <li className="w-[0%] relative top-[1255px]">
-            <div className="flex flex-col justify-between right-[-429%] top-[19%] w-[764px] gap-[660px]" id="section-one">
+            <div className="flex flex-col justify-between right-[-429%] top-[19%] w-[764px] gap-[660px] xl:ml-[123px]" id="section-one">
               <Card className="relative left-0 justify-start">
-                <p className="text-[68px] leading-[76.16px]">
+                <p className="text-[50px] 2xl:text-[65px] leading-[76.16px]">
                   <span className="text-[#1a1a1a4d]">
                     We’re disrupting <br /> and building
                   </span>
@@ -188,9 +168,11 @@ function DesktopHomePage() {
                     Problems <br /> <span className="text-[#1a1a1a4d]">we address</span>
                   </p>
                   <div className="flex gap-4 bg-white p-4" style={{ backgroundColor: "white" }}>
-                    <div className="bg-[#F0FCFE] h-[500px] w-[500px] absolute rounded-[890px] z-10 purpelBackGround"></div>
-                    <p className={twMerge("text-lg text-[#00000070]", phoneSlide !== "1" && "text-black")}>Startups</p>{" "}
-                    <p className={twMerge("text-lg text-[#00000070]", phoneSlide === "1" && "text-black")}>Investors & Experts</p>
+                    <div className="bg-[#F0FCFE] h-[500px] w-[500px] absolute rounded-[890px] top-[40px] z-10 purpelBackGround"></div>
+                    <p className={`text-lg ${phoneSlide === 2 && scrollPosition <= 2000 ? "text-black" : "text-[#00000070]"}`}>Startups</p>
+                    <p className={`text-lg ${phoneSlide === 1 && scrollPosition > 2000 ? "text-black" : "text-[#00000070]"}`}>
+                      Investors & Experts
+                    </p>
                   </div>
                 </div>
               </Card>
@@ -198,14 +180,14 @@ function DesktopHomePage() {
           </li>
           <li className="w-[100%]">
             <Banner>
-              <div id="animation-container slide-up-animation" className="flex justify-center z-[2] sticky top-[79px]">
+              <div id="animation-container slide-up-animation" className="flex justify-center z-[2] sticky top-[79px] mt-[80px]">
                 {imagePaths.map((path, index) => (
                   <Image
                     key={index}
                     src={path}
                     alt={`iphone ${index + 1}`}
                     width={407}
-                    className={`animation-frame ${visibleImage === index ? "block" : "hidden"}`}
+                    className={`animation-frame ${index === 0 ? "slide-up-animation" : ""} ${visibleImage === index ? "block" : "hidden"}`}
                   />
                 ))}
               </div>

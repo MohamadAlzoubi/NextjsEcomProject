@@ -207,33 +207,48 @@ export function DesktopWhat({ isIn, className }) {
   const numberDisplayRef = useRef(null);
   const containerRef = useRef(null);
   const number = useRef(0);
-  const [isDone, setDone] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
 
-  useEffect(() => {
-    if (isDone === false) return;
-    containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
-    setTimeout(function () {
-      containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-    }, 1500);
-  }, [isDone]);
+  console.log(numberDisplayRef);
+
+  const isInViewport1 = useIsInViewport(numberDisplayRef);
 
   useEffect(() => {
     let intervalId;
-    if (isIn) {
+
+    if (isInViewport1 && !hasScrolled) {
       intervalId = setInterval(() => {
-        if (number.current >= 1500) {
-          setDone(true);
-          return clearInterval(intervalId);
+        if (number.current >= 3000) {
+          clearInterval(intervalId);
         }
         number.current += 10;
         numberDisplayRef.current.innerText = `$${formatNumber(number.current)}`;
       }, 3);
+
+      setHasScrolled(true);
     }
+
+    const handleScroll = () => {
+      const targetScrollY = 5000; // The Y position you want to check against
+      const currentScrollY = window.scrollY || window.pageYOffset;
+
+      if (currentScrollY >= targetScrollY && !hasScrolled) {
+        containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
+        setTimeout(() => {
+          containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+        }, 1000);
+
+        setHasScrolled(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       clearInterval(intervalId);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [isIn]);
+  }, [isInViewport1, hasScrolled]);
 
   return (
     <div className={twMerge("flex justify-center flex-col items-center mt-[200px]", className)} id="section-inside">
@@ -287,7 +302,7 @@ export function DesktopWhat({ isIn, className }) {
               <Card1 />
             </div>
             <div className="">
-              <p className="line-clamp-4">AI-powered matchmaking</p>
+              <p className="line-clamp-4">Ai-powered automated startup scoring</p>
             </div>
           </AnimatedCard>
         </div>
@@ -295,7 +310,6 @@ export function DesktopWhat({ isIn, className }) {
         <InsideMobile
           numberDisplayRef={numberDisplayRef}
           containerRef={containerRef}
-          isDone={isDone}
           isIn={isIn}
           number={number}
           // className="max-w-[350px] max-h-[700px]"
@@ -319,7 +333,6 @@ export function MobileWhat() {
   const numberDisplayRef = useRef(null);
   const containerRef = useRef(null);
   const number = useRef(0);
-  const [isDone, setDone] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
   console.log(numberDisplayRef);
@@ -342,14 +355,14 @@ export function MobileWhat() {
     }
 
     const handleScroll = () => {
-      const targetScrollY = 4884; // The Y position you want to check against
+      const targetScrollY = 4600; // The Y position you want to check against
       const currentScrollY = window.scrollY || window.pageYOffset;
 
       if (currentScrollY >= targetScrollY && !hasScrolled) {
         containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
         setTimeout(() => {
           containerRef.current.scrollTo({ top: 0, behavior: "smooth" });
-        }, 800);
+        }, 1200);
 
         setHasScrolled(true);
       }
@@ -363,13 +376,9 @@ export function MobileWhat() {
     };
   }, [isInViewport1, hasScrolled]);
 
-  useEffect(() => {
-    if (isDone === false) return;
-    containerRef.current.scrollTo({ top: 1000, behavior: "smooth" });
-  }, [isDone]);
 
   return (
-    <div className={twMerge("flex justify-center flex-col items-center mt-[200px]")}>
+    <div className={twMerge("flex justify-center flex-col items-center mt-[80px]")}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
       <div className="relative flex mt-2 w-[260px] h-[200px]">
         <Cards className={"absolute z-10 h-[322px] w-[139%] left-[-63px] top-[55px]"} />
@@ -377,7 +386,6 @@ export function MobileWhat() {
         <InsideMobile
           numberDisplayRef={numberDisplayRef}
           containerRef={containerRef}
-          isDone={isDone}
           isIn={isInViewport1}
           number={number}
           style={{
