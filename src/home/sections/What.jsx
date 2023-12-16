@@ -12,7 +12,7 @@ import Verified from "../../assets/svg/InsideWhatPhone/Verified";
 import MsgIcon from "../../assets/svg/InsideWhatPhone/MsgIcon";
 import BandCamp from "../../assets/svg/InsideWhatPhone/BandCamp";
 import TeleIcon from "../../assets/svg/InsideWhatPhone/TeleIcon";
-import Wifi from "../../assets/svg/InsideWhatPhone/wifi";
+import Wifi from "../../assets/svg/InsideWhatPhone/Wifi";
 import Signal from "../../assets/svg/InsideWhatPhone/Signal";
 
 import Card1 from "../../assets/svg/InsideWhatPhone/Card1";
