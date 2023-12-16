@@ -1,7 +1,7 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation } from "swiper";
-import React, { useState, useEffect , useRef} from "react";
+import React, { useState, useEffect, useRef } from "react";
 import StatIcon from "../../assets/svg/StatIcon";
 import StatisticChart from "../../assets/svg/StatisticChart";
 import { twMerge } from "tailwind-merge";
@@ -13,14 +13,15 @@ import Third from "../../assets/svg/statistics/Third";
 import Fourth from "../../assets/svg/statistics/Fourth";
 import Fifth from "../../assets/svg/statistics/Fifth";
 import Sixth from "../../assets/svg/statistics/Sixth";
+import useResponsive from "../../hooks/useResponsive";
 
-const AnimatedNumber = ({ value, duration , number}) => {
+const AnimatedNumber = ({ value, duration, number }) => {
   const [displayValue, setDisplayValue] = useState(0);
   const animatedNumberRef = useRef(null);
 
   useEffect(() => {
     const handleIntersection = (entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const frameDuration = 1000 / 60;
           const totalFrames = Math.round(duration / frameDuration);
@@ -42,6 +43,8 @@ const AnimatedNumber = ({ value, duration , number}) => {
       });
     };
 
+    if (typeof window === "undefined") return;
+
     const observer = new IntersectionObserver(handleIntersection, { threshold: 0.5 });
 
     const element = animatedNumberRef.current;
@@ -52,11 +55,15 @@ const AnimatedNumber = ({ value, duration , number}) => {
     return () => observer.disconnect();
   }, [value, duration]);
 
-  return <div ref={animatedNumberRef}>{Math.floor(displayValue)}{number}</div>;
+  return (
+    <div ref={animatedNumberRef}>
+      {Math.floor(displayValue)}
+      {number}
+    </div>
+  );
 };
 
-
-function Card({ className, value, text, duration, IconComponent , number}) {
+function Card({ className, value, text, duration, IconComponent, number }) {
   return (
     <div
       className={twMerge(
@@ -67,14 +74,13 @@ function Card({ className, value, text, duration, IconComponent , number}) {
       {IconComponent && <IconComponent />}
       <div className="flex flex-col">
         <div className="text-[52px] xl:text-8xl text-[#1A1A1A]">
-          <AnimatedNumber value={value} duration={duration} number={number}/>
+          <AnimatedNumber value={value} duration={duration} number={number} />
         </div>
         <div className="text-[15px] xl:text-lg">{text}</div>
       </div>
     </div>
   );
 }
-
 
 function Desktop({ className, isInStat }) {
   return (
@@ -85,67 +91,45 @@ function Desktop({ className, isInStat }) {
         </div>
       </div>
       <div className="block z-10 relative">
-      <div className="grid grid-cols-4 gap-5 w-full">
-        <Card
-          value={94.37}
-          text="Investors retention rate"
-          className="col-span-2 bg-white"
-          duration={2000}
-          
-          IconComponent={First}
-        />
+        <div className="grid grid-cols-4 gap-5 w-full">
+          <Card value={94.37} text="Investors retention rate" className="col-span-2 bg-white" duration={2000} IconComponent={First} />
 
-        <Card
-          value={2780}
-          text="Matches between startups and investors"
-          className="bg-white"
-          duration={2000}
-          
-          IconComponent={Second}
-        />
+          <Card value={2780} text="Matches between startups and investors" className="bg-white" duration={2000} IconComponent={Second} />
 
-        <Card value={211} text="Startup on board" className="bg-white" duration={2000}  IconComponent={Third} />
+          <Card value={211} text="Startup on board" className="bg-white" duration={2000} IconComponent={Third} />
 
-        <div className="flex flex-col justify-between p-6 xl:p-11  bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
-          <div className="flex justify-center">
-            <StatisticChart className={"w-[618px]"} />
-          </div>
+          <div className="flex flex-col justify-between p-6 xl:p-11  bg-custom-gradient_stat row-span-2 border rounded-[50px] col-span-2 bg-white">
+            <div className="flex justify-center">
+              <StatisticChart className={"w-[618px]"} />
+            </div>
 
-          <div className="flex flex-col justify-center gap-3 mt-3">
-            <div className="flex flex-grow justify-center">
-              <div className="flex gap-3 items-center">
-                <div className="bg-[#D6C2FF] h-[20px] w-[20px] rounded-md"></div>
-                <div>Angel Investor</div>
-                <div className="bg-[#BAD4FE] h-[20px] w-[20px] rounded-md"></div>
-                <div>VC Fund</div>
+            <div className="flex flex-col justify-center gap-3 mt-3">
+              <div className="flex flex-grow justify-center">
+                <div className="flex gap-3 items-center">
+                  <div className="bg-[#D6C2FF] h-[20px] w-[20px] rounded-md"></div>
+                  <div>Angel Investor</div>
+                  <div className="bg-[#BAD4FE] h-[20px] w-[20px] rounded-md"></div>
+                  <div>VC Fund</div>
+                </div>
+              </div>
+              <div className="flex gap-3 items-center flex-grow justify-center">
+                <div className="bg-[#F1E1FE] h-[20px] w-[20px] rounded-md"></div>
+                <div>Family Office</div>
+                <div className="bg-[#BDEDFE] h-[20px] w-[20px] rounded-md"></div>
+                <div>Syndicate</div>
+                <div className="bg-[#CBFBE4] h-[20px] w-[20px] rounded-md"></div>
+                <div>Other</div>
               </div>
             </div>
-            <div className="flex gap-3 items-center flex-grow justify-center">
-              <div className="bg-[#F1E1FE] h-[20px] w-[20px] rounded-md"></div>
-              <div>Family Office</div>
-              <div className="bg-[#BDEDFE] h-[20px] w-[20px] rounded-md"></div>
-              <div>Syndicate</div>
-              <div className="bg-[#CBFBE4] h-[20px] w-[20px] rounded-md"></div>
-              <div>Other</div>
-            </div>
           </div>
+
+          <Card value={145} text="Investors on board" duration={2000} IconComponent={Fourth} className="bg-white" />
+
+          <Card value={98} text="Startups retention rates" duration={2000} IconComponent={Fifth} />
+
+          <Card value={2367} text="Startup blurb views by Investors" className="col-span-2" duration={2000} IconComponent={Sixth} />
         </div>
-
-        <Card value={145} text="Investors on board" duration={2000}  IconComponent={Fourth} className="bg-white" />
-
-        <Card value={98} text="Startups retention rates" duration={2000}  IconComponent={Fifth} />
-
-        <Card
-          value={2367}
-          text="Startup blurb views by Investors"
-          className="col-span-2"
-          duration={2000}
-          
-          IconComponent={Sixth}
-        />
       </div>
-      </div>
-      
     </div>
   );
 }
@@ -155,7 +139,9 @@ function Mobile({ className }) {
     <div className={className} id="section-tracking">
       <div className="text-center text-6xl xl:text-[73px] 2xl:text-[168px] text-[rgba(26,26,26,0.10)] mt-[87px]  xl:mt-[250px] relative">
         <div className="flex items-center justify-center relative top-[18px] xl:top-[45px]">
-          <h1 className="whitespace-nowrap">Unimatch <br/> in numbers</h1>
+          <h1 className="whitespace-nowrap">
+            Unimatch <br /> in numbers
+          </h1>
         </div>
       </div>
       <Swiper
@@ -187,7 +173,7 @@ function Mobile({ className }) {
         </SwiperSlide>
         <SwiperSlide className="!h-auto">
           <div className="p-11 bg-custom-gradient_stat border rounded-[50px]">
-            <StatisticChart />
+            <StatisticChart isMobile />
           </div>
         </SwiperSlide>
       </Swiper>
@@ -211,13 +197,11 @@ function Mobile({ className }) {
 }
 
 function Statistics({ className, isInStat }) {
+  const xl = useResponsive("xl");
+
   return (
     <>
-      <div className={className}>
-        <Desktop className="hidden xl:block bg-white"  />
-
-        <Mobile className="xl:hidden" />
-      </div>
+      <div className={className}>{xl ? <Desktop className="hidden xl:block bg-white" /> : <Mobile className="xl:hidden" />}</div>
     </>
   );
 }

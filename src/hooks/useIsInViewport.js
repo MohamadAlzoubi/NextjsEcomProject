@@ -1,11 +1,17 @@
-'use client'
+"use client";
 
 import { useEffect, useMemo, useState } from "react";
 
 function useIsInViewport(ref) {
   const [isIntersecting, setIsIntersecting] = useState(false);
 
-  const observer = useMemo(() => new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting)), []);
+  const observer = useMemo(() => {
+    if (typeof window !== "undefined") {
+      // The code inside brackets will be executed ONLY in browser
+      return new IntersectionObserver(([entry]) => setIsIntersecting(entry.isIntersecting));
+    }
+    return null;
+  }, []);
 
   useEffect(() => {
     observer.observe(ref.current);

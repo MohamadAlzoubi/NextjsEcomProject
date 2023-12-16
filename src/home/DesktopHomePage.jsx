@@ -110,23 +110,23 @@ function DesktopHomePage() {
   }, []);
 
   function handleScroll() {
-    const newScrollPosition  = window.scrollY || window.pageYOffset;
+    const newScrollPosition = window.scrollY || window.pageYOffset;
     setScrollPosition(newScrollPosition);
     // Adjust the threshold value to determine when the animation should start
     const threshold = 1000; // Change this value based on your design
     const flipOptions = 2000;
 
-    if (newScrollPosition  >= flipOptions) {
+    if (newScrollPosition >= flipOptions) {
       updatePhoneSlide(1);
     } else {
       updatePhoneSlide(2);
     }
 
     // updatePhoneSlide(2)
-    console.log(newScrollPosition );
+    console.log(newScrollPosition);
     // Toggle the visibility only when the scroll position passes the threshold
-    if (newScrollPosition  >= threshold) {
-      const imageIndex = Math.floor((newScrollPosition  - threshold) / 100);
+    if (newScrollPosition >= threshold) {
+      const imageIndex = Math.floor((newScrollPosition - threshold) / 100);
 
       setVisibleImage(imageIndex);
     } else {

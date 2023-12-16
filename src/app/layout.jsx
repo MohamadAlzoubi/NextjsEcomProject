@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "../styles/globals.css";
 import "swiper/css";
 import "swiper/css/pagination";
+import Head from "next/head";
 
 export const metadata = {
   title: "Temo",
@@ -50,10 +51,10 @@ const myFont = localFont({
 export default function RootLayout({ children }) {
   return (
     <html className={`${myFont.variable} font-sch`}>
-      <head>
+      <Head>
         <link rel="icon" href="/icon.svg" sizes="any" />
         <link rel="stylesheet" href="https://unpkg.com/react-quill@1.3.3/dist/quill.snow.css" />
-      </head>
+      </Head>
       <body className="w-full">
         <main className="w-full">{children}</main>
         {/* <Footer className="overflow-hidden pb-16 pl-0 md:pb-0 ltr:md:pl-16" /> */}
