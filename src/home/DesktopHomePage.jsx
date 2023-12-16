@@ -208,7 +208,7 @@ function DesktopHomePage() {
               </Card>
 
               <Card className="relative right-0">
-                <div className="bg-[#F0FCFE] h-[500px] w-[500px] rounded-[890px] z-10 blueBackGround absolute"></div>
+                <div className="bg-[#F0FCFE] h-[500px] w-[500px] max-w rounded-[890px] z-10 blueBackGround absolute"></div>
                 {phoneSlide === 1 ? (
                   <div className="mt-4 xl:w-[410px] z-20 bg-white p-4 rounded-2xl">
                     <p className="text-[32px] leading-[35.84px] mb-[36px]">Investors</p>

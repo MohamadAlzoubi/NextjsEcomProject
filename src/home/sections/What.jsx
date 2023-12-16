@@ -380,7 +380,7 @@ export function MobileWhat() {
 
   return (
     <>
-    <div className="bg-[#F0FCFE] h-[500px] w-[500px] rounded-[890px] z-10 blueBackGround absolute"></div>
+
     <div className={twMerge("flex justify-center flex-col items-center mt-[80px] z-20")}>
       <Heading className="max-w-[305px] xl:max-w-full">Whats inside the app?</Heading>
       

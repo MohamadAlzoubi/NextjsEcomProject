@@ -151,7 +151,7 @@ function RoadMap({ className }) {
                 </div>
               </div>
             </div>
-            <div className="bg-[#F0FCFE] h-[500px] w-[500px] rounded-[890px] z-10 blueBackGround absolute"></div>
+            <div className="bg-[#F0FCFE] h-[200px] w-[200px] rounded-[890px] z-10 blueBackGround absolute hidden xl:block"></div>
           </div>
         </div>
       </div>
